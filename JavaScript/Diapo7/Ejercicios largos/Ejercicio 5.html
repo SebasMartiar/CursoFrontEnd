@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 5</title>
+	<style type="text/css" media="screen">
+		main{
+			display: flex;
+			justify-content: center;
+		}
+		section{
+			display: flex;
+			flex-wrap: wrap;
+			width: 700px;
+			border: 1px solid #f00;
+		}
+		div{
+			height: 7px;
+			width: 7px;
+		}
+	</style>
+	<script type="text/javascript">
+		var dibujar=false;
+		function dib(){
+			if(dibujar==false){
+				dibujar=true;
+			}
+			else{
+				dibujar=false;
+			}
+		}
+		function colorear(cosa, color) {
+			if (dibujar==true){
+				cosa.style.backgroundColor = color;
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Cutrepaint</h1>
+	<label for="incolor">Escoge un color para pintar en el cutrepaint</label>
+	<input type="color" name="incolor" id="incolor">
+	<p>Haz click dentro del área para empezar a pintar y vuelve a hacer click para dejar de pintar.</p>
+	<main>
+		<section onclick="dib()">
+			<script>
+				for (let i=0; i<=10000; i++){
+					document.write("<div onmouseenter='colorear(this, incolor.value);'></div>");
+				}
+			</script>
+		</section>
+	</main>
+</body>
+</html>

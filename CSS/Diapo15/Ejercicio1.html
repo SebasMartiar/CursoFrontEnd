@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	<style type="text/css" media="screen">
+		*{
+			text-align: center;
+		}
+		body{
+			display: grid;
+			grid-template-columns: 20% auto 20%;
+			grid-gap: 5px;
+			grid-template-areas: 
+			"he he for"
+			". ma ma"
+			". ma ma"
+			". ma ma"
+			"foo foo foo";
+		}
+		header{
+			background-color: #f99;
+			grid-area: he;
+			padding: 30px;
+		}
+		form{
+			background-color: #ff9;
+			grid-area: for;
+			padding: 30px;
+		}
+		aside{
+			background-color: #99f;
+			padding: 30px;
+		}
+		main{
+			background-color: #9ff;
+			grid-area: ma;
+			padding: 30px;
+		}
+		footer{
+			background-color: #f9f;
+			grid-area: foo;
+			padding: 30px;
+		}
+		@media screen and (max-width: 600px){
+			body{
+				grid-template-columns: 50% auto;
+				grid-template-areas: 
+				"he for"
+				". ma"
+				". ma"
+				". ma"
+				"foo foo";
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>HEADER</header>
+	<form>#Login</form>
+	<aside>Aside 1</aside>
+	<aside>Aside 2</aside>
+	<aside>Aside 3</aside>
+	<main>MAIN</main>
+	<footer>FOOTER</footer>
+</body>
+</html>

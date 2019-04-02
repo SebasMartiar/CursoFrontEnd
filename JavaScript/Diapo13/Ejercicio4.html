@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 4</title>
+	<style type="text/css">
+		label{
+			display: inline-block;
+			width: 40px;
+		}
+		input{
+			display: inline-block;
+			width: 150px;
+		}
+		p:last-of-type>span{
+			border: 2px solid #000;
+			border-radius: 9px;
+			padding: 11px 5px;
+		}
+		span span{
+			background-color: #000;
+			color: #fff;
+			padding: 6px 3px;
+			border: 2px solid #c0c0c0;
+			border-radius: 6px;
+		}
+	</style>
+	<script type="text/javascript">
+		var fin;
+		function calcular () {
+			var ahora = new Date();
+			var seg = parseInt((fin-ahora)/1000);
+			var segundos = seg%60; //calcula segundos
+			var minutos = parseInt(seg/60)%60; //calcula minutos
+			var horas = parseInt(seg/3600)%24; //calcula horas
+			var dias = parseInt(seg/86400);
+			if(segundos<10) segundos = "0" + segundos;
+			if(minutos<10) minutos = "0" + minutos;
+			if(horas<10) horas = "0" + horas;
+			document.getElementById("resultado1").innerHTML=dias;
+			document.getElementById("resultado2").innerHTML=horas;
+			document.getElementById("resultado3").innerHTML=minutos;
+			document.getElementById("resultado4").innerHTML=segundos;
+			if(seg<=0){
+				document.write("<div id='fondo'><h1>¡WEB DESTRUIDA!</h1><h2>ACTUALIZA LA PÁGINA PARA RECUPERARLA</h2></div>");
+				document.getElementById('fondo').style.backgroundImage = 'url("explosion.gif")';
+				document.getElementById('fondo').style.backgroundSize = "auto 100%";
+				document.getElementById('fondo').style.color = '#fff';
+				document.getElementById('fondo').style.textAlign = 'center';
+				document.getElementById('fondo').style.height = '100vh';
+				document.getElementById('fondo').style.width = '100vw';
+				document.getElementsByTagName("body")[0].style.margin = "0";
+				document.getElementById('fondo').style.display = 'flex';
+				document.getElementById('fondo').style.flexDirection = 'column-reverse';
+				document.getElementById('fondo').style.justifyContent = 'center';
+			}
+		}
+
+		function ejecutar (){
+			var ano = parseInt(document.getElementById("an").value);
+			var mes = parseInt(document.getElementById("mes").value)-1;
+			var dia = parseInt(document.getElementById("dia").value);
+			var hora = parseInt(document.getElementById("hora").value);
+			var minuto = parseInt(document.getElementById("minuto").value);
+			var segundo = parseInt(document.getElementById("segundo").value);
+			fin = new Date(ano, mes, dia, hora, minuto, segundo, 0);
+			setInterval(calcular, 500);
+		}
+	</script>
+</head>
+<body>
+	<h1>Cuenta atrás para la desctrucción de esta web</h1>
+	<h2>Indica con números la fecha de destrucción</h2>
+	<label for="dia">Día: </label>
+	<input type="number" name="dia" id="dia" value="22" min="1" max="31"><br/>
+	<label for="mes">Mes: </label>
+	<input type="number" name="mes" id="mes" value="3" min="1" max="12"><br/>
+	<label for="an">Año: </label>
+	<input type="number" name="an" id="an" value="2019" min="1" max="2020"><br/>
+	<label for="hora">Hora: </label>
+	<input type="number" name="hora" id="hora" value="12" min="0" max="24"><br/>
+	<label for="minuto">Min: </label>
+	<input type="number" name="minuto" id="minuto" value="11" min="0" max="59"><br/>
+	<label for="segundo">Seg: </label>
+	<input type="number" name="segundo" id="segundo" value="0" min="0" max="59"><br/>
+	<button onclick="ejecutar();">GO!</button>
+	<hr/>
+	<p>Dias: <span id="resultado1">0</span></p>
+	<p>Tiempo: <span><span id="resultado2">00</span>:<span id="resultado3">00</span>:<span id="resultado4">00</span></span></p>
+</body>
+</html>

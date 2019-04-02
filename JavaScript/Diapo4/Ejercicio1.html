@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio IVA</title>
+	<script>
+		function precio_final(){
+			var precio=parseFloat(document.getElementById("precio").value);
+			var iva=parseFloat(document.getElementById("iva").value);
+			precio*=((iva/100)+1)
+			document.getElementById("resultado").innerHTML = "El precio final del producto es de "+precio.toFixed(2)+" €";
+		}
+	</script>
+</head>
+<body>
+	<label for="precio">¿Cuál es el precio del producto?</label>
+	<input type="number" name="precio" id="precio"><span> €</span><br/><br/>
+	<label for="iva">¿Qué IVA se le debe aplicar?</label>
+	<input type="number" name="iva" id="iva"><span> %</span><br/><br/>
+	<button onclick="precio_final();">CALCULAR PRECIO FINAL</button>
+	<span id="resultado"></span>
+</body>
+</html>

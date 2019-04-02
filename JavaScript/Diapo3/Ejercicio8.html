@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Combustible</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		var pi = 3.14159;
+		var consumo1 = 0;
+		function consumo(){
+			var kmscar = parseFloat(document.getElementById("kmscar").value);
+			var kmsciu = parseFloat(document.getElementById("kmsciu").value);
+
+			consumo1 = kmscar * 5.5/100 + kmsciu * 9.8/100;
+			document.getElementById("consumo").innerHTML = consumo1.toFixed(2);
+		}
+		function coste(){
+			var coste = consumo1 * 1.1;
+			document.getElementById("coste").innerHTML = coste.toFixed(2);
+		}
+	</script>
+</head>
+<body>
+	<h1>Consumo y coste del combustible</h1>
+	<h3>Introduce los datos necesarios</h3>
+	<label for="kmscar">Kms recorridos en carretera:</label>
+	<input id="kmscar" type="number" name="kmscar" value="0" onkeyup="consumo(); coste();"/><br/><br/>
+	<label for="kmsciu">Kms recorridos en ciudad:</label>
+	<input id="kmsciu" type="number" name="kmsciu" value="0" onkeyup="consumo(); coste();"/>
+	<br/><br/>
+	<hr/>
+	<h3>El consumo es de: <span id="consumo"></span><span> litros</span></h3>
+	<h3>El coste es de: <span id="coste"></span><span> €</span></h3>
+</body>
+</html>

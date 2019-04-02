@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>COBOL y FORTRAN</title>
+	</head>	
+	<body>
+		<!--Esta web sería como una lista de favoritos de un navegador pero dentro de una web, de forma que queda más visual.-->
+		<h1>COBOL y FORTRAN</h1>
+		<p>Ejemplo del programa básico "Hola Mundo" escrito en COBOL y FORTRAN.</p>
+		<h2>COBOL</h2>
+		<pre>
+<code>IDENTIFICATION DIVISION.
+PROGRAM-ID. HELLO.
+
+DATA DIVISION.
+   WORKING-STORAGE SECTION.
+   01 WS-NAME PIC A(30).
+   01 WS-ID PIC 9(5) VALUE '12345'.
+
+PROCEDURE DIVISION.
+   A000-FIRST-PARA.
+   DISPLAY 'Hello World'.
+STOP RUN. 
+</code>
+		</pre>
+		<h2>FORTRAN</h2>
+		<pre>
+<code>
+program Main
+  print *, "Hola Mundo"
+end program Main
+</code>
+		</pre>
+		<hr /><br />
+		<p><small>Contacta con el autor:</small>
+			<a href="mailto:sebas.martiar@gmail.com" target="_blank">Sebas</a>
+		</p>
+	</body>
+</html>

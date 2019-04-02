@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 0a</title>
+	<script type="text/javascript">
+		var ventana = null;
+		function abrir () {
+			ventana = window.open("https://www.w3schools.com/", "", "width=300,height=300,resizable=no,scrollbars=no,status=no,menubar=no");//ATENCIÓN! ES NECESARIO INDICAR UN NAME, AUNQUE SEA VACÍO (EL SEGUNDO ESPACIO)
+			//NO FUNCIONA EN CHROME, MOZILLA, PERO SI FUNCIONA EN EXPLORER
+		}
+	</script>
+</head>
+<body>
+	<button onclick="abrir();">Abrir ventana</button>
+</body>
+</html>

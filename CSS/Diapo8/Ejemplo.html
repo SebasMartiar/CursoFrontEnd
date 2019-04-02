@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo</title>
+	<style type="text/css" media="screen">
+		article h1:only-of-type{
+			font-size: italic;
+		}
+		article p:first-of-type{
+			text-decoration: underline;
+		}
+		article p:las-of-type{
+			text-decoration: line-through;
+		}
+		article p:nth-of-type(2){
+			text-transform: uppercase;
+		}
+		article p:nth-last-of-type(2){
+			color:#f00;
+		}
+		article p::first-line{
+			text-decoration: underline;
+		}
+		article p::first-letter{
+			font-size: 2em;
+		}
+		article p::selection{
+			background-color: #FFA500;
+		}
+		section{
+			margin: 10px;
+			padding: 10px;
+			border: solid 1px #808080;
+			overflow: hidden;
+			display: inline-block;
+		}
+		section:nth-of-type(odd){
+			background-color: #ADD8E6;
+		}
+		section:nth-of-type(odd)figure{
+			float: right;
+		}
+		section:nth-of-type(even){
+			float: left;
+		}
+		img{
+			width: 10vw;
+		}
+		:first-child{
+			text-decoration: underline;
+		}
+		h2:only-child{
+			text-decoration: line-through;
+		}
+		li:nth-child(2){
+			text-transform: uppercase;
+		}
+		li:nth-last-child(2){
+			color: #f00;
+		}
+		li:last-child{
+			color: #00f;
+		}
+		form{
+			max-width:400px;
+		}
+		label{
+			display: inline-block;
+			min-width: 80px;
+		}
+		input{
+			padding: 2px 5px;
+			margin: 5px;
+		}
+		input[type="submit"]{
+			display: block;
+			margin: 10px auto;
+		}
+		input:not[type="submit"]{
+			width: 100px;
+		}
+		label::before{
+			content: "Indique ";
+		}
+		label::after{
+			content: url("warning.gif.replace(/wid=\d+/, "wid=500").replace(/hei=\d+/, "hei=500")");
+		}
+	</style>
+</head>
+<body>
+	<h1>Noticias falsas</h1>
+	<article>
+		<h2>Cifuentes presenta un máster</h2>
+		<p>Catalina Cifuentes ha presentado su máster.</p>
+		<p>Un Máster del Universo.</p>
+		<p>Sacado de la manga.</p>	
+	</article>
+	<article>
+		<h2>Cristian marca de chilena</h2>
+		<p>Después de 200 espaldazos.</p>
+		<p>En rueda de prensa demuestra que no tiene abuela.</p>
+	</article>
+	<article>
+		<h2>Intercambio de cromos</h2>
+		<p>Suiza y España intercambian cromos.</p>
+		<p>De banqueros y comunistas.</p>
+		<p>En un entorno de cordialidad.</p>
+	</article>
+	<br/>
+	<br/>
+	<section>
+		<h2>Bart Simpson</h2>
+		<figure>
+			<img src="bart.png" alt="bart"/>			
+		</figure>
+		<p>Bart bla bla bla bla bla</p>
+	</section>
+	<section>
+		<h2>Lisa Simpson</h2>
+		<figure>
+			<img src="lisa.png" alt="lisa">
+		</figure>
+		<p>Lisa bla bla bla bla bla</p>
+	</section>
+	<section>
+		<h2>Maggie Simpson</h2>
+		<figure>
+			<img src="maggie.png" alt="maggie">
+		</figure>	
+		<p>Maggie bla bla bla bla</p>
+	</section>
+	<br/>
+	<br/>
+	<h1>Seleccionando cosas</h1>
+	<article>
+		<h2>Esto es un H2</h2>
+		<ol>
+			<li>Elemento 1</li>
+			<li>Elemento 2</li>
+			<li>Elemento 2</li>
+		</ol>
+	</article>
+	<article>
+		<h3>Esto es un H3</h3>
+		<span>span 1</span>
+		<span>span 2</span>
+	</article>
+	<article>
+		<h2>Esto es un H2</h2>
+	</article>
+	<br/>
+	<br/>
+	<form method="post" autocomplete="off">
+		<label>nombre</label>
+			<input type="text" name="nombre"/><br/>
+		<label>apellidos</label>
+			<input type="text" name="apellidos"/><br/>
+			<input type="submit" value="Enviar">
+	</form>
+</body>
+</html>

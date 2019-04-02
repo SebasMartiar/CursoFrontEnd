@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+</style>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>Responsive Image Grid</h1>
+  <p>Resize the browser window to see the responsive effect.</p>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="imagenes/forest-931706_1920.jpg" >
+    <img src="imagenes/dawn-190055_1280.jpg" >
+    <img src="imagenes/sky-264778_1920.jpg" >
+    <img src="imagenes/road-220058_1280.jpg" >
+    <img src="imagenes/tree-247122_1280.jpg" >
+    <img src="imagenes/mountain-landscape-2031539_1920.jpg" >
+    <img src="imagenes/road-1072823_1920.jpg" >
+  </div>
+  
+  <div class="column">
+    <img src="imagenes/green-1072828_1920.jpg" >
+    <img src="imagenes/landscape-615429_1920.jpg" >
+    <img src="imagenes/autumn-219972_1280.jpg" >
+    <img src="imagenes/landscape-1192669_1920.jpg" >
+    <img src="imagenes/landscape-615428_1920.jpg" >
+    <img src="imagenes/utah-440520_1920.jpg" >
+  </div> 
+   
+  <div class="column">
+    <img src="imagenes/scotland-1761292_1920.jpg" >
+    <img src="imagenes/railroad-tracks-163518_1280.jpg" >
+    <img src="imagenes/bridge-19513_1920.jpg" >
+    <img src="imagenes/the-road-815297_1920.jpg" >
+    <img src="imagenes/tree-247122_1280.jpg" >
+    <img src="imagenes/utah-440520_1920.jpg" >
+    <img src="imagenes/tree-736888_1280.jpg" >
+  </div>
+  
+  <div class="column">
+    <img src="imagenes/mountains-757731_1280.jpg" >
+    <img src="imagenes/landscape-404072_1920.jpg" >
+    <img src="imagenes/mountains-736886_1280.jpg" >
+    <img src="imagenes/forest-1950402_1920.jpg" >
+    <img src="imagenes/meteora-3717220_1920.jpg" >
+    <img src="imagenes/fog-3622519_1920.jpg" >
+  </div>
+</div>
+
+</body>
+</html>

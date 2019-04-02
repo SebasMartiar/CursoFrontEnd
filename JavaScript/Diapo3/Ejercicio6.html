@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Par o impar</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function ParOImpar(){
+			var valor = parseFloat(document.getElementById("valor").value);
+
+			if (valor%2==0){
+				var resultado = "par";
+			}
+			if (valor%2!=0){
+				var resultado = "impar";
+			}
+			document.getElementById("resultado").innerHTML = "El número "+valor+" es "+resultado;
+		}
+	</script>
+</head>
+<body>
+	<h1>¿Es par o impar?</h1>
+	<h2>Inserta un número</h2>
+	<input id="valor" type="number" name="valor"/>
+	<br/><br/>
+	<button onclick="ParOImpar()">¿Par o impar?</button>
+	<hr/>
+	<h3><span id="resultado"></span></h3>
+</body>
+</html>

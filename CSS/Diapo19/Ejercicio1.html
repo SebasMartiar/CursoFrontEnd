@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	<style type="text/css" media="screen">
+		body{
+			position: relative;
+		}
+		#libro{
+			position: absolute;
+			top: 25vh; height: 300px;
+			left: 30%; width: 200px;
+			transform-style: preserve-3d;
+			transform: rotateX(20deg) rotateY(-30deg);
+		}
+		#libro img{
+			position: absolute;
+			border: solid 1px #000;
+			height: 100%; width: 100%;
+			transform-origin: 0% 50%;
+		}
+		#libro .trasera{
+			position: absolute;
+			visibility: hidden;
+		}
+
+		#libro .trasera{transform:rotateY(0deg); transition: 10s;}
+		#libro:hover .trasera{transform:rotateY(-130deg); visibility: visible;}
+		#libro .portada{transform:rotateY(0deg); transition: 10s;}
+		#libro:hover .portada{transform:rotateY(-130deg); backface-visibility: hidden;}
+
+		#libro .trasera:nth-of-type(3){transform: rotateY(5deg); transition: 10s;}
+		#libro:hover .trasera:nth-of-type(3){transform:rotateY(-100deg); visibility: visible;}
+		#libro .hoja:nth-of-type(4){transform: rotateY(5deg); transition: 10s;}
+		#libro:hover .hoja:nth-of-type(4){transform:rotateY(-100deg); backface-visibility: hidden;}
+
+		#libro .trasera:nth-of-type(5){transform: rotateY(10deg); transition: 10s;}
+		#libro:hover .trasera:nth-of-type(5){transform:rotateY(-70deg); visibility: visible;}
+		#libro .hoja:nth-of-type(6){transform: rotateY(10deg); transition: 10s;}
+		#libro:hover .hoja:nth-of-type(6){transform:rotateY(-70deg); backface-visibility: hidden;}
+
+		#libro .trasera:nth-of-type(7){transform: rotateY(15deg); transition: 10s;}
+		#libro:hover .trasera:nth-of-type(7){transform:rotateY(-40deg); visibility: visible;}
+		#libro .hoja:nth-of-type(8){transform: rotateY(15deg); transition: 10s;}
+		#libro:hover .hoja:nth-of-type(8){transform:rotateY(-40deg); backface-visibility: hidden;}
+
+		#libro .trasera:nth-of-type(9){transform: rotateY(20deg); transition: 10s;}
+		#libro:hover .trasera:nth-of-type(9){transform:rotateY(-10deg); visibility: visible;}
+		#libro .hoja:nth-of-type(10){transform: rotateY(20deg); transition: 10s;}
+		#libro:hover .hoja:nth-of-type(10){transform:rotateY(-10deg); backface-visibility: hidden;}
+
+		#libro .contraportada{transform: rotateY(25deg); transition: 10s;}
+	</style>
+</head>
+<body>
+	<div id="libro">
+		<img class="trasera" src="imagenes/trasera.png" alt="portadaBack">
+		<img class="portada" src="imagenes/portada.jpg" alt="portada">
+	
+		<img class="trasera" src="imagenes/trasera.png" alt="hoja1Back">
+		<img class="hoja" src="imagenes/hoja.jpg" alt="hoja1">
+		
+		<img class="trasera" src="imagenes/trasera.png" alt="hoja2Back">
+		<img class="hoja" src="imagenes/hoja2.jpg" alt="hoja2">
+		
+		<img class="trasera" src="imagenes/trasera.png" alt="hoja3Back">
+		<img class="hoja" src="imagenes/hoja3.jpg" alt="hoja3">
+		
+		<img class="trasera" src="imagenes/trasera.png" alt="hoja4Back">
+		<img class="hoja" src="imagenes/hoja4.jpg" alt="hoja4">
+		
+		<img class="contraportada" src="imagenes/contraportada.jpg" alt="contraportada">
+	</div>
+</body>
+</html>

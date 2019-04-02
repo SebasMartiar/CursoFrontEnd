@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 7</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+			font-family: helvetica;
+		}
+		html{
+			background-image: url("fondo2.jpg");
+		}
+		body{
+			width: 90%;
+			margin: auto;
+			background-color: rgba(248,255,201,0.8)/*#f2ff9c*/;
+			box-shadow: 3px 3px 20px #000;
+		}
+		header{
+			background-image: url("fondo1.jpg");
+			margin-top: 1%;
+			height: 100px;
+			padding: 30px 0 0 20px;
+			color: #fff;
+			text-shadow: 3px 3px 3px #000;
+		}
+		main{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: 5% 0;
+		}
+		section{
+			width: 41%;
+			border: 1.5px solid #c3af6a;
+			background-color: #fff;
+			margin: 1% 1%;
+			padding: 2% 2% 1% 2%;
+		}
+		section:first-of-type{
+			box-shadow: 3px 3px 10px #000;
+		}
+		section label, h4{
+			margin: 3% 0;
+		}
+		section label{
+			display: inline-block;
+			width: 60%;
+		}
+		section label p{
+			font-variant: small-caps;
+		}
+		section input, select{
+			width: 35%;
+			padding: 1%;
+			border-radius: 5px;
+			box-shadow: -0.2px -0.2px 0.1px #636363;
+		}
+		section button{
+			width: 40%;
+			padding: 1%;
+			margin-top: 5%;
+			box-shadow: 2px 2px 8px #ff7e7e, -2px -2px 8px #ff7e7e;
+		}
+		section:last-of-type{
+			text-align: center;
+			background-color: rgba(231, 220, 161, 0);
+		}
+		section:last-of-type p{
+			margin: 2% 0;
+			background-color: rgba(255, 255, 255, 0.6);
+			padding: 3%;
+		}
+		section:last-of-type p:last-of-type {
+			font-size: 20px;
+			font-weight: bold;
+		}
+		section:last-of-type p:nth-of-type(5) span {
+			font-size: 20px;
+			font-weight: bold;
+		}
+		footer{
+			background-image: url("fondo1.jpg");
+			height: 50px;
+			padding: 30px 0 0 20px;
+		}
+	</style>
+	<script>
+		function promedio(){
+			var preguntas = parseFloat(document.getElementById("preguntas").value);
+			var descuento = parseFloat(document.getElementById("descuento").value);
+			var errores = parseInt(document.getElementById("errores").value);
+			var aciertos = parseInt(document.getElementById("aciertos").value);
+			var veredicto;
+			var NOcontestadas = preguntas-errores-aciertos;
+			var nota = aciertos/preguntas*10;
+			var notaFinal = nota - (descuento/100)*(errores/preguntas)*10;
+			if (notaFinal<5){
+				veredicto="SUSPENSO";
+			}
+			else if (notaFinal>=9){
+				veredicto="EXCELENTE";
+			}
+			else{
+				veredicto="APROBADO";
+			}
+			document.getElementById("aciertos1").innerHTML= aciertos;
+			document.getElementById("errores1").innerHTML= errores;
+			document.getElementById("NOcontestadas").innerHTML= NOcontestadas;
+			document.getElementById("nota").innerHTML= nota;
+			document.getElementById("notaFinal").innerHTML= notaFinal;
+			document.getElementById("resultado").innerHTML= veredicto;
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Calculadora de notas</h1>
+		<h3>Para calcular el resultado de los tests</h3>
+	</header>
+	<main>
+		<section>
+			<h3>Entrada de datos</h3>
+			<h4><i>Parámetros</i></h4>
+			<label for="preguntas"><p>PREGUNTAS:</p></label><input type="number" name="preguntas" id="preguntas" onkeyup="promedio();" value="0">
+			<label for="descuento">DESCUENTO POR ERROR:</label>
+			<select name="descuento" id="descuento">
+				<option value="0">0%</option>
+				<option value="25">25%</option>
+				<option value="33">33%</option>
+				<option value="50">50%</option>
+				<option value="66">66%</option>
+				<option value="75">75%</option>
+				<option value="100">100%</option>
+			</select>
+			<h4><i>Resultados</i></h4>
+			<label for="aciertos">ACIERTOS:</label><input type="number" name="aciertos" id="aciertos" onkeyup="promedio();" value="0">
+			<label for="errores">ERRORES:</label><input type="number" name="errores" id="errores" onkeyup="promedio();" value="0">
+			<button type="">Calcula</button>
+		</section>
+		<section>
+			<p><i>Aciertos: <span id="aciertos1"></span></i></p>
+			<p><i>Errores: <span id="errores1"></span></i></p>
+			<p><i>No contestadas: <span id="NOcontestadas"></span></i></p>
+			<p><i>Nota sin descontar: <span id="nota"></span></i></p>
+			<p><i>Final sobre 10: <span id="notaFinal"></span></i></p>
+			<p><i><span id="resultado">SUSPENSO</span></i></p>
+		</section>
+	</main>
+	<footer>
+		<p>Robert Sallent - L'Estudem</p>
+	</footer>
+</body>
+</html>

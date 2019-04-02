@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 2</title>
+	<script type="text/javascript">
+		function ejecutar (boton) {
+			boton.disabled ="disabled";//boton.setAttribute("disabled", "disabled");
+			var imagen = document.createElement("img");
+			var cuadro;
+			var parrafo;
+			imagen.src="coche5.jpg";
+			imagen.style.width = '100%';
+			imagen.alt="Tesla";
+			imagen.title="Tesla";//No se recomienda poner el mismo alt que title
+			document.body.appendChild(imagen);
+			setTimeout(function(){//Se ejecuta cuando hayan pasado 2 segundos desde que se entró en la función ejecutar
+				imagen.remove();
+				cuadro = document.createElement("div");
+				cuadro.style.backgroundColor = '#f00';
+				cuadro.style.width = '300px';
+				cuadro.style.height = '300px';
+				document.body.appendChild(cuadro);
+			}, 2000);
+			setTimeout(function(){//Se ejecuta cuando hayan pasado 4 segundos desde que se entró en la función ejecutar
+				cuadro.remove();
+				parrafo = document.createElement("p");
+				parrafo.innerHTML = 'hola';
+				document.body.appendChild(parrafo);
+			}, 4000);
+			setTimeout(function(){//Se ejecuta cuando hayan pasado 5 segundos desde que se entró en la función ejecutar
+				parrafo.remove();
+				boton.removeAttribute("disabled");
+			}, 5000);
+			
+		}
+	</script>
+</head>
+<body>
+	<button onclick="ejecutar(this);">¡CLÍCAME!</button>
+</body>
+</html>

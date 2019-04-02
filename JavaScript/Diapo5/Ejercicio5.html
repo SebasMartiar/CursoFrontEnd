@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 5</title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+		var pi = 3.1416;
+		function calcular(){
+			var r = parseFloat(document.getElementById("radio").value);
+			var diametro = document.getElementById("diametro").checked;
+			var perimetro = document.getElementById("perimetro").checked;
+			var area = document.getElementById("area").checked;
+				if (diametro){
+					var diametro = 2 * r;
+					document.getElementById("resultado1").innerHTML = "El diámetro de tu círculo mide: "+diametro+" m.";
+				}
+				if (perimetro){
+					var perimetro = 2 * pi * r;
+					document.getElementById("resultado2").innerHTML = "El perímetro de tu círculo mide: "+perimetro+" m.";
+				}
+				if (area){
+					var area = pi * r * r;
+					document.getElementById("resultado3").innerHTML = "El área de tu círculo mide: "+area+" m<sup>2</sup>.";
+				}
+				if(!diametro && !diametro && !diametro){
+					document.getElementById("resultado1").innerHTML = "No has marcado ninguna opción";
+				}
+		}
+	</script>
+</head>
+<body>
+	<h1>El círculo</h1>
+	<h3>Calcula el diámetro, el perímetro o el área de un círculo a partir de su radio</h3>
+	<label for="radio">Radio:</label>
+	<input id="radio" type="number" name="radio" value="0" /><span>m</span>
+	<br/><br/>
+	<label for="operacion">Quiero calcular el: </label><br/>
+	<input type="checkbox" name="diametro" value="diametro" id="diametro"> diámetro.<br/>
+	<input type="checkbox" name="perimetro" value="perimetro" id="perimetro"> perímetro.<br/>
+	<input type="checkbox" name="area" value="area" id="area"> área.<br/><br/>
+	<button onclick="calcular()">Calcular</button>
+	<hr/>
+	<h3><span id="resultado1"></span></h3>
+	<h3><span id="resultado2"></span></h3>
+	<h3><span id="resultado3"></span></h3>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo: Ocultando elementos</title>
+	<style type="text/css" media="screen">
+		body{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		img{
+			width: 400px;
+		}
+		figure{
+			border: 1px solid #000;
+			margin: 20px;
+		}
+		figure:first-of-type>img:hover{
+			visibility: hidden;
+		}
+		figure:nth-of-type(2)>img:hover{
+			display: none;
+		}
+		figure:nth-of-type(3)>img{
+			visibility: hidden;
+		}
+		figure:nth-of-type(4)>img{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<figure>
+		<img src="luigi.png" alt="luigi">
+	</figure>
+	<figure>
+		<img src="mario.png" alt="mario">
+	</figure>
+	<figure>
+		<img src="luigi.png" alt="luigi">
+	</figure>
+	<figure>
+		<img src="mario.png" alt="mario">
+	</figure>
+</body>
+</html>

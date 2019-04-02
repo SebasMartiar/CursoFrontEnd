@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo 0</title>
+	<style type="text/css">
+		div{
+			border: 1px solid #000;
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<script type="text/javascript">
+			document.write("Navegador: "+navigator.appName+"<br/>");
+			document.write("Versión: "+navigator.appVersion+"<br/>");
+			document.write("Código: "+navigator.appCodeName+"<br/>");
+		</script>
+	</div>
+	<div>
+		<p>Latitud: <output id="latitud"></output></p>
+		<p>Longitud: <output id="longitud"></output></p>
+		<p>Precisión de <output id="precision"></output> metros</p>
+	</div>
+	<div>
+		<input type="button" onclick="history.back();" value="Atras">
+		<input type="button" onclick="history.forward();" value="Adelante">
+		<script type="text/javascript">
+			document.write("<p> Has visitado "+history.length+" páginas </p>");
+		</script>
+	</div>
+	<div>
+		<script type="text/javascript">
+			document.write("Resolución: "+screen.width+"x"+screen.height+"<br/>");
+			document.write("Color: "+screen.width+"x"+screen.height+"<br/>");
+		</script>
+	</div>
+	<div>
+		<a onclick="history.back();">Atrás</a>
+	</div>
+	<div>
+		<p>Esta página ha sido movida de sitio, en 3 segundos serás redirigido a la nueva página.</p>
+	</div>
+	<script type="text/javascript">
+		var options = new Object();//objeto con las opciones
+		options.enableHighAccuracy = true;
+		options.timeout = 5000;
+		function exito(pos){
+			latitud.innerHTML = pos.coords.latitude;
+			longitud.innerHTML = pos.coords.longitude;
+			precision.innerHTML = pos.coords.accuracy;
+		};
+		function error(err){//función que se ejecutará si no puede obtenerse ubic.
+			alert("ERROR"+ err.code +"):" +err.message);
+		}
+		navigator.geolocation.getCurrentPosition(exito, error, options);//Geocalízame
+		window.onload=function(){
+			setTimeout(function(){location.href="http://w3c.org"}, 6000);
+		}
+	</script>
+</body>
+</html>

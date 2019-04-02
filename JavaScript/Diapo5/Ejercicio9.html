@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 9</title>
+	<script>
+		function calcular(){
+			var a = parseFloat(document.getElementById("a").value);
+			var b = parseFloat(document.getElementById("b").value);
+			var c = parseFloat(document.getElementById("c").value);
+			if (a==0){
+				document.getElementById("resultado").innerHTML= "No se trata de una ecuación de segundo grado.";
+			}
+			else{
+				var solucion1 = (-b+Math.sqrt(b*b-4*a*c))/(2*a);
+				var solucion2 = (-b-Math.sqrt(b*b-4*a*c))/(2*a);
+				if (solucion1==solucion2){
+					if(isNaN(solucion1) && isNaN(solucion2)){
+						document.getElementById("resultado").innerHTML= "La ecuación no tiene solución.";
+					}
+					else{
+						document.getElementById("resultado").innerHTML= "La solución de la ecuación de segundo grado es: "+solucion1+".";
+					}
+				}
+				else{
+					document.getElementById("resultado").innerHTML= "Las soluciones de la ecuación de segundo grado son: "+solucion1+" y "+solucion2+".";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Resolución de ecuaciones de segundo grado (ax<sup>2</sup> + bx + c = 0)</h1>
+	<h3>Introduce el valor de las constantes a, b y c</h3>
+	<label for="a">a = </label><input type="number" name="a" id="a" onkeyup="calcular();" value="0"><br/><br/>
+	<label for="b">b = </label><input type="number" name="b" id="b" onkeyup="calcular();" value="0"><br/><br/>
+	<label for="c">c = </label><input type="number" name="c" id="c" onkeyup="calcular();" value="0"><br/><br/>
+	<hr/>
+	<span id="resultado"></span>
+</body>
+</html>

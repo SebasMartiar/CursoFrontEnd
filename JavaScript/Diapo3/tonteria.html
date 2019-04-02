@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Primera prueba en JS</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function magic(){
+			var i=0;
+			do{
+				document.getElementById("consumo").innerHTML += "¡Zas en toda la boca!";
+				i+=1;
+			}while(i>0)
+		}
+	</script>
+</head>
+<body>
+	<h1>Magic function</h1>
+	<button onclick="magic()">Magic button</button>
+	<hr/>
+	<h2><span id="consumo"></span></h2>
+</body>
+</html>

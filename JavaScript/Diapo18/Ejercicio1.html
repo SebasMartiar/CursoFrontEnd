@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicios 1</title>
+	<style type="text/css">
+		#rojo{
+			color:#f00;
+		}
+		.negrita{
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = document.createElement("button");
+		a.innerHTML="Boton";
+		document.body.appendChild(a);
+		a.setAttribute("id", "rojo");
+		a.setAttribute("class", "negrita");
+		document.getElementById("rojo").style.fontFamily = 'Helvetica';
+		document.getElementsByClassName("negrita")[0].style.fontStyle="italic";
+		document.getElementsByTagName("button")[0].style.fontSize = 'xx-large';
+		document.querySelector("body>button").style.backgroundColor = '#0f0';
+		document.querySelectorAll("html>body>button")[0].style.boxShadow = "15px 15px #888888";
+		a.removeAttribute("id", "rojo");
+		document.body.appendChild(a);
+		a.remove(document.getElementById("mySelect"));
+		// element.removeChild()
+		// element.replaceChild()
+		// element.children
+		// element.firstChild
+		// element.lastChild
+		// element.nextElementSibling
+		// element.previousElementSibling
+		// element.parentElement
+	</script>
+</body>
+</html>

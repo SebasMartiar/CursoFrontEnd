@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+</head>
+<body>
+	<h3>Ingresa 5 números para hacer operaciones con ellos</h3>
+	<h1>RECOGER VALORES DE UNO EN UNO</h1>
+	<label for="numero1">Número 1: </label>
+	<input type="number" name="numero1" id="numero1" value="0"/><br/>
+	<label for="numero2">Número 2: </label>
+	<input type="number" name="numero2" id="numero2" value="0"/><br/>
+	<label for="numero3">Número 3: </label>
+	<input type="number" name="numero3" id="numero3" value="0"/><br/>
+	<label for="numero4">Número 4: </label>
+	<input type="number" name="numero4" id="numero4" value="0"/><br/>
+	<label for="numero5">Número 5: </label>
+	<input type="number" name="numero5" id="numero5" value="0"/><br/><br/>
+	<button onclick="obtener_numeros();">RECOGER VALORES</button>
+	<h4>Número introducidos: <span id="recogidos"></span></h4>
+	<h1>RECOGER VALORES POR PUSH</h1>
+	<label for="numero">Número: </label>
+	<input type="number" name="numero" id="numero" value="0"/><br/><br/>
+	<button onclick="obtener_numeros2();">AÑADIR NÚMEROS</button>
+	<button onclick="eliminar_numero();">ELIMINAR ÚLTIMO NÚMERO</button>
+	<h1>SUMA</h1>
+	<button onclick="sumar();">SUMAR NÚMEROS</button>
+	<h4>Resultado de la suma: <span id="suma"></span></h4>
+	<h1>MÁXIMO</h1>
+	<button onclick="maximo();">CALCULAR VALOR MÁXIMO</button>
+	<h4>Número mayor: <span id="mayor"></span></h4>
+	<h1>PROMEDIO</h1>
+	<button onclick="promedio();">CALCULAR PROMEDIO</button>
+	<h4>Promedio: <span id="prom"></span></h4>
+	<h1>ESCALAR NÚMEROS</h1>
+	<button onclick="escalar();">ESCALAR VALORES</button>
+	<h4>Lista escalada: <span id="escalada"></span></h4>
+	<h1>ESCALAR NÚMEROS 2</h1>
+	<button onclick="escalar2();">ESCALAR VALORES</button>
+	<h4>Lista escalada: <span id="escalada2"></span></h4>
+	<script type="text/javascript">
+		var numeros = [];
+		function obtener_numeros () {
+			numeros = [];
+			var num1 = document.getElementById("numero1").value;
+			var num2 = document.getElementById("numero2").value;
+			var num3 = document.getElementById("numero3").value;
+			var num4 = document.getElementById("numero4").value;
+			var num5 = document.getElementById("numero5").value;
+			numeros.push(num1, num2, num3, num4, num5);
+			for(let i = numeros.length - 1; i >= 0; i--) {
+			    if(isNaN(numeros[i]) || numeros[i]=="") {
+			       numeros.splice(i, 1);
+			    }
+			}
+			document.getElementById("recogidos").innerHTML=numeros;
+		}
+		function obtener_numeros2 () {
+			var num = document.getElementById("numero").value;
+			numeros.push(num);
+			for(let i = numeros.length - 1; i >= 0; i--) {
+			    if(isNaN(numeros[i]) || numeros[i]=="") {
+			       numeros.splice(i, 1);
+			    }
+			}
+			document.getElementById("recogidos").innerHTML=numeros;
+		}
+		function eliminar_numero () {
+			numeros.pop();
+			document.getElementById("recogidos").innerHTML=numeros;
+		}
+		function sumar () {
+			var suma=0;
+			for (let i = 0; i < numeros.length; i++) {
+				suma+=parseInt(numeros[i]);
+			}
+			document.getElementById("suma").innerHTML=suma;
+			return suma;
+		}
+		function maximo () {
+			var mayor=numeros[0];
+			for (let i = 0; i < numeros.length; i++) {
+				if(mayor<numeros[i]){
+					mayor=numeros[i];
+				}
+			}
+			document.getElementById("mayor").innerHTML=mayor;
+		}
+		function promedio () {
+			document.getElementById("prom").innerHTML=sumar()/numeros.length;
+		}
+		function escalar () {
+			var escal = prompt("Indique un valor a escalar: ");
+			for (let i = 0; i < numeros.length; i++) {
+				numeros[i]*=escal;
+			}
+			document.getElementById("escalada").innerHTML=numeros;
+		}
+		function escalar2 () {
+			var numeros2=[];
+			var escal2 = prompt("Indique un nuevo valor a escalar: ");
+			for (let i = 0; i < numeros.length; i++) {
+				numeros2.push(numeros[i]*escal2);
+			}
+			document.getElementById("escalada2").innerHTML=numeros2;
+		}
+	</script>
+</body>
+</html>

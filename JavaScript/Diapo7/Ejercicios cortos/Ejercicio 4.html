@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 4</title>
+	<script type="text/javascript">
+		function hipotenusa(c, ca) {
+			return alert(("La hipotenusa del triángulo es "+Math.sqrt(Math.pow(c,2)+Math.pow(ca,2))+" cm."));
+		}
+	</script>
+</head>
+<body>
+	<h1>Calcular la hipotenusa de un triángulo a partir de los dos catetos</h1>
+	<label for="c1">Cateto 1:</label>
+	<input type="number" name="c1" id="c1">cm<br/><br/>
+	<label for="c2">Cateto 2:</label>
+	<input type="number" name="c2" id="c2">cm<br/><br/>
+	<button onclick="hipotenusa(c1.value, c2.value)">CALCULAR HIPOTENUSA</button>
+</body>
+</html>

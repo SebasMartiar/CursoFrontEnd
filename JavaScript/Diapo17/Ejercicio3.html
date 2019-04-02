@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 3</title>
+	<style type="text/css">
+		main{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		figure{
+			width: 200px;
+			height: 200px;
+			display: flex;
+			justify-content: center;
+		}
+		img{
+			height: 100%;
+		}
+		@keyframes opacidad {
+			0% {
+		  		opacity:1;
+			}
+			45% {
+				opacity:1;
+			}
+			55% {
+				opacity:0;
+			}
+			100% {
+				opacity:0;
+			}
+		}
+	</style>
+	<script type="text/javascript">
+		var imagenes1=["imagenes/bart.png", "imagenes/bart1.png", "imagenes/bart2.png", "imagenes/bart3.png", "imagenes/bart4.png", "imagenes/bart5.png", "imagenes/bart6.png", "imagenes/bart7.png", "imagenes/bart8.png"];
+		var imagenes2=["imagenes/abe.png", "imagenes/clancy.png", "imagenes/homer.png", "imagenes/kodos.png", "imagenes/lisa.png", "imagenes/maggie.png", "imagenes/marge.png", "imagenes/moe.png", "imagenes/otto.png"];
+		var j=0;
+		function cambiar() {
+			if (j==0){
+				j=1;
+				for (let i = 0; i < imagenes1.length; i++) {
+					document.getElementsByTagName("img")[i].style.animation="opacidad 2s linear alternate";
+				}
+				for (let i = 0; i < imagenes1.length; i++) {
+					document.getElementsByTagName("img")[i].src = imagenes2[i];
+					// document.getElementsByTagName("img")[i].style.transform = 'rotate(360deg)';
+					// document.getElementsByTagName("img")[i].style.transitionDuration="1s";
+					// document.getElementsByTagName("img")[i].style.transition="opacity 1s ease-in-out";
+					// document.getElementsByTagName("img")[i].style.opacity="1";
+				}
+			}
+			else{
+				j=0;
+				for (let i = 0; i < imagenes1.length; i++) {
+					document.getElementsByTagName("img")[i].style.animation="opacidad 2s linear alternate";
+				}
+				for (let i = 0; i < imagenes1.length; i++) {
+					document.getElementsByTagName("img")[i].src = imagenes1[i];
+					// document.getElementsByTagName("img")[i].style.transform = 'rotate(360deg)';
+					// document.getElementsByTagName("img")[i].style.transitionDuration="1s";
+					// document.getElementsByTagName("img")[i].style.transition="opacity 1s ease-in-out";
+					// document.getElementsByTagName("img")[i].style.opacity="1";
+				}
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<h1>GALERÍA DE IMÁGENES</h1>
+	<h2>BART VS. OTROS PERSONAJES DE LOS SIMPSONS</h2>
+	<main>
+		<div>
+			<figure><img src="imagenes/bart.png" alt="bart"></figure>
+		</div>
+		<div>
+			<figure><img src="imagenes/bart1.png" alt="bart1"></figure>
+		</div>
+		<div>
+			<figure><img src="imagenes/bart2.png" alt="bart2"></figure>
+		</div>
+		<div>
+			<figure><img src="imagenes/bart3.png" alt="bart3"></figure>
+		</div>
+		<div>
+			<figure><img src="imagenes/bart4.png" alt="bart4"></figure>
+		</div>
+		<div>
+			<figure><img src="imagenes/bart5.png" alt="bart5"></figure>
+		</div>
+		<div>
+			<figure><img src="imagenes/bart6.png" alt="bart6"></figure>
+		</div>
+		<div>
+			<figure><img src="imagenes/bart7.png" alt="bart7"></figure>
+		</div>
+		<div>
+			<figure><img src="imagenes/bart8.png" alt="bart8"></figure>
+		</div>
+	</main><br/>
+	<button onclick="cambiar();">CAMBIAR IMÁGENES</button>
+</body>
+</html>

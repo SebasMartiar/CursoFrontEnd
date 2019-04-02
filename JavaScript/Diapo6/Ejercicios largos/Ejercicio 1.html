@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	<script type="text/javascript">
+		function calcular () {
+			var n = parseInt(document.getElementById("n").value);
+			var resultado = 1;
+			for (let i=1;i<=n;i++){
+				resultado*=i;
+			}
+			document.getElementById("resultado").innerHTML="Factorial de "+n+": "+resultado;
+		}
+	</script>
+</head>
+<body>
+	<h1>Factorial de un número dado</h1>
+	<label for="n">Introduce un número n:</label>
+	<input type="number" name="n" id="n" onkeyup="calcular()" onchange="calcular()"><br/><br/>
+	<hr/>
+	<span id="resultado"></span>
+</body>
+</html>

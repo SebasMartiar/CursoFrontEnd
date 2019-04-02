@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 2</title>
+	<script type="text/javascript">
+		function escalar (imagen, valor) {
+			imagen.height *= valor;
+			imagen.width *= valor;
+			alert(imagen.height);
+			alert(imagen.width);
+		}
+	</script>
+</head>
+<body>
+	<h1>Agrandar o reducir el tamaño de las imágenes</h1>
+	<h2>Esta imagen aumenta su tamaño en hacerle click</h2>
+	<img src="frontal.png" alt="carta" id="foto1" onclick="escalar(this, 1.5);" width="150" height="220"><br/><br/>
+	<h2>Esta imagen reduce su tamaño en hacerle click</h2>
+	<img src="frontal.png" alt="carta" id="foto2" onclick="escalar(this, 0.5);" width="150" height="220"><br/><br/>
+</body>
+</html>

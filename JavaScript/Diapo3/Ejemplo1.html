@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Primera prueba en JS</title>
+	<style type="text/css">
+		*{
+			vertical-align: middle;
+		}
+		body{
+			display: grid;
+			grid-template-columns: 50% auto;
+		}
+		h1{
+			grid-column: 1/3;
+			text-align: center;
+		}
+		section{
+			display:inline-block;
+			border: 2px dotted #ff7928;
+		}
+	</style>
+	<script type="text/javascript">
+		var pi = 3.14159;
+		function sumar(){
+			var numero1 = parseFloat(document.getElementById("valor1").value);
+			var numero2 = parseFloat(document.getElementById("valor2").value);
+
+			var resultado = numero1 + numero2;
+			document.getElementById("resultado").innerHTML = resultado;
+		}
+		function restar(){
+			var numero1 = parseFloat(document.getElementById("valor1").value);
+			var numero2 = parseFloat(document.getElementById("valor2").value);
+
+			var resultado = numero1 - numero2;
+			document.getElementById("resultado").innerHTML = resultado;
+		}
+		function multiplicar(){
+			var numero1 = parseFloat(document.getElementById("valor1").value);
+			var numero2 = parseFloat(document.getElementById("valor2").value);
+
+			var resultado = numero1 * numero2;
+			document.getElementById("resultado").innerHTML = resultado;
+		}
+		function dividir(){
+			var numero1 = parseFloat(document.getElementById("valor1").value);
+			var numero2 = parseFloat(document.getElementById("valor2").value);
+
+			var resultado = numero1 / numero2;
+			document.getElementById("resultado").innerHTML = resultado;
+		}
+		function sumarInt(){
+			var numero1 = parseInt(document.getElementById("valor3").value);
+			var numero2 = parseInt(document.getElementById("valor4").value);
+
+			var resultado = numero1 + numero2;
+			document.getElementById("resultado1").innerHTML = resultado;
+		}
+		function restarInt(){
+			var numero1 = parseInt(document.getElementById("valor3").value);
+			var numero2 = parseInt(document.getElementById("valor4").value);
+
+			var resultado = numero1 - numero2;
+			document.getElementById("resultado1").innerHTML = resultado;
+		}
+		function multiplicarInt(){
+			var numero1 = parseInt(document.getElementById("valor3").value);
+			var numero2 = parseInt(document.getElementById("valor4").value);
+
+			var resultado = numero1 * numero2;
+			document.getElementById("resultado1").innerHTML = resultado;
+		}
+		function dividirInt(){
+			var numero1 = parseInt(document.getElementById("valor3").value);
+			var numero2 = parseInt(document.getElementById("valor4").value);
+
+			var resultado = numero1 / numero2;
+			document.getElementById("resultado1").innerHTML = resultado;
+		}
+	</script>
+</head>
+<body>
+	<h1>Cálculo matemático</h1>
+	<section>
+		<h2>Inserta dos valores y realizaremos el cálculo</h2>
+		<label for="valor1">Número 1:</label>
+		<input id="valor1" type="number" name="valor1"/>
+		<br/>
+		<label for="valor2">Número 2:</label>
+		<input id="valor2" type="number" name="valor2"/>
+		<br/>
+		<button onclick="sumar()">SUMAR</button>
+		<button onclick="restar()">RESTAR</button>
+		<button onclick="multiplicar()">MULTIPLICAR</button>
+		<button onclick="dividir()">DIVIDIR</button>
+		<hr/>
+		<h2>El resultado de la operación es: <span id="resultado"></span></h2>
+	</section>
+	<section>
+		<h2>Inserta dos valores y realizaremos el cálculo con los números truncados (en caso de que sean decimales)</h2>
+		<label for="valor3">Número 1:</label>
+		<input id="valor3" type="number" name="valor3"/>
+		<br/>
+		<label for="valor4">Número 2:</label>
+		<input id="valor4" type="number" name="valor4"/>
+		<br/>
+		<button onclick="sumarInt()">SUMAR ENTEROS</button>
+		<button onclick="restarInt()">RESTAR ENTEROS</button>
+		<button onclick="multiplicarInt()">MULTIPLICAR ENTEROS</button>
+		<button onclick="dividirInt()">DIVIDIR ENTEROS</button>
+		<hr/>
+		<h2>El resultado de la operación es: <span id="resultado1"></span></h2>
+	</section>
+</body>
+</html>

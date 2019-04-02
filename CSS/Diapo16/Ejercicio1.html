@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	<style type="text/css" media="screen">
+		*{
+			border: 0;
+			margin: 0;
+		}
+		section{
+			display: flex;
+			flex-wrap: wrap;
+			text-align: center;
+			justify-content: center;
+			align-items: center;
+			border: 1px solid #0060ff;
+		}
+	</style>
+	<script>
+		function reestablecer(){
+			var blur=0;
+			var brightness=0;
+			var contrast=0;
+			var drop_shadow_h=0;
+			var drop_shadow_v=0;
+			var drop_shadow_b=0;
+			var drop_shadow_c=0;
+			var grayscale=0;
+			var hue_rotate=0;
+			var invert=0;
+			var opacity=0;
+			var saturate=0;
+			var sepia=0;
+		}
+
+		function blur1(){
+			var blur = document.getElementById("blur").value;
+			document.getElementById("bart").style.filter = "blur(" + blur + "px)";
+		}
+		function brightness1(){
+			var brightness = document.getElementById("brightness").value;
+			document.getElementById("bart").style.filter = "brightness(" + brightness + "%)";
+		}
+		function contrast1(){
+			var contrast = document.getElementById("contrast").value;
+			document.getElementById("bart").style.filter = "contrast(" + contrast + "%)";
+		}
+		function drop_shadow1(){
+			var drop_shadow_h = document.getElementById("drop_shadow_h").value;
+			var drop_shadow_v = document.getElementById("drop_shadow_v").value;
+			var drop_shadow_b = document.getElementById("drop_shadow_b").value;
+			var drop_shadow_c = document.getElementById("drop_shadow_c").value;
+			document.getElementById("bart").style.filter = "drop-shadow(" + drop_shadow_h + "px " +drop_shadow_v+"px "+drop_shadow_b+ "px "+drop_shadow_c+")";
+		}
+		function grayscale1(){
+			var grayscale = document.getElementById("grayscale").value;
+			document.getElementById("bart").style.filter = "grayscale(" + grayscale + "%)";
+		}
+		function hue_rotate1(){
+			var hue_rotate = document.getElementById("hue_rotate").value;
+			document.getElementById("bart").style.filter = "hue-rotate(" + hue_rotate + "deg)";
+		}
+		function invert1(){
+			var invert = document.getElementById("invert").value;
+			document.getElementById("bart").style.filter = "invert(" + invert + "%)";
+		}
+		function opacity1(){
+			var opacity = document.getElementById("opacity").value;
+			document.getElementById("bart").style.filter = "opacity(" + opacity + "%)";
+		}
+		function saturate1(){
+			var saturate = document.getElementById("saturate").value;
+			document.getElementById("bart").style.filter = "saturate(" + saturate + "%)";
+		}
+		function sepia1(){
+			var sepia = document.getElementById("sepia").value;
+			document.getElementById("bart").style.filter = "sepia(" + sepia + "%)";
+		}
+	</script>
+</head>
+<body>
+	<section>
+		<div>
+			<img src="imagenes/bart.png" alt="bart" id="bart">
+		</div>
+		<div>
+			<form>
+				<label for="blur">blur(px):</label><br/>
+				<input type="range" name="blur" id="blur" min="0" max="100" onchange="blur1()" oninput="blur1()"><br/>
+				<label for="brightness">brightness(%):</label><br/>
+				<input type="range" name="brightness" id="brightness" min="0" max="100" onchange="brightness1()" oninput="brightness1()"><br/>
+				<label for="contrast">contrast(%):</label><br/>
+				<input type="range" name="contrast" id="contrast" min="0" max="100" onchange="contrast1()" oninput="contrast1()"><br/>
+				<label for="drop-shadow">drop-shadow(h,v,b,c):</label><br/>
+				<input type="range" name="drop_shadow_h" id="drop_shadow_h" min="0" max="100"  onchange="drop_shadow1()" oninput="drop_shadow1()"><br/>
+				<input type="range" name="drop_shadow_v" id="drop_shadow_v" min="0" max="100" onchange="drop_shadow1()" oninput="drop_shadow1()"><br/>
+				<input type="range" name="drop_shadow_b" id="drop_shadow_b" min="0" max="100" onchange="drop_shadow1()" oninput="drop_shadow1()"><br/>
+				<input type="color" name="drop_shadow_c" id="drop_shadow_c" onchange="drop_shadow1()" oninput="drop_shadow1()"></br>
+			</form>
+		</div>
+		<div>
+				<form>
+				<label for="grayscale">grayscale(%):</label><br/>
+				<input type="range" name="grayscale" id="grayscale" min="0" max="100" onchange="grayscale1()" oninput="grayscale1()"><br/>
+				<label for="hue_rotate">hue-rotate(deg):</label><br/>
+				<input type="range" name="hue_rotate" id="hue_rotate" min="0" max="360" onchange="hue_rotate1()" oninput="hue_rotate1()"><br/>
+				<label for="invert">invert(%):</label><br/>
+				<input type="range" name="invert" id="invert" min="0" max="100" onchange="invert1()" oninput="invert1()"><br/>
+				<label for="opacity">opacity(%):</label><br/>
+				<input type="range" name="opacity" id="opacity" min="0" max="100" onchange="opacity1()" oninput="opacity1()"><br/>
+				<label for="saturate">saturate(%):</label><br/>
+				<input type="range" name="saturate" id="saturate" min="0" max="100" onchange="saturate1()" oninput="saturate1()"><br/>
+				<label for="sepia">sepia(%)</label><br/>
+				<input type="range" name="sepia" id="sepia" min="0" max="100" onchange="sepia1()" oninput="sepia1()"><br/>
+				<button type="submit" onclick="reestablecer()" oninput="reestablecer()">Reestablecer</button>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

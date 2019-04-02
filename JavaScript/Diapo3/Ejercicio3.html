@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Temperatura</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function conversión(){
+			var celsius = parseFloat(document.getElementById("celsius").value);
+			var fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
+
+			if (document.getElementById("celsius").value==""){
+				var celsius = (fahrenheit - 32)/1.8;
+				var unidades =" grados Celsius";
+				document.getElementById("conversión").innerHTML = celsius;
+				document.getElementById("unidades").innerHTML = unidades;
+			}
+			if (document.getElementById("fahrenheit").value==""){
+				var fahrenheit = (celsius * 1.8) + 32;
+				var unidades =" grados Fahrenheit";
+				document.getElementById("conversión").innerHTML = fahrenheit;
+				document.getElementById("unidades").innerHTML = unidades;
+			}
+		}
+		function reset(){
+			document.getElementById("fahrenheit").value = "";
+		}
+		function reset1(){
+			document.getElementById("celsius").value = "";
+		}
+	</script>
+</head>
+<body>
+	<h1>Conversor de grados Celsius a Fahrenheit y viceversa</h1>
+	<input id="celsius" type="number" name="celsius" value="0" onkeyup="reset()"/>
+	<label for="celsius">grados Celsius</label><br/><br/>
+	<input id="fahrenheit" type="number" name="fahrenheit" value="0" onkeyup="reset1()"/>
+	<label for="fahrenheit">grados Fahrenheit</label>
+	<br/><br/>
+	<button onclick="conversión()">CONVERSIÓN</button>
+	<hr/>
+	<h3>La conversión es: <span id="conversión"></span><span id="unidades"></span></h3>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Piedra-Papel-Tijera</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+		}
+		header, h4, figure {
+			margin: 5px auto;
+			text-align: center;
+			font-size: xx-large;
+		}
+		section, figure {
+			margin: 2px;
+			border-radius: 5px;
+			padding: 0px 5px;
+			text-align: center;
+		}	
+		#titulo h4 {
+			margin: 15px;
+			font-size: 20px;
+		}
+		#juego, #panel, #estadisticas, figure {
+			border: 1px dotted black;
+			background-color: lightgray;
+		}
+		#panel, #jugadas {
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+		}
+		#tirada {
+			flex: 4;
+		}
+		#opciones {
+			display: flex;
+		}
+		#estadisticas {
+			text-align: center;
+			min-width: 140px;
+			min-height: 160px;
+        	background-color: #888;
+			flex: 1;
+			align-self: center;
+		}
+		#panel h4  {
+            text-decoration: underline;
+		}
+		#estadisticas ul {
+			text-align: left;
+			flex: 1;
+			margin: 20px auto;
+			font-family: "Chiller";
+			font-size: larger;
+		}
+		#jugada {
+			justify-content: center;
+		}
+		figure {
+			height: 140px;
+			width: 140px;
+			margin: 10px;
+			padding: 7px;
+			border-radius:50%;
+			text-align: center;
+			font-size: x-large;
+			background-Color: white;
+		}
+		#opciones figure {
+            cursor: pointer;
+            box-shadow: 10px 10px #999;
+		}
+        #opciones figure:hover {
+            background-color: #666
+        }
+        #opciones figure:active {
+          background-color: #444;
+          box-shadow: 5px 5px #666;
+          transform: translate(5px,5px);
+          filter: invert(100%);
+        }
+		img {
+			height: 100px;
+			width: 100px;
+            background-Color: inherit;
+		}
+		#imgcpu {
+			transform: scaleX(-1);
+		}
+        </style>
+        <script type="text/javascript">
+            var partidas={'total':0,'ganadas':0,'perdidas':0,'empatadas':0};
+			function jugadaJugador(opcion) {
+				var jug = parseInt(opcion.dataset.jug);
+				var cpu = 0;
+				var res = '';
+
+				cpu = parseInt((Math.random() * 3) + 1);
+
+    			imagenJugada(jug, 'imgjug');
+				imagenJugada(cpu, 'imgcpu');
+
+				if (jug == cpu) {
+					res = '¡¡¡ HABÉIS EMPATADO !!!';
+                    document.getElementById('imgjug').parentElement.style.backgroundColor= 'inherit';
+                    document.getElementById('imgcpu').parentElement.style.backgroundColor= 'inherit';
+					partidas['empatadas']++;
+				} else if (cpu - jug == 1 || cpu - jug == -2) {
+					res = '¡¡¡ HAS PERDIDO !!!';
+                    document.getElementById('imgjug').parentElement.style.backgroundColor= '#ff6666';
+                    document.getElementById('imgcpu').parentElement.style.backgroundColor= '#339933';
+                    partidas['perdidas']++;
+				} else if (jug - cpu == 1 || jug - cpu == -2) {
+					res = '¡¡¡ HAS GANADO !!!';
+                    document.getElementById('imgjug').parentElement.style.backgroundColor= '#339933';
+                    document.getElementById('imgcpu').parentElement.style.backgroundColor= '#ff6666';
+                    partidas['ganadas']++;
+				} else {
+					res = 'RARO';
+				}
+
+                partidas['total']++;
+				document.getElementById('resultado').innerHTML = res;
+				document.getElementById('numpart').innerHTML = partidas['total'];
+				document.getElementById('numpargan').innerHTML = partidas['ganadas'];
+				document.getElementById('numparper').innerHTML = partidas['perdidas'];
+				document.getElementById('numparemp').innerHTML = partidas['empatadas'];
+			}
+			
+			function imagenJugada(n, j) {
+				var i = '';
+				switch (n) {
+				case 1:
+					i = 'Piedra';
+					break;
+				case 2:
+					i = 'Papel';
+					break;
+				case 3:
+					i = 'Tijera';
+					break;
+				}
+				document.getElementById(j).src = './img/'+i+'.png';
+			}
+        </script>
+    </head>
+    <body>
+        <section id="juego">
+            <header id="titulo">
+                <h4>Juego Piedra-Papel-Tijera</h4>
+            </header>
+            <section id="panel">
+                <section id="tirada">
+                    <h4>Selecciona tirada</h4>
+                    <section id="opciones">
+                        <figure id="figpiedra" data-jug="1" onclick="jugadaJugador(this);">
+                            <figcaption>
+                                Piedra
+                            </figcaption>
+                            <img id="imgpiedra" src="piedra.png" alt="Piedra">
+                        </figure>
+                        <figure id="figpapel" data-jug="2" onclick="jugadaJugador(this);">
+                            <figcaption>
+                                Papel
+                            </figcaption>
+                            <img id="imgpapel" src="papel.png" alt="Papel">
+                        </figure>
+                        <figure id="figtijera" data-jug="3" onclick="jugadaJugador(this);">
+                            <figcaption>
+                                Tijera
+                            </figcaption>
+                            <img id="imgtijera" src="tijera.png" alt="Tijera">
+                        </figure>
+                    </section>
+                </section>
+                <section id="estadisticas">
+                    <h4>Estadísticas</h4>
+                    <ul>
+                        <li>Partidas: <span id="numpart">...</span></li>
+                        <li>Ganadas: <span id="numpargan">...</span></li>
+                        <li>Perdidas: <span id="numparper">...</span></li>
+                        <li>Empatadas: <span id="numparemp">...</span></li>
+                    </ul>
+                </section>
+            </section>
+            <section id="jugada">
+                <section id="jugadas">
+                    <figure id="jugadajug">
+                        <figcaption>
+                            Jugador
+                        </figcaption>
+                        <img id="imgjug" src="./img/blank.png" alt="Jugador">
+                    </figure>
+                    <figure id="jugadacpu">
+                        <figcaption>
+                            CPU
+                        </figcaption>
+                        <img id="imgcpu" src="./img/blank.png" alt="CPU">
+                    </figure>
+                </section>
+                <h4 id="resultado">...</h4>
+            </section>
+        </section>
+    
+
+</body></html>

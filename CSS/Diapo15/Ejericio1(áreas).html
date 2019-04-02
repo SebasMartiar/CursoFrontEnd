@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 2: Utilizando áreas</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 60px;
+		}
+		body{
+			display: grid;
+			grid-template-areas:
+			"h h h h h h h h h h h h h f f f f f f f"
+			"m m m m m m m m d d d d d d d d d d d d"
+			"m m m m m m m m de de de de de de de de de de de de"
+			"s s s s s se se se se se se se se se fo fo fo fo fo fo";
+			grid-gap: 10px;
+			padding: 0;
+		}
+		header{
+			grid-area: h;
+			background-color: #ff6464;
+		}
+		form{
+			grid-area: f;
+			background-color: #ff6464;
+		}
+		main{
+			grid-area: m;
+			background-color: #ffbb39;
+		}
+		aside{
+			grid-area: d;
+			background-color: #b416ba;
+		}
+		aside:last-of-type{
+			grid-area: de;
+			background-color: #b416ba;
+		}
+		section{
+			grid-area: s;
+			background-color: #10768c;
+			padding: 40px;
+		}
+		section:last-of-type{
+			grid-area: se;
+			background-color: #10768c;
+			padding: 40px;
+		}
+		footer{
+			grid-area: fo;
+			background-color: #10768c;
+			padding: 40px;
+		}
+		@media screen and (max-width: 600px){
+			body{
+				grid-template-areas:
+				"h f" 
+				"m d"
+				"m de"
+				"m s"
+				"se fo";
+				padding: 0;
+			}
+			html{
+				padding: 10px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header></header>
+	<form ></form>
+	<main></main>
+	<aside></aside>
+	<aside></aside>
+	<section></section>
+	<section></section>
+	<footer></footer>
+</body>
+</html>

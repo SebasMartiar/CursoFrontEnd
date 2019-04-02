@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 0e</title>
+	<script type="text/javascript">
+		//función que cierra la propaganda
+		function cierraPropaganda(){
+			propaganda.remove(); 
+		}
+		//programar el temporizador
+		var timer = setTimeout(cierraPropaganda, 5000);
+		function mostrar(mensaje){
+			alert(mensaje);
+		}
+		setInterval(mostrar, 5500, "El anuncio se cerró");
+	</script>
+</head>
+<body>
+	<h1>Esta es una página web</h1>
+	<p>Verás una propaganda que se quitará a los 5 segundos</p>
+	<div id="propaganda">
+		<h2>Propaganda...</h2>
+		<p>Se quitará en 5 segundos o si haces clic
+		<b onclick="cierraPropaganda();clearTimeout(timer);">aquí</b>.</p>
+		<img src="coche5.jpg" width="100%" alt="anuncio">
+	</div>
+</body>
+</html>

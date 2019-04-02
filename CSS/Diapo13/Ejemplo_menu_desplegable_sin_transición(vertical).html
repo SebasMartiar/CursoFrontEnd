@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo: Menú desplegable sin transición (vertical)</title>
+	<style type="text/css" media="screen">
+		.menu li, .submenu li{
+			list-style-type: none;
+			padding: 10px;
+			color:blue;
+		}
+		.menu{
+			background-color: lightblue;
+			width: 7.5%;
+			padding: 0;
+		}
+		.menu>li{
+			position: relative;
+		}
+		.submenu{
+			position:absolute;
+			display: none;
+			top:0px;
+			left:70px;
+			background-color: white;
+			width: 100%;
+			box-shadow: 0px 2px 4px rgba(60,60,60,0.6);
+			transition: 2s;
+			padding: 0;
+		}
+		.menu li:hover{
+			color: white;
+			background-color: blue;
+		}
+		.menu>li:hover .submenu{
+			display: inherit;
+		}
+
+	</style>
+</head>
+<body>
+	<nav>
+		<ul class="menu">
+			<li>Archivo
+				<ul class="submenu">
+					<li>Abrir</li>
+					<li>Cerrar</li>
+				</ul>
+			</li>
+			<li>Edición
+				<ul class="submenu">
+					<li>Abrir</li>
+					<li>Cerrar</li>
+				</ul>
+			</li>
+			<li>Vista
+				<ul class="submenu">
+					<li>Abrir</li>
+					<li>Cerrar</li>
+				</ul>
+			</li>
+			<li>Ayuda
+				<ul class="submenu">
+					<li>Abrir</li>
+					<li>Cerrar</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo 1</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			display: flex;
+			flex-wrap: wrap;
+			text-align: center;
+			margin: 50px 10px;
+		}
+		figure{
+			border: 1px solid #000;
+			background-color: #fff;
+			box-shadow: 2px 2px 2px #868686;
+		}
+		img{
+			background-color: #00baff;
+			border: 1px solid #000;
+			margin: 2%;
+			width: 96%;
+			max-width: 200px;
+		}
+		figure:nth-of-type(2) {
+			transform: translate(50px, -20px);
+			z-index: 1;
+		}
+		figure:nth-of-type(3) {
+			transform: rotate(45deg);
+			z-index: 2;
+		}
+		figure:nth-of-type(4) {
+			transform: scale(1.2, 0.8);
+			z-index: 3;
+		}
+		figure:nth-of-type(5) {
+			transform: skewX(10deg);
+			z-index: 4;
+		}
+		figure:nth-of-type(6) {
+			transform: skewY(20deg);
+			z-index: 5;
+		}
+	</style>
+</head>
+<body>
+	<figure>
+		<img src="imagenes/homer.png" alt="homer">
+		<figcaption>no transforms</figcaption>
+	</figure>
+	<figure>
+		<img src="imagenes/marge.png" alt="marge">
+		<figcaption>transform: translate(50, -20)</figcaption>
+	</figure>
+	<figure>
+		<img src="imagenes/bart.png" alt="bart">
+		<figcaption>transform: rotate(45deg)</figcaption>
+	</figure>
+	<figure>
+		<img src="imagenes/lisa.png" alt="lisa">
+		<figcaption>transform: scale(1.2, 0.8)</figcaption>
+	</figure>
+	<figure>
+		<img src="imagenes/maggie.png" alt="maggie">
+		<figcaption>skewX(50)</figcaption>
+	</figure>
+	<figure>
+		<img src="imagenes/abe.png" alt="abe">
+		<figcaption>skewY()</figcaption>
+	</figure>
+</body>
+</html>

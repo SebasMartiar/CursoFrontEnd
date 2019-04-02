@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Formulario</title>
+	<style type="text/css">
+		fieldset, label, input{
+			font-family: helvetica;
+		}
+
+		form{
+			max-width: 38%;
+			border: solid 1px #344576; 
+			padding: 2%;
+		}
+
+		input{
+			text-align: left;
+		}
+
+		label{
+			text-align: left;
+			display: inline-block;
+			width: 30%;
+		}
+
+	</style>
+</head>
+<body>
+	<form method="get" autocomplete="off">
+		<label for="busqueda">Búsqueda</label>
+		<input type="text" name="busqueda" id="busqueda" required="required" autofocus="autofocus"/><br /><br />
+		<label for="url">Dirección URL</label>
+		<input type="url" name="url" required="required" id="url"/><br /><br />
+		<label for="telefono">Teléfono</label>
+		<input type="tel" name="telefono" id="telefono" required="required" placeholder="Ingrese su telefono"/><br /><br />
+		<label for="web">Dirección Web</label>
+		<input type="url" name="url" id="web" required="required" placeholder="ingrese su sitio"/><br /><br />
+		<label for="email">Email</label>
+		<input type="email" name="email" id="email" required="required" placeholder="ingrese su email"/><br /><br />
+		<label for="fecha">Fecha y hora</label>
+		<input type="text" name="fecha" id="fecha" required="required"/><br /><br />
+		<label for="fecha">Fecha</label>
+		<input type="date" name="fecha" id="fecha" required/><br /><br />
+		<label for="hora">Hora</label>
+		<input type="time" name="hora" id="hora" required/><br /><br />
+		<label for="numero">Número</label>
+		<input type="number" name="numero" id="numero" required/><br /><br />
+		<label for="rango">Rango</label>
+		<input type="range" name="points" id="rango" required/><br /><br />
+		<label for="color">Color</label>
+		<input type="color" name="color" id="color" required/>
+	</form>
+</body>
+</html>

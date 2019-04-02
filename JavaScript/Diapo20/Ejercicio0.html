@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 0</title>
+	<style type="text/css">
+		div{
+			width: 96%;
+			border: 1px solid #000;
+			margin: 2%;
+		}
+	</style>
+</head>
+<body style="height: 2000px;">
+	<div>
+		<p>Texto en el body</p>
+		<hr/>
+	</div>
+	<div>
+		<iframe width="500" height="300"></iframe>
+		<button id="b1">Click-me</button>
+		<iframe width="500" height="300"></iframe>
+		<button id="b2">Click-me</button>
+	</div>
+	<div>
+		<button id="abrir">Abrir</button>
+		<button id="comprobar">Comprobar</button>
+	</div>
+	<div>
+		<output id="salida" style="position:fixed;">Has bajado 0 píxels</output>
+	</div>
+	<div>
+		<p>Inner:</p>
+		<script type="text/javascript">
+			docuemnt.write(window.innerWidth+"-"+window.innerHeight);
+		</script>
+		<p>Outer:</p>
+		<script type="text/javascript">
+			docuemnt.write(window.outerWidth+"-"+window.outerHeight);
+		</script>
+	</div>
+	<div>
+		<script type="text/javascript">
+			alert("Hola mundo");
+			if(confirm("Te gustó el saludo?")){
+				document.write("Te gustó! ");
+			}
+			var motivo = prompt("Por qué?");
+			document.write(motivo);
+		</script>
+	</div>
+	<div>
+		<button onclick="abrir();">Abrir Juega y Estudia</button>
+		<button onclick="cerrar();">Cerrar Juega y Estudia</button>
+		<button onclick="print();">Imprimir</button>
+	</div>
+	<div>
+		<input type="number" id="desplazar" value="1000">
+		<button onclick="window.scrollTo(0, desplazar.value);">Hacer scroll en Y</button>
+		<p style="position: absolute; top:500px;">Scroll 500</p>
+		<p style="position: absolute; top:1000px;">Scroll 1000</p>
+		<p style="position: absolute; top:1500px;">Scroll 1500</p>
+	</div>
+	<div>
+		<section style="position:fixed; right: 0;">
+			<button onclick="window.scrollBy(0,100);">Bajar 100</button>
+			<button onclick="window.scrollBy(0, -100);">Subir 100</button>
+		</section>
+		<p style="position:absolute; top:500px;">Scroll 500</p>
+		<p style="position:absolute; top:1000px;">Scroll 1000</p>
+		<p style="position:absolute; top:1500px;">Scroll 1500</p>
+	</div>
+	<script type="text/javascript">
+		//las variables globales son en realidad propiedades de window
+		var numero = 5; //EQUIVALE A: window.numero = 10;
+		alert(window.numero);
+
+		//las funciones globales son en realidad métodos de window
+		function saluda(){alert("hola");}//EQUIVALE A: window.saluda = function(){alert("hola");}
+		window.saluda();
+
+		//incluso el documento HTML es una propiedad de window
+		document.write(document.body.children[0].innerHTML);
+		document.write(window.document.body.children[0].innerHTML);
+		b1.onclick=function(){
+			window.frames[0].location.href="http://marca.es";
+		}
+		b2.onclick=function(){
+			window.frames[1].location.href="http://sport.es";
+		}
+		var v = null;
+		abrir.onclick = function(){
+			v = open("https://juegayestudia.com");
+		}
+		comprobar.onclick = function(){
+			if(v!=null && v.closed) alert("cerraste la ventana");
+			if(v!=null && !v.closed) alert("la ventana sigue abierta");
+		}
+		window.onscroll=function(){
+			salida.innerHTML="Has bajado "+window.pageYOffset+" píxels";
+		}
+		var ventana = null;
+		function abrir(){
+			ventana = open("http://www.juegayestudia.com", "ventana");
+		}
+		function cerrar(){
+			if(confirm("Estás seguro?"))
+				ventana.close();
+		}
+	</script>
+</body>
+</html>

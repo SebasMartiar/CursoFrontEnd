@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 3</title>
+	<script type="text/javascript">
+		function calcular() {
+			var cumple = new Date();
+			var dia = parseInt(document.getElementById("dia").value);
+			var mes = parseInt(document.getElementById("mes").value)-1;
+			var ano = parseInt(document.getElementById("ano").value);
+			cumple.setMonth(mes);
+			cumple.setDate(dia);
+			var hoy = new Date();
+			var dias = parseInt((cumple-hoy)/86400000);
+			if(dias==0){
+				document.getElementById("resultado").innerHTML="<h2>¡Felicidades!¡Hoy cumples "+(hoy.getFullYear()-ano)+" años!</h2><img src='cumple.jpg' width='100%'>";
+			}
+			else if(dias<0){
+				cumple.setYear(cumple.getFullYear()+1);
+				document.getElementById("resultado").innerHTML="Faltan "+(parseInt((cumple-hoy)/86400000))+" días para que cumplas "+(hoy.getFullYear()-ano+1)+"  años.";
+			}
+			else {
+				document.getElementById("resultado").innerHTML="Faltan "+dias+" días para que cumplas "+(hoy.getFullYear()-ano)+"  años."
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>¿Cuántos días quedan para tu cumple?</h1>
+	<h2>Indica con números tu fecha de nacimiento</h2>
+	<label for="dia">Día de nacimiento: </label>
+	<input type="number" name="dia" id="dia"><br/><br/>
+	<label for="mes">Mes de nacimiento: </label>
+	<input type="number" name="mes" id="mes"><br/><br/>
+	<label for="ano">Año de nacimiento: </label>
+	<input type="number" name="ano" id="ano"><br/><br/>
+	<button onclick="calcular();">Calcular</button>
+	<h3 id="resultado"></h3>
+</body>
+</html>

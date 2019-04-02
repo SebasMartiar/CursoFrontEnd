@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Dinerito</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function PesetasAEuros(){
+			var pesetas = parseFloat(document.getElementById("valor").value);
+			
+			var euros = pesetas/166.386;
+			document.getElementById("conversión").innerHTML = pesetas+" pesetas son "+euros.toFixed(2)+" euros";
+		}
+		function EurosAPesetas(){
+			var euros = parseFloat(document.getElementById("valor").value);
+			
+			var pesetas = euros*166.386;
+			document.getElementById("conversión").innerHTML = euros+" euros son "+pesetas.toFixed(2)+" pesetas";
+		}
+	</script>
+</head>
+<body>
+	<h1>Conversor de pesetas a euros y viceversa</h1>
+	<input id="valor" type="number" name="valor"/>
+	<label for="valor">pesetas/euros</label><br/>
+	<br/><br/>
+	<button onclick="PesetasAEuros()">De pesetas a euros</button>
+	<button onclick="EurosAPesetas()">De euros a pesetas</button>
+	<hr/>
+	<h2><span id="conversión"></span></span></h2>
+</body>
+</html>

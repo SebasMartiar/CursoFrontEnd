@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>El triángulo</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function área(){
+			var altura = parseFloat(document.getElementById("altura").value);
+			var base = parseFloat(document.getElementById("base").value);
+
+			var área = base * altura/2;
+			document.getElementById("área").innerHTML = área;
+		}
+	</script>
+</head>
+<body>
+	<h1>El triángulo</h1>
+	<h3>Calcula el área de un triángulo rectángulo dada la altura y la base</h3>
+	<label for="altura">Altura:</label>
+	<input id="altura" type="number" name="altura"/><span>m</span><br/><br/>
+	<label for="base">Base:</label>
+	<input id="base" type="number" name="base"/><span>m</span>
+	<br/><br/>
+	<button onclick="área()">ÁREA</button>
+	<hr/>
+	<h3>El área de tu triángulo rectángulo es: <span id="área"></span><span> m<sup>2</sup></span></h3>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 3</title>
+	<script type="text/javascript">
+		function descuento (precio, descuento) {
+			if (precio<0 || descuento<0 || descuento>100){
+				return alert("NaN");
+			}
+			else{
+				return alert("El nuevo precio del producto es "+(precio*(1-(descuento/100)))+" €.");
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Calcula el nuevo precio de un producto a partir de un descuento</h1>
+	<label for="p">Precio:</label>
+	<input type="number" name="p" id="p">€<br/><br/>
+	<label for="d">Descuento:</label>
+	<input type="number" name="d" id="d">%<br/><br/>
+	<button onclick="descuento(p.value, d.value)">CALCULAR NUEVO PRECIO</button>
+</body>
+</html>

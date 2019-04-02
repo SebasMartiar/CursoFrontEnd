@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game1</title>
+	<style type="text/css" media="screen">
+		section{
+			display: inline-grid;
+			grid-gap: 10px;
+			grid-template-areas: 
+			"div div div"
+			"div div div"
+			"div div div";
+		}
+		section>div{
+			background-color: rgba(0,0,0,0.5);
+			border: 1px solid #f00;
+			width: 80px;
+			height: 80px;
+			grid-area:"div";
+		}
+		div div{
+			width: 100%;
+		}
+		input {
+    	display: none;
+		}
+
+		input:checked + label div svg polyline {
+			stroke: rgba(0,0,0,0);
+		}
+		input:checked + label div svg circle {
+			stroke: rgba(100,0,0,0.8);
+		}
+	</style>
+	<script>
+		
+	</script>
+</head>
+<body>
+	<section>
+		<div>	
+			<input type="checkbox" id="div1"/>
+			<label class="btn" for="div1">
+				<div>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100">
+		    			<polyline points="30,80 70,20 50,50 70,80 30,20" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+						<circle cx="50" cy="50" r="30" stroke="rgba(100,0,0,0)" stroke-width="20" fill="none" />
+					</svg>
+				</div>
+			</label>
+		</div>
+		<div>	
+			<input type="checkbox" id="div2"/>
+			<label class="btn" for="div2">
+				<div>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100">
+		    		<polyline points="30,80 70,20 50,50 70,80 30,20" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+		    		<circle cx="50" cy="50" r="30" stroke="rgba(100,0,0,0)" stroke-width="20" fill="none" />
+					</svg>
+				</div>
+			</label>
+		</div>
+		<div>
+			<input type="checkbox" id="div3"/>
+			<label class="btn" for="div3">
+				<div>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100">
+		    		<polyline points="30,80 70,20 50,50 70,80 30,20" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+		    		<circle cx="50" cy="50" r="30" stroke="rgba(100,0,0,0)" stroke-width="20" fill="none" />
+					</svg>
+				</div>
+			</label>
+		</div>
+		<div>
+			<input type="checkbox" id="div4"/>
+			<label class="btn" for="div4">
+				<div>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100">
+		    		<polyline points="30,80 70,20 50,50 70,80 30,20" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+		    		<circle cx="50" cy="50" r="30" stroke="rgba(100,0,0,0)" stroke-width="20" fill="none" />
+					</svg>
+				</div>
+			</label>
+		</div>
+		<div>
+			<input type="checkbox" id="div5"/>
+			<label class="btn" for="div5">
+				<div>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100">
+		    		<polyline points="30,80 70,20 50,50 70,80 30,20" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+		    		<circle cx="50" cy="50" r="30" stroke="rgba(100,0,0,0)" stroke-width="20" fill="none" />
+					</svg>
+				</div>
+			</label>
+		</div>
+		<div>
+			<input type="checkbox" id="div6"/>
+			<label class="btn" for="div6">
+				<div>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100">
+		    		<polyline points="30,80 70,20 50,50 70,80 30,20" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+		    		<circle cx="50" cy="50" r="30" stroke="rgba(100,0,0,0)" stroke-width="20" fill="none" />
+					</svg>
+				</div>
+			</label>
+		</div>
+		<div>	
+			<input type="checkbox" id="div7"/>
+			<label class="btn" for="div7">
+				<div>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100">
+		    		<polyline points="30,80 70,20 50,50 70,80 30,20" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+		    		<circle cx="50" cy="50" r="30" stroke="rgba(100,0,0,0)" stroke-width="20" fill="none" />
+					</svg>
+				</div>
+			</label>
+		</div>
+		<div>
+			<input type="checkbox" id="div8"/>
+			<label class="btn" for="div8">
+				<div>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100">
+		    		<polyline points="30,80 70,20 50,50 70,80 30,20" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+		    		<circle cx="50" cy="50" r="30" stroke="rgba(100,0,0,0)" stroke-width="20" fill="none" />
+					</svg>
+				</div>
+			</label>
+		</div>
+		<div>
+			<input type="checkbox" id="div9"/>
+			<label class="btn" for="div9">
+				<div>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100">
+		    		<polyline points="30,80 70,20 50,50 70,80 30,20" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+		    		<circle cx="50" cy="50" r="30" stroke="rgba(100,0,0,0)" stroke-width="20" fill="none" />
+					</svg>
+				</div>
+			</label>
+		</div>
+	</section>
+</body>
+</html>

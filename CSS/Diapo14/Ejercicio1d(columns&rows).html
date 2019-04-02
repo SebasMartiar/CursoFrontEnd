@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1d: Utilizando colums&rows</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 20px;
+		}
+		body{
+			display: grid;
+			grid-gap: 5px;
+		}
+		aside{
+			grid-area: 1/1/4/2;
+			background-color: #a7ffe7;
+		}
+		header{
+			grid-column: 2/4;
+			background-color: #fcffb4;
+		}
+		main{
+			background-color: #b4c2ff;
+		}
+
+		footer{
+			background-color: #fab4ff;
+		}
+		aside:last-of-type{
+			grid-area: 2/3/4/4;
+			background-color: #ff8b8b;
+		}
+	</style>
+</head>
+<body>
+	<header>HEADER</header>
+	<aside>IZQ</aside>
+	<main>MAIN</main>
+	<aside>DER</aside>
+	<footer>FOOTER</footer>
+</body>
+</html>

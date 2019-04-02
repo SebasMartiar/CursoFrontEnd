@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo 1</title>
+	<style type="text/css" media="screen">
+		div{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		figure{
+			border: 1px solid #000;
+		}
+	</style>
+	<script type="text/javascript">
+		function escalar (imagen, valor) {
+			imagen.height*=valor;
+			imagen.width*=valor;
+		}
+		function colorear(cosa, color) {
+			cosa.style.backgroundColor = color;
+		}
+	</script>
+</head>
+<body>
+	<h1>Galería</h1>
+	<label for="incolor">Escoge un color de fondo para las imágenes</label>
+	<input type="color" name="incolor" id="incolor">
+	<h4>Cambia el color de las imágenes haciendo click encima y el tamaño pasando por encima con el ratón</h4>
+	<div>
+		<figure onclick="colorear(this, incolor.value);"><img width="300" height="400" src="abe.png" id="abe" alt="abe" onmouseenter="escalar(this, 1.3)" onmouseleave="escalar(this, 0.769)"></figure>
+		<figure onclick="colorear(this, incolor.value);"><img width="300" height="400" src="bart.png" id="bart" alt="bart" onmouseenter="escalar(this, 1.3)" onmouseleave="escalar(this, 0.769)"></figure>
+		<figure onclick="colorear(this, incolor.value);"><img width="300" height="400" src="clancy.png" id="clancy" alt="clancy" onmouseenter="escalar(this, 1.3)" onmouseleave="escalar(this, 0.769)"></figure>
+		<figure onclick="colorear(this, incolor.value);"><img width="300" height="400" src="homer.png" id="homer" alt="homer" onmouseenter="escalar(this, 1.3)" onmouseleave="escalar(this, 0.769)"></figure>
+		<figure onclick="colorear(this, incolor.value);"><img width="300" height="400" src="lisa.png" id="lisa" alt="lisa" onmouseenter="escalar(this, 1.3)" onmouseleave="escalar(this, 0.769)"></figure>
+	</div>
+</body>
+</html>

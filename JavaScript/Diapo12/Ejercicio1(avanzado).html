@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1: Avanzado</title>
+	<style type="text/css">
+		section{
+			width: 250px;
+			height: 250px;
+		}
+		div{
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+		}
+		div div{
+			display:block;
+			outline: 1px solid #555;
+		}
+	</style>
+	<script type="text/javascript">
+		var negras = 0;
+		var blancas = 0;
+		var lista =	[[0, 0, 0, 0, 0],
+					[0, 0, 0, 0, 0],
+					[0, 0, 0, 0, 0],
+					[0, 0, 0, 0, 0],
+					[0, 0, 0, 0, 0]]
+
+		function colorear (e,f) {
+			var texto = e+','+f;
+			if(e>=0 && f>=0 && e<5 && f<5){
+				if (lista[e][f]==0){
+					lista[e][f]=1;
+					document.getElementById(texto).style.backgroundColor = '#fff';
+					blancas++;
+					negras--;
+				}
+				else{
+					lista[e][f]=0;
+					document.getElementById(texto).style.backgroundColor = '#000';
+					negras++;
+					blancas--;
+				}
+			}
+			document.getElementById("marcador").innerHTML="Blancas: "+blancas+"<br/>Negras:"+negras;
+		}
+		function cambiar(c, d){
+			colorear(c, d);
+			colorear(c-1, d);
+			colorear(c, d-1);
+			colorear(c+1, d);
+			colorear(c, d+1);
+			if(blancas==25 || negras==25){
+				setTimeout(function(){alert("YOU'VE WON! CONGRATULATIONS!")}, 10);
+				resetear ();
+			}
+		}
+		function resetear () {
+			tablero = "";
+			negras = 0;
+			blancas = 0;
+			document.getElementById("enunciado").innerHTML="Try to fill all the space with the same colour";
+			for (var i = 0; i<5; i++) {
+				tablero+="<div>";
+				for (var j = 0; j<5; j++) {
+					var a = Math.floor(Math.random() * 10);
+					// alert(a);
+					if (a<5 && negras<=13 || blancas==12){
+						tablero+="<div id='"+i+','+j+"' onclick='cambiar("+i+", "+j+");' style='background-color: #000'></div>";
+						lista[i][j]=0;
+						negras++;
+					}
+					else{
+						tablero+="<div id='"+i+','+j+"' onclick='cambiar("+i+", "+j+");' style='background-color: #fff'></div>";
+						lista[i][j]=1;
+						blancas++;
+					}
+				}
+				tablero+="</div>"
+				document.getElementById("resultado").innerHTML=tablero;
+			}	
+		}	
+	</script>
+</head>
+<body>
+	<h1>BEST GAME EVER</h1>
+	<h4><span id="enunciado"></span></h4>
+	<button onclick="resetear();">NEW GAME</button><br/><br/>
+	<section id="resultado"></section>
+	<h4><span id="marcador"></span></h4>
+</body>
+</html>

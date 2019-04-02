@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo: Efecto de zoom</title>
+	<style type="text/css" media="screen">
+		*{
+			cursor:url("mouse.gif"), auto;
+		}
+		body{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		figure{
+			border: 3px solid #000;
+			margin: 20px;
+			width: 400px;
+			border-radius: 50%;
+			overflow: hidden;
+			box-shadow: 4px 4px 4px rgba(60,60,60,0.6);
+		}
+		img{
+			width: 100%;
+			transition: 0.5s;
+			cursor:url("mouse.png"), auto;
+		}
+		figure:first-of-type img:hover{
+			transform-origin:top left;
+			transform: scale(2);
+		}
+		figure:last-of-type img:hover{
+			transform-origin:top right;
+			transform: scale(1.5);
+		}
+
+	</style>
+</head>
+<body>
+	<figure>
+		<img src="luigi.png" alt="luigi">
+	</figure>
+	<figure>
+		<img src="mario.png" alt="mario">
+	</figure>
+</body>
+</html>

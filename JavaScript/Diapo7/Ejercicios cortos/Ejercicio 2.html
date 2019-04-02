@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 2</title>
+	<script type="text/javascript">
+		function area_triangulo(b, a){
+			return alert("El área del triángulo es "+(b*a)/2+" cm<sup>2</sup>");
+		}
+		function area_rectangulo(ba, al){
+			return alert("El área del rectángulo es "+(ba*al)+" cm<sup>2</sup>");
+		}
+		function area_circulo(r){
+			return alert("El área del círcluo es "+(Math.PI*Math.pow(r,2))+" cm<sup>2</sup>");
+		}
+	</script>
+</head>
+<body>
+	<h1>Calcular diferentes áreas</h1>
+	<h2>Triángulo</h2>
+	<label for="b">Base:</label>
+	<input type="number" name="b" id="b">cm<br/><br/>
+	<label for="a">Altura:</label>
+	<input type="number" name="a" id="a">cm<br/><br/>
+	<button onclick="area_triangulo(b.value, a.value)">CALCULAR ÁREA</button>
+	<hr/>
+	<h2>Rectángulo</h2>
+	<label for="ba">Base:</label>
+	<input type="number" name="ba" id="ba">cm<br/><br/>
+	<label for="al">Altura:</label>
+	<input type="number" name="al" id="al">cm<br/><br/>
+	<button onclick="area_rectangulo(ba.value, al.value)">CALCULAR ÁREA</button>
+	<hr/>
+	<h2>Círculo</h2>
+	<label for="r">Radio:</label>
+	<input type="number" name="r" id="r">cm<br/><br/>
+	<button onclick="area_circulo(r.value)">CALCULAR ÁREA</button>
+</body>
+</html>

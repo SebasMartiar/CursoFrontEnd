@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1a, 1b, y 1c</title>
+</head>
+<body>
+	<h1>Ejercicio 1a, 1b, y 1c</h1>
+	<script type="text/javascript">
+		document.write("Números del 1 al 10:<br/>");
+		for (let i=1; i<=9; i++){
+			document.write(i+" < ");
+		}
+		document.write(10);
+
+		document.write("<br/><br/>Números pares del 0 al 100:<br/>");
+		i=0;
+		while(i<=99){
+			if (i%2==0){
+				document.write(i+" < ");
+			}
+			i++;
+		}
+		document.write(100);
+
+		document.write("<br/><br/>Múltiplos de 5 del 100 al 5:<br/>");
+		i=100;
+		do{
+			if (i%5==0){
+				document.write(i+" < ");
+			}
+			i--;
+		}while(i>5)
+		document.write(5);
+	</script>
+</body>
+</html>

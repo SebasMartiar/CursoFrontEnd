@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 10</title>
+	<script>
+		var solucion;
+		var intentos;
+		function jugar () {
+			intentos = 0;
+			solucion = Math.floor(Math.random() * 128) + 1;
+			document.getElementById("resultado").innerHTML= "";
+			document.getElementById("alerta").innerHTML= "";
+		}
+		function calcular(){
+			intentos++;
+			var numero = parseFloat(document.getElementById("numero").value);
+			if (intentos>7){
+				document.getElementById("alerta").innerHTML= "¡Alerta!¡Tenemos un memo entre nosotros!";
+			}
+			if (solucion==numero){
+				document.getElementById("resultado").innerHTML= "¡¡¡Has acertado!!!";
+				document.getElementById("alerta").innerHTML= "Intentos: "+intentos;
+			}
+			else if (numero<solucion){
+				document.getElementById("resultado").innerHTML= "El número que ha pensado la máquina es mayor.";
+			}
+			else{
+				document.getElementById("resultado").innerHTML= "El número que ha pensado la máquina es menor.";
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Intenta adivinar el número que ha pensado la máquina</h1>
+	<button type="" onclick="jugar()">NUEVO JUEGO</button><br/><br/>
+	<label for="numero">El número que creo que ha pensado la máquina es el: </label><input type="number" name="numero" id="numero" value="0">
+	<button type="" onclick="calcular();">COMPROBAR</button>
+	<hr/>
+	<span id="resultado"></span><br/><br/>
+	<span id="alerta"></span>
+</body>
+</html>

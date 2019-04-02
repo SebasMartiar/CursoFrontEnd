@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio 3</title>
+	<style type="text/css" media="screen">
+		@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+		html{border: 2px solid #00008b;}
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: 'Open Sans', sans-serif;
+			box-sizing: border-box;
+		}
+		body{
+			display: grid;
+			grid-template-columns: 33.34% auto 33.34%;
+			grid-gap: 5px;
+			padding:5px;
+			grid-template-areas: 
+			"he he he"
+			"nav nav nav"
+			". ma ma"
+			". ma ma"
+			". ma ma"
+			"se se se"
+			"fo fo fo";
+		}
+		header{
+			grid-area: he;
+			display: grid;
+			grid-template-columns: 30% auto 30%;
+			background-image: url(imagenes/boat.png);
+			color: #ff9600;
+			font-weight: bold;
+		}
+		header img{
+			grid-column: 1/2;
+			width: 100%;
+			max-width: 300px;
+		}
+		header h1{
+			grid-column: 2/4;
+			text-align: center;
+		}
+		nav{
+			grid-area: nav;
+			background-image: linear-gradient(to top, #ff9600, #9d6311);
+			margin-bottom: 3%;
+			position: sticky;
+			top:0;
+		}
+		nav li{
+			display: inline-block;
+			padding: 1.2%;
+		}
+		nav a{
+			text-decoration:none;
+		}
+		nav a:hover{
+			font-weight: bold;
+		}
+		aside{
+			text-align: center;
+			margin: 0 10%;
+		}
+		aside img{
+			width: 100%;
+			max-width: 200px;
+			margin-top: 20%;
+		}
+		main{
+			grid-area: ma; 
+			text-align: justify;
+			margin-right: 20%;
+		}
+		main+section{
+			grid-area: se;
+			display: grid;
+			grid-template-columns: auto 25% 25% 25%;
+			text-align: center;
+			padding: 3%;
+			margin: 0 10%;
+		}
+		main+section h2{
+			grid-column: 1/4;
+			text-align: left;
+		}
+		main+section div{
+			border-bottom: 1px solid #cecece;
+			word-break: break-all;
+		}
+		main+section img{
+			width: 100%;
+			max-width: 250px;
+		}
+		footer{
+			grid-area: fo;
+			display: grid;
+			grid-template-columns: auto 50%;
+			background-image: linear-gradient(to top, #ff9600, #9d6311);
+			text-align: right;
+			color: #00008b;
+			font-weight: bold;
+			padding: 1%;
+			margin-bottom:5px;
+		}
+		footer div:first-of-type{
+			text-align: left;
+		}
+		footer div:nth-of-type(2) figure{
+			display: inline-block;
+		}
+		footer div:nth-of-type(2) figure img{
+			width: 100%;
+			max-width: 25px;
+			min-width: 15px;
+		}
+		footer div:nth-of-type(2) figure img:hover{
+			max-width: 35px;
+			min-width: 25px;
+		}
+		@media screen and (max-width: 600px){
+			body{
+				grid-template-areas: 
+				"he he he"
+				"nav nav nav"
+				"ma ma ma"
+				"ma ma ma"
+				"ma ma ma"
+				"se se se"
+				". . ."
+				"fo fo fo";
+			}
+			main, aside, main+section{
+				margin: 0;
+			}
+			main p, main+section div, nav, footer{
+				font-size: 3vw;
+			}
+			h1{
+				font-size: 5vw;
+			}
+			h2{
+				font-size: 4vw;
+			}
+		}
+		#OverviewText4 {
+    	position: relative;
+		}
+		#OverviewText4:before {
+		  content: "";
+		  background: transparent url(imagenes/boat.png) scroll no-repeat 0 0;
+		  background-size: cover;
+		  width: 150px;
+		  height: 150px;
+		  position: absolute;
+		  display: block;
+		  top: 50px;
+		  left: 50px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<img src="imagenes/boat.png" alt="logo"/>
+		<h1>Xiaomi RedMi 4</h1>
+	</header>
+	<nav>
+		<span id="intro"></span>
+		<ul>
+			<li><a href="#intro">Intro</a></li>
+			<li><a href="#caracteristicas">Características</a></li>
+			<li><a href="#precio">Precio</a></li>
+			<li><a href="#resumen">Resumen</a></li>
+			<li><a href="#contacto">Contacto</a></li>
+		</ul>
+	</nav>
+	<aside><img src="imagenes/boat.png" alt="frontal"/></aside>
+	<aside><img src="imagenes/boat.png" alt="lateral"/></aside>
+	<aside><img src="imagenes/boat.png" alt="trasera"/></aside>
+	<main>
+		<section>
+			<h2>Intro</h2><br/>
+			<p>Xiaomi vuelve a traernos novedades, las terceras en menos de un mes y tras haber sido presentados por un lado el Xiaomi Mi Mix y Mi Note 2 y por otro lado los Xiaomi Mi 5s y Mi 5s Plus, todos de gama alta, ahora es el turno de renovar la gama media y baja con el nuevo Xiaomi RedMi 4 que llega en tres versiones con procesadores renovados como principal evolución frente a la familia Redmi 3.</p><br/>
+			<p>Los tres modelos comparten pantalla de 5 pulgadas como diferencia con el Redmi Note 4 que sube hasta las 5.5 pulgadas, siendo el más completo el Xiaomi RedMi 4 Pro con pantalla FullHD y snapdragon 625, seguido del Xiaomi RedMi 4 que baja la resolución de pantalla a HD y el procesador a Snapdragon 430 mientras que el más sencillo, <span id="caracteristicas"></span>Xiaomi RedMi 4A se queda con Snapdragon 425 y pierde el sensor de huella.</p>
+		</section><br/><br/>
+		<section >
+			<h2>Especificaciones técnicas Xiaomi RedMi 4</h2><br/>
+			<p>Nombradas ya las principales diferencias de los nuevos RedMi 4, el resto de especificaciones son compartidas con la anterior generación con capacidades de memoria entre 16 y 32 GB que son posibles de ampliar mediante microSD hasta 128 GB siempre que no utilices el slot para insertar una segunda SIM. La RAM se mantendrá entre 2 y 3 GB.</p><br/>
+			<p>Los módulos de la cámara de fotos también se mantienen en 13 megapíxeles con apertura f/2.2, con PDAF en la cámara principal y un doble flash que será de doble temperatura en el RedMi 4 Pro y sencillo en el RedMi 4 mientras que el RedMi 4A tan solo cuenta con un LED. La cámara frontal se mantendrá en 5 megapíxeles.</p><br/>
+			<p>Lo que tampoco variará será la capacidad de batería que se mantiene en unos generosos 4.100 mAh con carga rápida para los dos modelos más completos mientras que se reduce a 3.120 mAh para el RedMi 4A.</p><br/>
+			<p>En cuanto al diseño, vuelve a contar con cuerpo fabricado en aluminio con una ligera renovación del diseño de las antenas y como novedad, excepto en el Mi 4A, tendremos un cristal con curvatura 2.5D. Sobre la disponibilidad de colores, volveremos a encontramos con dorado, plateado y gris en los dos modelos superiores mientras que el RedMi 4A se encuentra en dorado o rosa.</p><br/>
+			<p>En cuanto a la conectividad, los tres modelos son 4G pero ninguno cuenta con compatibilidad en la banda 20 (el 4G en los 800 MHz) por lo que tendremos que conformarnos con las bandas <span id="precio"></span>1, 3 y 7 pese a que recientemente Xiaomi lanzaba su primer modelo internacional.</p>
+		</section><br/><br/>
+		<section>
+			<h2>Disponibilidad y precio</h2><br/>
+			<p>El nuevo Xiaomi Redmi 4 se pondrá a la venta este mismo mes de noviembre en China y probablemente no tarde en llegar al resto de países a través de tiendas de terceros con un precio algo más elevado que si atractivo precio oficial: unos 67 euros para el RedMi 4A, 93 euros el RedMi 4 y unos 120 euros el RedMi 4 Pro.<span id="resumen"></span></p>
+			<br/><br/>
+		</section>
+	</main>
+	<section>
+		<h2>Resumen especificaciones</h2><br/><br/>
+		<div></div>
+		<div><img src="imagenes/boat.png" alt="trasera"/></div>
+		<div><img src="imagenes/boat.png" alt="trasera"/></div>
+		<div><img src="imagenes/boat.png" alt="trasera"/></div>
+		<div>PANTALLA</div>
+		<div>IPS LCD <br/>5" FHD (441 ppp)</div>
+		<div>IPS LCD <br/>5" HD (294 ppp)</div>
+		<div>IPS LCD <br/>5" HD (294 ppp)</div>
+		<div>DIMENSIONES <br/>Y PESO</div>
+		<div>141 x 70 x 8.9mm <br/>156 gramos</div>
+		<div>139 x 70 x 8.5mm <br/>132 gramos</div>
+		<div>139 x 70 x 8.5mm <br/>132 gramos</div>
+		<div>PROCESADOR</div>
+		<div>Snapdragon 625</div>
+		<div>Snapdragon 430</div>
+		<div>Snapdragon 425</div>
+		<div>NÚCLEOS</div>
+		<div>8x2 GHz. C-A53</div>
+		<div>8x1.4 GHz. C-A53</div>
+		<div>4x1.4 GHz. C-A53</div>
+		<div>RAM</div>
+		<div>3 GB</div>
+		<div>2 GB</div>
+		<div>2 GB</div>
+		<div>MEMORIA</div>
+		<div>32 GB <br/>+ microSD</div>
+		<div>16 GB <br/>+ microSD</div>
+		<div>16 GB <br/>+ microSD</div>
+		<div>OS</div>
+		<div>Android 6.0</div>
+		<div>Android 6.0</div>
+		<div>Android 6.0</div>
+		<div>CONECTIVIDAD</div>
+		<div>4G (150 Mbps) <br/>banda 1/3/7 <br/>+ IR</div>
+		<div>4G (150 Mbps) <br/>banda 1/3/7 <br/>+ IR</div>
+		<div>4G (150 Mbps) <br/>banda 1/3/7 <br/>+ IR</div>
+		<div>BATERÍA</div>
+		<div>4.100 mAh <br/>+ carga rápida</div>
+		<div>4.100 mAh <br/>+ carga rápida</div>
+		<div>3.120 mAh <br/>+ carga rápida</div>
+		<div>CÁMARA</div>
+		<div>13 MP, 2LED <br/>f/2.2 <br/>1080p@fps</div>
+		<div>13 MP, 2LED <br/>f/2.2 <br/>1080p@fps</div>
+		<div>13 MP, LED <br/>f/2.2 <br/>1080p@fps</div>
+		<div>CÁM FRONTAL</div>
+		<div>5 MP, f/2.2</div>
+		<div>5 MP, f/2.2</div>
+		<div>5 MP, f/2.2</div>
+		<div>DESTACA</div>
+		<div>Sensor de huella <br/>Metal 2.5D</div>
+		<div>Sensor de huella <br/>Metal 2.5D</div>
+		<div>Metal</div>
+		<div>COLORES</div>
+		<div>Dorado <br/>Plata <br/>Gris</div>
+		<div>Dorado <br/>Plata <br/>Gris</div>
+		<div>Dorado <br/>Oro <br/>Rosa</div>
+		<div>PRECIO</div>
+		<div>899 yuanes <br/>120 euros</div>
+		<div>699 yuanes <br/>93 euros</div>
+		<div>499 yuanes <br/>67 euros</div>
+	</section>
+	<footer>		
+		<div>By Sebas</div>
+		<div>
+			<a href="" title="facebook" target="_blank"><figure><img src="imagenes/facebook.png" alt="facebook"></figure></a>
+			<a href="" title="instagram" target="_blank"><figure><img src="imagenes/instagram.png" alt="instagram"></figure></a>
+			<a href="" title="twitter" target="_blank"><figure><img src="imagenes/twitter.png" alt="twitter"></figure></a>
+			<a href="" title="youtube" target="_blank"><figure><img src="imagenes/youtube.png" alt="youtube"></figure></a>
+			<a href="" title="google" target="_blank"><figure><img src="imagenes/google.png" alt="google"></figure></a>
+		</div>
+	</footer>
+</body>
+</html>

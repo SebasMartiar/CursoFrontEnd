@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1a</title>
+	<style type="text/css">
+		body{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		div{
+			border: 1px solid #000;
+			border-radius: 10px;
+			padding: 0 20px 20px 20px;
+		}
+		img{
+			cursor: url(gota2.cur), auto;
+		}
+		.grande{font-size: 2em;}
+		.rojo{color:red;}
+		.cursiva{font-style: italic;}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>Ejemplo 1</h1>
+		<a href="http://marca.es">Marca</a><br/>
+		<a href="http://sport.es">Sport</a><br/>
+		<a href="http://elmundodeportivo.es">MD</a><br/>
+		<button onclick="eliminar();">Click-me</button>
+	</div>
+	<div>
+		<h1>Ejemplo 2</h1>
+		<form>
+			<input type="text" name="user">
+			<input type="password" name="password">
+			<input type="submit" name="boton" value="enviar">
+		</form>
+		<output id="activo"></output>
+	</div>
+	<div>
+		<h1>Ejemplo 3</h1>
+		<script type="text/javascript">
+			document.write(document.URL+"<br/>");
+			document.write(document.domain+"<br/>");
+			document.write(document.baseURI+"<br/>");
+			document.write(document.documentURI+"<br/>");
+			document.write(document.lastModified+"<br/>");
+			document.write(document.inputEncoding+"<br/>");
+		</script>
+	</div>
+	<div>
+		<h1>Ejemplo 4</h1>
+		<button onclick="crear();">Crear párrafo y comentarlo</button>
+	</div>
+	<div>
+		<h1>Ejemplo 5</h1>
+		<div id="d">
+			<p>Párrafo 1</p>
+			<p>Párrafo 2</p>
+			<p>Párrafo 3</p>
+		</div>
+		<h2>Info: </h2>
+		<script type="text/javascript">
+			document.write("Párrafos en el div: "+d.children.length+"<br/>");
+			//texto en el primer párrafo
+			document.write(d.firstElementChild.innerHTML+"<br/>");
+			//texto en el párrafo posterior al segundo
+			document.write(d.children[1].nextElementSibling.innerHTML+"<br/>");
+			//texto en el penúltimo párrafo
+			document.writeln(d.lastElementChild.previousElementSibling.innerHTML+"<br/>");
+		</script>
+	</div>
+	<div>
+		<figure onclick="clonar(this);">
+			<img src="gremling.png">
+		</figure>
+	</div>
+	<script type="text/javascript">
+		function eliminar () {
+			document.body.children[0].remove();
+		}
+		
+		function comprobar(){
+			activo.innerHTML=document.activeElement.name;
+		}setInterval(comprobar, 500);
+		
+		function crear(){
+			var p = document.createElement("p");
+			var texto = document.createTextNode("esto es un párrafo");
+			var atributo = document.createAttribute("class");
+			atributo.value="importante";
+			var c = document.createComment("esto es un comentario HTML");
+
+			p.setAttributeNode(atributo);
+			p.appendChild(texto);
+			document.querySelector("body>div:nth-of-type(4)").appendChild(p);
+			document.querySelector("body>div:nth-of-type(4)").appendChild(c);
+		}
+
+		function clonar(figura){
+			var clonf=figura.cloneNode();
+			var cloni=figura.children[0].cloneNode();
+			clonf.setAttribute("class", "grande");
+			clonf.onclick=function(){this.remove();}
+			clonf.appendChild(cloni);
+			document.body.appendChild(clonf);
+		}
+	</script>
+</body>
+</html>

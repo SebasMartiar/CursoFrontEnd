@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1b: Utilizando áreas</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 20px;
+		}
+		body{
+			display: grid;
+			grid-template-areas:
+			"h h d"
+			"i m m"
+			"f f f";
+			grid-gap: 5px;
+		}
+		header{
+			grid-area: h;
+			background-color: #fcffb4;
+		}
+		aside{
+			grid-area: i;
+			background-color: #a7ffe7;
+		}
+		main{
+			grid-area: m;
+			background-color: #b4c2ff;
+		}
+		aside:last-of-type{
+			grid-area: d;
+			background-color: #ff8b8b;
+		}
+		footer{
+			grid-area: f;
+			background-color: #fab4ff;
+		}
+	</style>
+</head>
+<body>
+	<header>HEADER</header>
+	<aside>DER</aside>
+	<aside>IZQ</aside>
+	<main>MAIN</main>
+	<footer>FOOTER</footer>
+</body>
+</html>

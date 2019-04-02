@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 2: Nota promedio</title>
+	<script>
+		function promedio(){
+			var nota1 = parseFloat(document.getElementById("nota1").value);
+			var nota2 = parseFloat(document.getElementById("nota2").value);
+			var nota3 = parseFloat(document.getElementById("nota3").value);
+			var promedio = (nota1+nota2+nota3)/3;
+			document.getElementById("promedio").innerHTML= "La nota promedio es "+promedio.toFixed(2)+", ";
+			if (promedio >=5){
+				document.getElementById("resultado").innerHTML= "por lo tanto el alumno está aprobado.";
+			}
+			if (promedio < 5){
+				document.getElementById("resultado").innerHTML= "por lo tanto el alumno está suspendido.";
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<h1>Cálculo de la nota media</h1>
+	<h3>Introduce los datos necesarios para verificar si el alumno está aprobado</h3>
+	<label for="nota1">Nota 1:</label><input type="number" name="nota1" id="nota1" onkeyup="promedio();" value="0"><br/><br/>
+	<label for="nota2">Nota 2:</label><input type="number" name="nota2" id="nota2" onkeyup="promedio();" value="0"><br/><br/>
+	<label for="nota3">Nota 3:</label><input type="number" name="nota3" id="nota3" onkeyup="promedio();" value="0"><br/><br/>
+	<span id="promedio"></span><span id="resultado"></span>
+</body>
+</html>

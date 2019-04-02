@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var fecha = new Date();
+		var dias = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+		var mes = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre"];
+		document.write("Año actual: fecha.getFullYear() = "+fecha.getFullYear()+"<br/>");
+		document.write("Mes actual: fecha.getMonth() = "+fecha.getMonth()+"<br/>");
+		document.write("Día actual: fecha.getDate() = "+fecha.getDate()+"<br/>");
+		document.write("Año actual: fecha.getDay() = "+fecha.getDay()+"<br/>");
+		document.write("Hora actual: fecha.getHours() = "+fecha.getHours()+"<br/>");
+		document.write("Minuto actual: fecha.getMinutes() = "+fecha.getMinutes()+"<br/>");
+		document.write("Segundo actual: fecha.getSeconds() = "+fecha.getSeconds()+"<br/>");
+		document.write("Milisegundo actual: fecha.getMilliseconds() = "+fecha.getMilliseconds()+"<br/>");
+		document.write("Tiempo transurrido desde el 1 de enero de 1970: fecha.getTime() = "+fecha.getTime()+" milisegundos <br/>");
+
+		document.write("<br/>Por lo tanto, hoy es: "+dias[fecha.getDay()]+" "+fecha.getDate()+" de "+mes[fecha.getMonth()]+" de "+fecha.getFullYear()+"<br/>Y son las "+fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getSeconds()+":"+fecha.getMilliseconds()+"<br/><br/><br/>");
+
+		document.write("Diferencia entre el tiempo UTC y la hora local: fecha.getTimezoneOffset() = "+fecha.getTimezoneOffset()+" minutos <br/>");
+		document.write("Año actual (UTC): fecha.getUTCFullYear() = "+fecha.getUTCFullYear()+"<br/>");
+		document.write("Mes actual (UTC): fecha.getUTCMonth() = "+fecha.getUTCMonth()+"<br/>");
+		document.write("Día actual (UTC): fecha.getUTCDate() = "+fecha.getUTCDate()+"<br/>");
+		document.write("Año actual (UTC): fecha.getUTCDay() = "+fecha.getUTCDay()+"<br/>");
+		document.write("Hora actual (UTC): fecha.getUTCHours() = "+fecha.getUTCHours()+"<br/>");
+		document.write("Minuto actual (UTC): fecha.getUTCMinutes() = "+fecha.getUTCMinutes()+"<br/>");
+		document.write("Segundo actual (UTC): fecha.getUTCSeconds() = "+fecha.getUTCSeconds()+"<br/>");
+		document.write("Milisegundo actual (UTC): fecha.getUTCMilliseconds() = "+fecha.getUTCMilliseconds()+"<br/>");
+
+		document.write("<br/>Por lo tanto, según UTC, hoy es: "+dias[fecha.getUTCDay()]+" "+fecha.getUTCDate()+" de "+mes[fecha.getUTCMonth()]+" de "+fecha.getUTCFullYear()+"<br/>Y son las "+fecha.getUTCHours()+":"+fecha.getUTCMinutes()+":"+fecha.getUTCSeconds()+":"+fecha.getUTCMilliseconds()+"<br/><br/><br/>");
+
+		var guardar_fecha = new Date();
+		guardar_fecha.setFullYear(guardar_fecha.getFullYear());
+		guardar_fecha.setMonth(guardar_fecha.getMonth());
+		guardar_fecha.setDate(guardar_fecha.getDate());
+		guardar_fecha.setHours(guardar_fecha.getHours());
+		guardar_fecha.setMinutes(guardar_fecha.getMinutes());
+		guardar_fecha.setSeconds(guardar_fecha.getSeconds());
+		guardar_fecha.setMilliseconds(guardar_fecha.getMilliseconds());
+		document.write(guardar_fecha);
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio f</title>
+	<script type="text/javascript">
+		var tiempo = 10;
+		//función que estuda si se debe cerrar la propaganda
+		function evaluar(){
+			if(tiempo-- == 0){//Le resta uno al tiempo y mira si el nuevo tiempo es igual a 0
+				propaganda.remove();
+				clearInterval(timer);
+			}else{
+				trestante.innerHTML = tiempo;
+			}
+		}
+		//programar la ejecución de la función cada segundo
+		var timer = window.setInterval(evaluar, 1000);
+	</script>
+</head>
+<body>
+	<h1>Esta es una página web</h1>
+	<p>Verás una propaganda que se quitará a los 10 segundos</p>
+	<div id="propaganda">
+		<h2>Propaganda...</h2>
+		<p>Se quitará automáticamente en <span id="trestante">10</span>s.</p>
+		<img src="coche5.jpg" alt="anuncio" width="100%" />
+	</div>
+</body>
+</html>

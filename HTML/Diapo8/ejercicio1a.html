@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Formulario</title>
+	<style type="text/css">
+		fieldset, section, label, input{
+			font-family: helvetica;
+		}
+
+		.ancho{
+			max-width: 350px;
+		}
+
+		.linea{
+			display: inline-block;
+		}
+
+
+	</style>
+</head>
+<body>
+	<h1>User Input Form</h1>
+	<form method="get" autocomplete="off" class="ancho">
+		<fieldset>
+			<legend>Personal Particular</legend><br />
+			<label>Name:</label>
+			<input type="text" name="name" required="required" autofocus="autofocus"><br /><br />
+			<label>Password:</label>
+			<input type="password" name="pwd" required="required"><br /><br />
+			<label>Gender:</label>
+			<input id="male" type="radio" name="gender" value="M" required="required">
+			<label for="male">Male</label>
+			<input id="female" type="radio" name="gender" value="F" required="required">
+			<label for="female">Female</label><br /><br />
+			<label>Age:</label>
+			<select name="age">
+				<option selected value="< 1 year orld"><pre><</pre> 1 year orld</option>
+				<option value="nothing">nothing</option>
+			</select>
+		</fieldset><br />
+		<fieldset>
+			<legend>Languages</legend>
+			<input id="java" type="checkbox" name="java" value="j">
+			<label for="java" class="linea">Java</label>
+			<input id="c/c++" type="checkbox" name="c/c++" value="c">
+			<label for="c/c++" class="linea">C/C++</label>
+			<input id="c#" type="checkbox" name="c#" value="c#">
+			<label for="c#" class="linea">C#</label><br />
+		</fieldset><br />
+		<fieldset>
+			<legend>Instruction:</legend>
+			<textarea rows="10" cols="40">Enter your instruction here...</textarea>
+		</fieldset>
+		<input type="submit" value="SEND">
+		<input type="reset" value="CLEAR">
+	</form>
+</body>
+</html>

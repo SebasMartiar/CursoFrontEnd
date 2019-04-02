@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Tablas</title>
+		<style>
+			table {
+  				border-collapse: collapse;
+			}
+			td {
+  				border: #000000 1px solid;
+  				height: 15px;
+				width: 30px;
+				text-align: left;
+  				vertical-align: top;
+  				margin: 5px;
+  				padding: 5px;
+  				font-family: Helvetica;
+  				font-weight: bold;
+			}
+			th {
+  				border: #000000 1px solid;
+  				height: 15px;
+				width: 30px;
+				text-align: left;
+  				vertical-align: top;
+  				margin: 5px;
+  				padding: 5px;
+  				font-family: Helvetica;
+  				font-weight: bold;
+			}
+		</style>
+	</head>
+
+	<body>
+	<!--Crea las tablas de la imagen de referencia en una página haciendo uso de HTML-->
+		<table>
+			<tr>
+				<td colspan="3">1</td>	
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+			</tr>
+		</table>
+		<br />
+		<table>
+			<tr>
+				<td colspan="3">1</td>	
+			</tr>
+			<tr>
+				<td rowspan="2">2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+		</table>
+		<br />
+		<table>
+			<tr>
+				<td rowspan="2">1</td>
+				<td>2</td>	
+				<td>3</td>	
+			</tr>
+			<tr>
+				<td colspan="2">4</td>
+			</tr>
+			<tr>
+				<td colspan="3">5</td>
+			</tr>
+		</table>
+		<br />
+		<table>
+			<tr>
+				<td colspan="3">1</td>	
+			</tr>
+			<tr>
+				<td>2</td>	
+				<td colspan="2" rowspan="2">3</td>	
+			</tr>
+			<tr>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+			</tr>
+		</table>
+		<br />
+		<table>
+			<tr>
+				<td colspan="2">1</td>
+				<td>2</td>	
+				<td rowspan="2">3</td>
+			</tr>
+			<tr>
+				<td>4</td>	
+				<td>5</td>
+				<td>6</td>	
+			</tr>
+			<tr>
+				<td rowspan="2">7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td colspan="2">12</td>
+			</tr>
+		</table>
+	</body>
+</html>

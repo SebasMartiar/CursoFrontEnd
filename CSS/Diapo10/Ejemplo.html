@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo (centrado horizontal)</title>
+	<style type="text/css">
+		body{
+			border: 1px solid #00f;
+			width: 800px;
+		}
+
+		figure{
+			outline: 1px solid #00f;
+			width: 400px;
+			margin: 10px;
+		}
+
+		img{
+			width: 50%;
+		}
+
+		figure:first-of-type{
+			text-align: center;
+			margin: 10px auto;
+		}
+
+		figure:nth-of-type(2) img{
+			display: block;
+			margin: auto;
+		}
+
+		figure:nth-of-type(3) img {
+		  max-width: 100%;
+		  /*border-radius: 120px;*/
+		}
+		.image-wrapper {
+		  position: relative;
+		  width: 250px;
+		  transform: rotate(20deg);
+		  transform-origin: 0% 100%;
+		}
+		.image-wrapper:before{
+		   z-index: -1;
+		  content: '';
+		  position: absolute;
+		  height: 100%;
+		  width: 100%;
+		  background: rgba(0, 0, 0, 0.1);
+		  /*border-radius: 120px;*/
+		  transform: rotate(20deg);
+		  transform-origin: 70% 70%;
+		}
+
+	</style>
+</head>
+<body>
+	<figure>
+		<img src="bart.png" alt="bart"/>
+		<figcaption>Bart Simpson</figcaption>
+	</figure>
+	<figure>
+		<img src="bart.png" alt="bart"/>
+		<figcaption>Bart Simpson</figcaption>
+	</figure>
+	<figure>
+		<div class="image-wrapper">
+			<img src="ejemplo.jpg" alt="tigre"/>
+		</div>
+		<figcaption>Tigre</figcaption>
+	</figure>
+</body>
+</html>

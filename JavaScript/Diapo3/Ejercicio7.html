@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Envío de paquetes</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function Precio(){
+			var peso = parseFloat(document.getElementById("peso").value);
+			var ancho = parseFloat(document.getElementById("ancho").value);
+			var alto = parseFloat(document.getElementById("alto").value);
+			var profundidad = parseFloat(document.getElementById("profundidad").value);
+
+			var precio = 2 + 0.005*ancho*alto*profundidad + parseInt(peso*10)*0.1;
+
+			document.getElementById("precio").innerHTML = parseFloat(precio.toFixed(2));
+		}
+	</script>
+</head>
+<body>
+	<h1>Tarifa para el envío de paquetes</h1>
+	<h3>Introduce los datos necesarios</h3>
+	<label for="peso">Peso:</label>
+	<input id="peso" type="number" name="peso"/><span>kg</span><br/><br/>
+	<label for="ancho">Ancho:</label>
+	<input id="ancho" type="number" name="ancho"/><span>cm</span><br/><br/>
+	<label for="alto">Alto:</label>
+	<input id="alto" type="number" name="alto"/><span>cm</span><br/><br/>
+	<label for="profundidad">Profundidad:</label>
+	<input id="profundidad" type="number" name="profundidad"/><span>cm</span><br/><br/>
+	<button onclick="Precio()">Precio</button>
+	<hr/>
+	<h3>Enviar el paquete cuesta: <span id="precio"></span><span> €</span></h3>
+</body>
+</html>

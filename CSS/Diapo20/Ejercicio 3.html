@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 3</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #c8c8c8;
+			display: flex;
+			justify-content: center;
+		}
+		.wrap {
+/*			perspective: 500px;
+			perspective-origin: 50% 100px;*/
+			margin-top: 30%;
+		}
+		.cube {
+			position: relative;
+			width: 200px;
+			transform-style: preserve-3d;
+			transform: rotateX(45deg) rotateY(45deg);
+		}
+		.cube div {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.front {
+			background-color: rgba(255, 0, 0, 0.5); /*#ff0000;*/
+			transform: translateZ(100px);
+		}
+		.back {
+			background-color: rgba(0, 255, 0, 0.5); /*#00ff00;*/
+			transform: rotateY(180deg) translateZ(100px);
+		}
+		.left {
+			background-color: rgba(0, 0, 255, 0.5); /*#0000ff;*/
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+		.right {
+			background-color: rgba(255, 255, 0, 0.5); /*#ffff00;*/
+			transform: rotateY(90deg) translateZ(100px);
+		}
+		.top {
+			background-color: rgba(255, 0, 255, 0.5); /*#ff00ff;*/
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		.bottom {
+			background-color: rgba(0, 255, 255, 0.5); /*#00ffff;*/
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+		@keyframes giros {
+			from { transform: rotateY(0) rotateZ(45deg) rotateX(45deg);}
+			to { transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);}
+		}
+		.cube.giratorio {
+			animation: giros 5s linear infinite;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap vertical">
+		<div class="cube giratorio" >
+			<div class="front">Front</div>
+			<div class="back">Back</div>
+			<div class="top">Top</div>
+			<div class="bottom">Bottom</div>
+			<div class="left">Left</div>
+			<div class="right">Right</div>
+		</div>
+	</div>
+</body>
+</html>

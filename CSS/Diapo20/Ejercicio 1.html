@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	<style type="text/css">
+		div{
+			background-image: url(imagenes/arena.jpg);
+			background-size: cover;
+			position: relative;
+			width: 900px;
+			height: 500px;
+		}
+		img{
+			height: 100px; width: 100px;
+			position: absolute;
+			animation: rotar 2s, mover 2.976221s, botar 0.756839s;
+			animation-iteration-count:infinite;
+			animation-timing-function: linear, linear, ease-in;
+			animation-direction: normal, alternate, alternate;
+		}
+		@keyframes mover{
+			from{left: 0}
+			to{left: 800px;}
+		}
+		@keyframes rotar{
+			from{transform: rotate(0deg);}
+			to{transform: rotate(360deg);}
+		}
+		@keyframes botar{
+			from{top: 0;}
+			to{top: 400px;}
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="imagenes/pelota.png">
+	</div>
+</body>
+</html>

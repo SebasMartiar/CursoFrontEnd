@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 0b</title>
+</head>
+<body>
+	<button onclick="abrir();">Abrir</button>
+	<button onclick="detener();">Detener</button>
+	<script type="text/javascript">
+		//Ventana que aparece de forma aleatoria en diferentes sitios de la pantalla
+		var ventana = null;
+		var intervalo = null;
+		function mover(){
+			var a1 = Math.random()*(screen.availWidth-300);
+			var a2 = Math.random()*(screen.availHeight-300);
+			ventana.moveTo(a1,a2);
+		}
+		function abrir(){
+			ventana=open("","","width=300, height=300");
+			intervalo=setInterval(mover, 1000);
+		}
+		function detener(){
+			clearInterval(intervalo);
+		}
+	</script>
+</body>
+</html>

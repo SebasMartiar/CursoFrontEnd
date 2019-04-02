@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, user-scalable=no"/>
+	<title>Ejercicio 1</title>
+	<style type="text/css">
+		@font-face {
+		  font-family: ChinaOne;
+		  src: url(fuentes/ChinaOne.ttf);
+		}
+		@font-face {
+		  font-family: GoJuOn;
+		  src: url(fuentes/GoJuOn.ttf);
+		}
+		
+		*{
+			font-size: calc(10px + 0.5vw);
+			font-family: GoJuOn;
+		}
+		h1{
+			font-size: calc(60px + 0.8vw);
+			color: #fff;
+			font-family: ChinaOne;
+		}
+		h2{
+			font-size: calc(25px + 0.6vw);
+		}
+		header{
+			display: flex;
+			flex-wrap: wrap;
+			background-image: linear-gradient(to left, #c02c00, #881f00);
+		}
+		header div{
+			flex:1;
+		}
+		header div img{
+			width: 100%;
+			max-width: 200px;
+			min-width: 150px;
+		}
+		header div+div{
+			flex:6;
+			text-align: center;
+		}
+		nav{
+			display: flex;
+			flex-wrap: wrap;
+			background-image: linear-gradient(to top, #777777, #414040);
+		}
+		nav div{
+			flex:2;
+			min-width: 300px;
+		}
+		div ul li{
+			list-style-type: none;
+			display: inline-flex;
+			padding: 0.8%;
+		}
+		div ul li a{
+			text-decoration:none;
+			color: #fff;
+		}
+		div ul li a:hover{
+			font-size: calc(20px + 0.6vw);
+			font-weight: bold;
+		}
+		nav div+div{
+			flex:1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			min-width: 300px;
+			margin: 2% auto;
+		}
+		nav div+div input{
+			max-width: 100px;
+		}
+		main section:first-of-type{
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+		main section article{
+			flex: 2;
+			min-width: 500px;
+		}
+		main section article+article{
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			min-width: 320px;
+		}
+		main section article table th{
+			background-color: #ccc;
+			border: 1px solid #999999;
+		}
+
+		main section article table td{
+			border: 1px solid #999999;
+		}
+		main section+section div{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		main section+section div figure{
+			flex:1;
+			margin:0.5%;
+		}
+		main section+section div figure img{
+			width: 30vw;
+			max-width: 350px;
+			min-width: 120px;
+		}
+		footer section:first-of-type{
+			text-align: right;
+			padding: 0.5%;
+			background-image: linear-gradient(to right, #c02c00, #881f00);
+			color:#fff;
+		}
+		footer section+section{
+			background-image: linear-gradient(to top, #777777, #414040);
+			color: #fff;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		footer section+section div:first-of-type{
+			flex:20;
+		}
+		footer section+section div:nth-of-type(2){
+			flex:1;
+			min-width: 160px;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+		footer section+section div:nth-of-type(2) figure{
+			margin:0.5%;
+			flex:1;
+		}
+		footer section+section div:nth-of-type(2) figure img{
+			width: 100%;
+			max-width: 30px;
+			min-width: 20px;
+		}
+		footer section+section div:nth-of-type(2) figure img:hover{
+			width: 100%;
+			max-width: 40px;
+			min-width: 30px;
+		}
+
+		table{
+			text-align: center;
+			font-family: verdana;
+		}
+
+		thead td, thead th, tbody td, tbody th{
+			border: solid 1px #717b40;
+			box-shadow: 0.5px 0.5px #7da12d;
+			padding: 2%;
+		}
+
+		thead th{
+			background-image: linear-gradient(to bottom,#89ad23, #53c447);
+			width: 15%;
+			border-radius: 8px 8px 0px 0px;
+			color: #fff;
+			text-shadow: 1px 1px #7da12d;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<div><img src="imagenes/pig.png" alt=""></div>
+		<div><h1>Mi cochina</h1></div>
+	</header>
+	<nav>
+		<div>
+			<ul>
+				<li><a href="" title="inicio" target="_blank">Inicio</a></li>
+				<li><a href="" title="recetas" target="_blank">Recetas</a></li>
+				<li><a href="" title="Menú" target="_blank">Menú</a></li>
+				<li><a href="" title="Vídeos" target="_blank">Vídeos</a></li>
+				<li><a href="" title="Contacto" target="_blank">Contacto</a></li>
+			</ul>
+		</div>
+		<div>
+			<input type="text" name="user" placeholder="user"/>
+			<input type="password" name="password" placeholder="password"/>
+			<input type="submit" name="login" placeholder="login"/>
+		</div>
+	</nav>
+	<main>
+		<section>
+			<article>
+				<h2>Bienvenido</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</article>
+			<article>
+				<table>
+					<thead>
+						<tr>
+							<th>Ingredientes</th>
+							<th>Calorías</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Apio</td>
+							<td>10</td>
+						</tr>
+						<tr>
+							<td>Berenjena</td>
+							<td>200</td>
+						</tr>
+						<tr>
+							<td>Col</td>
+							<td>50</td>
+						</tr>
+					</tbody>
+				</table>
+			</article>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</section>
+		
+		<section>
+			<h2>Galería</h2>
+			<div>
+				<figure><img src="imagenes/frutos_secos.png" alt="frutos_secos"></figure>
+				<figure><img src="imagenes/hidratos_de_carbono.png" alt="hidratos_de_carbono"></figure>
+				<figure><img src="imagenes/carne.png" alt="carne"></figure>
+				<figure><img src="imagenes/verdura.png" alt="verdura"></figure>
+				<figure><img src="imagenes/fruta1.png" alt="fruta"></figure>
+				<figure><img src="imagenes/lacteos.png" alt="lacteos"></figure>
+			</div>
+		</section>
+
+		<section>
+			<h2>Novedades</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</section>
+	</main>
+	<footer>
+		<section>
+			<p>by Sebas: cocinillas y programador</p>
+		</section>
+		<section>
+			<div>
+				<ul>
+					<li><a href="" title="aviso_legal" target="_blank">Aviso legal</a></li>
+					<li><a href="" title="condiciones_de_uso" target="_blank">Condiciones de Uso</a></li>
+				</ul>
+			</div>
+			<div>
+				<a href="" title="facebook" target="_blank"><figure><img src="imagenes/facebook.png" alt="facebook"></figure></a>
+				<a href="" title="instagram" target="_blank"><figure><img src="imagenes/instagram.png" alt="instagram"></figure></a>
+				<a href="" title="twitter" target="_blank"><figure><img src="imagenes/twitter.png" alt="twitter"></figure></a>
+				<a href="" title="youtube" target="_blank"><figure><img src="imagenes/youtube.png" alt="youtube"></figure></a>
+				<a href="" title="google" target="_blank"><figure><img src="imagenes/google.png" alt="google"></figure></a>
+			</div>
+		</section>
+	</footer>
+</body>
+</html>

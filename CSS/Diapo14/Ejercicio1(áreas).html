@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1: Utilizando áreas</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 20px;
+		}
+		body{
+			grid-area: ea;
+			display: grid;
+			grid-template-areas:
+			"ea eb"
+			"ec ed";
+			grid-gap: 5px;
+		}
+		header{
+			grid-area: h;
+			background-color: #fcffb4;
+		}
+		aside{
+			grid-area: i;
+			background-color: #a7ffe7;
+		}
+		main{
+			grid-area: m;
+			background-color: #b4c2ff;
+		}
+		aside:last-of-type{
+			grid-area: d;
+			background-color: #ff8b8b;
+		}
+		footer{
+			grid-area: f;
+			background-color: #fab4ff;
+		}
+		div{
+			display: grid;
+			grid-gap: 5px;
+		}
+
+		#ejercicio1a{
+			grid-area: ea;
+			grid-template-areas:
+			"h h h"
+			"i m d"
+			"f f f";
+		}
+		#ejercicio1b{
+			grid-area: eb;
+			grid-template-areas:
+			"h h d"
+			"i m m"
+			"f f f";
+		}
+		#ejercicio1c{
+			grid-area: ec;
+			grid-template-areas:
+			"h h d"
+			"m m d"
+			"i f f";
+		}
+		#ejercicio1d{
+			grid-area: ed;
+			grid-template-areas:
+			"i h h"
+			"i m d"
+			"i f d";
+		}
+	</style>
+</head>
+<body>
+	<div id="ejercicio1a">
+		<header>HEADER</header>
+		<aside>IZQ</aside>
+		<main>MAIN</main>
+		<aside>DER</aside>
+		<footer>FOOTER</footer>
+	</div>
+	<div id="ejercicio1b">
+		<header>HEADER</header>
+		<aside>IZQ</aside>
+		<main>MAIN</main>
+		<aside>DER</aside>
+		<footer>FOOTER</footer>
+	</div>
+	<div id="ejercicio1c">
+		<header>HEADER</header>
+		<aside>IZQ</aside>
+		<main>MAIN</main>
+		<aside>DER</aside>
+		<footer>FOOTER</footer>
+	</div>
+	<div id="ejercicio1d">
+		<header>HEADER</header>
+		<aside>IZQ</aside>
+		<main>MAIN</main>
+		<aside>DER</aside>
+		<footer>FOOTER</footer>
+	</div>
+</body>
+</html>

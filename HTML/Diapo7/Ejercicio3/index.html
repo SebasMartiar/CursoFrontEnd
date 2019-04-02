@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Viajes Lorem Ipsum</title>
+	<style type="text/css">
+		button, input, article, table, header, section, body, nav, footer, div, main, h1, th, td, tr, .cabecera, #destinos, img{
+			display: inline-block;
+			font-family: Comic Sans MS;
+			text-align: left;
+			/*font-size: 1em;*/
+			margin:0px;
+		}
+
+		body{
+			width: 100%;
+		}
+
+		header, nav, section, footer, main{
+			width: 99%;
+		}
+
+		#contacto{
+			text-align: right;
+		}
+
+		nav{
+			background-color: #B38566;
+			text-decoration-color: #ffffff;
+		}
+
+		main{
+			background-color: #dddddd;
+		}
+
+		footer{
+			text-align: right;
+			padding-top: 10px;
+		}
+
+		button{
+			width: 70px;
+		}
+
+		input{
+			width: 70px;
+		}
+
+		article{
+			width: 33%;
+			min-width: 410px;
+		}
+
+		h1, h2, h3{
+			font-family: Cooper Black;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		h3{
+			text-align: left;
+		}
+
+
+		#titulo{
+			margin-left: 30%;
+		}
+
+		#logo{
+			vertical-align: middle;
+			width: 20%;
+			max-height: 200px;
+			max-width: 200px;
+		}
+
+		.icono{
+			vertical-align: middle;
+			width: 3%;
+			max-height: 40px;
+			max-width: 40px;
+		}
+
+		#destinos{
+			width: 75%;
+		}
+
+		.ciudades{
+			width: 100%;
+		}
+
+		.container {
+		  position: relative;
+		  width: 100%;
+		}
+
+		.image {
+		  display: block;
+		  width: 100%;
+		  height: auto;
+		}
+
+		.overlay {
+		  position: absolute;
+		  bottom: 100%;
+		  left: 0;
+		  right: 0;
+		  background-color: #008CBA;
+		  overflow: hidden;
+		  width: 100%;
+		  height:0;
+		  transition: .5s ease;
+		}
+
+		.container:hover .overlay {
+		  bottom: 0;
+		  height: 100%;
+		}
+
+		.text {
+		  white-space: nowrap; 
+		  color: white;
+		  position: absolute;
+		  overflow: hidden;
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		}
+
+		.vFlotante{
+			
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<section>
+			<img src="imagenes/logo.jpg" id="logo" />
+			<h1 id="titulo">Viajes Lorem<br />Ipsum</h1>
+		</section>
+		<section id="contacto">
+		 	<a href="login.html"><img src="imagenes/usuario.png" class="icono" />
+		 	Entra</a>
+		 	<a href="registrarse.html"><img src="imagenes/correo.png" class="icono" />
+		 	Regístrate</a>
+		 	<a href="contacto.html"><img src="imagenes/telefono.png" class="icono" />
+		 	Contacta con nosotros</a>
+		</section>
+	</header>
+	<main>
+		<h3>Nuestra compañía Lorem Ipsum</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<!-- <h1>Mejores destinos</h1><br /> -->
+		<a href="barcelona.html">
+			<article>
+				<h4>Barcelona</h4>
+				<div class="container">
+					<img src="imagenes/barcelona2.jpeg" alt="" class="image" class="ciudades">
+					<div class="overlay">
+						<div class="text">Desde 500 €</div>
+					</div>
+				</div>
+			</article>
+		</a>
+		<a href="roma.html">
+			<article>
+				<h4>Roma</h4>
+				<div class="container">
+					<img src="imagenes/roma.jpeg" alt="" class="image" class="ciudades">
+					<div class="overlay">
+						<div class="text">Desde 700 €</div>
+					</div>
+				</div>
+			</article>
+		</a>
+		<a href="paris.html">
+			<article>
+				<h4>París</h4>
+				<div class="container">
+					<img src="imagenes/paris8.jpg" alt="" class="image" class="ciudades">
+					<div class="overlay">
+						<div class="text">Desde 800 €</div>
+					</div>
+				</div>
+			</article>
+		</a>
+	</main>
+	<footer>by Sebas</footer>
+</body>
+</html>

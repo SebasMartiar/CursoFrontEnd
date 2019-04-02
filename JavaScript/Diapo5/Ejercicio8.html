@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 8</title>
+	<script>
+		function calcular(){
+			var n1 = parseFloat(document.getElementById("n1").value);
+			var n2 = parseFloat(document.getElementById("n2").value);
+			var n3 = parseFloat(document.getElementById("n3").value);
+			var x;
+			var y;
+			var a;
+			var b;
+			var c;
+			var triangulo;
+			if (n1+n2>n3 && n1+n3>n2 && n2+n3>n1){
+				if(n1==n2 && n1==n3){
+		            triangulo="es equilátero";
+		        }
+		        else if(n1!=n2 && n1!=n3 && n2!=n3){
+		            triangulo="es escaleno";
+		        }
+		        else{
+		            triangulo="es isosceles";
+		        }
+		         if(n1 < n2 && n2 < n3) {
+				    c=n1; b=n2; a=n3;
+				  } else if (n1 < n2 && n3 < n2) {
+				  	c=n1; b=n3; a=n2;
+				  } else if (n2 < n1 && n1 < n3) {
+				  	c=n2; b=n1; a=n3;
+				  } else if(n2 < n1 && n3 < n1) {
+				  	c=n2; b=n3; a=n1;
+				  } else if(n3 < n1 && n1 < n2) {
+				  	c=n3; b=n1; a=n2;
+				  } else {
+				  	c=n3; b=n2; a=n1;
+				  }
+		        x=(a**2-b**2+c**2)/(2*a);
+		        y=-Math.sqrt(c**2-((a**2-b**2+c**2)/(2*a))**2);
+			}
+			else{
+				triangulo="no es un triángulo real";
+			}
+	        document.getElementById("resultado").innerHTML= "El triángulo "+triangulo+".";
+	        document.getElementById("triangle").setAttribute("points", "0,600 "+(a*100)+",600 "+(x*100)+","+(y*100+600));
+		}
+	</script>
+</head>
+<body>
+	<h1>Tipo de triángulo</h1>
+	<h3>Introduce el tamaño de los tres lados del triángulo para identificar de qué tipo se trata</h3>
+	<label for="n1">Lado 1:</label><input type="number" name="n1" id="n1" value="0" >cm<br/><br/>
+	<label for="n2">Lado 2:</label><input type="number" name="n2" id="n2" value="0" >cm<br/><br/>
+	<label for="n3">Lado 3:</label><input type="number" name="n3" id="n3" value="0">cm<br/><br/>
+	<button onclick="calcular();">Calcular</button>
+	<hr/>
+	<span id="resultado"></span><br/><br/>
+		<div>
+		  <svg height="1000" width="1000">
+			    <polygon points="250,60 100,400 400,400" id="triangle" stroke="#000" fill="#fcff00"/>
+			    Sorry, your browser does not support inline SVG.
+		  </svg>
+		</div>
+</body>
+</html>

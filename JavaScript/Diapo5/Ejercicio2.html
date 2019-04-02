@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 2</title>
+	<script>
+		function calcular() {
+			var base = parseFloat(document.getElementById("base").value);
+			var altura = parseFloat(document.getElementById("altura").value);
+			if (base>0 && altura>0){
+				var area = base*altura;
+				var perimetro = 2*(base+altura);
+				document.getElementById("resultado").innerHTML="Área = "+area+", Perímetro = "+perimetro;
+			}
+			else{
+				document.getElementById("resultado").innerHTML="Datos incorrectos";
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Introduce los datos necesarios para calcular el área y el perímetro de un rectángulo</h1>
+	<label for="base">Base: </label>
+	<input type="number" name="base" id="base" onkeyup="calcular()" value="0"/><br/><br/>
+	<label for="altura">Altura: </label>
+	<input type="number" name="altura" id="altura" onkeyup="calcular()" value="0"/>
+	<hr/>
+	<output name="resultado" id="resultado"></output>
+</body>
+</html>

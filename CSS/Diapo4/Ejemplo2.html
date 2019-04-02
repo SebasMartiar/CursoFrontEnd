@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Calculadora de HEX y RGB</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function mostrar(color){
+			// res.style.backgroundColor = color; //Cambia el color del div con id="res"
+			hex.innerHTML = color;//escribe el color en el div con id="hex"
+
+			var r = color.substr(1,2);//toma los dos dígitos del canal Rojo
+			var g = color.substr(3,2);//toma los dos dígitos del canal Verde
+			var b = color.substr(5,2);//toma los dos dígitos del canal Azul
+
+			//Calcula los valores en decimal y genera el texto que se muestra en el div id="rgb"
+			rgb.innerHTML = "rgb("+parseInt(r,16)+","+parseInt(g,16)+","+parseInt(b,16)+")";
+			rgba.innerHTML = "rgba("+parseInt(r,16)+","+parseInt(g,16)+","+parseInt(b,16)+","+"0.8"+")";
+			document.getElementsByClassName("fondo")[0].style.backgroundColor="rgba("+parseInt(r,16)+","+parseInt(g,16)+","+parseInt(b,16)+","+"0.8"+")";
+		}
+	</script>
+</head>
+<body class="fondo">
+	<input type="color" value="#FFFFFF" onchange="mostrar(this.value);">
+	<!-- <div id="res" style="heighr:90px; width:90px; border: solid 1px #000;"></div> -->
+	<p id="hex">#FFFFFF</p>
+	<p id="rgb">rgb(255,255,255)</p>
+	<p id="rgba">rgba(255,255,255,0.1)</p>
+</body>
+</html>

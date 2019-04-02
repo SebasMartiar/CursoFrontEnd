@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo con función colorear</title>
+	<style type="text/css" media="screen">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		div{
+			height: 10px;
+			width: 10px;
+			border: 1px solid #000;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+	<script>
+		function colorea(elemento, color){
+			elemento=document.getElementsByClassName("fondo");
+			elemento.style.backgroundColor = color;
+		}
+	</script>
+</head>
+<body>
+	<h1>Colorea</h1>
+	<p>Selecciona un color y haz click en los div</p>
+	<span>Color:</span>
+	<input type="color" id="incolor" name="incolor" value="#00509f"><br/><br/>
+	<div class="fondo" onclick="colorea();"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div>
+	<div onclick="colorea(this, incolor.value);"></div><br/><br/>
+	<button onclick="colorea(document.body, incolor.value);">Colorear body</button>
+</body>
+</html>

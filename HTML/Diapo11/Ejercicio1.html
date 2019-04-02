@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Validadores</title>
+	<style type="text/css">
+		input:valid{
+			border: solid 1px green;
+		}
+
+		input:invalid{
+			border: solid 1px red;
+		}
+	</style>
+
+</head>
+<body>
+ 	<form>
+  		<label for="dni1">DNI1</label>
+		<input type="text" name="dni1" id="dni1" required pattern="(\d{8}[a-zA-Z])$" /><br />
+		<label for="dni2">DNI2</label>
+		<input type="text" name="dni2" id="dni2" required pattern="(\d{8}[abcdefghjklmnpqrstvwxyzABCDEFGHJKLMNPQRSTVWXYZ])$" /><br />
+		<label for="dni3">DNI3</label>
+		<input type="text" name="dni3" id="dni3" required pattern="([XYZ]\d{8}[abcdefghjklmnpqrstvwxyzABCDEFGHJKLMNPQRSTVWXYZ])$" /><br />
+ 		<label for="hora">Hora</label>
+		<input type="time" name="hora" id="hora" required pattern="((([0-1]\d)|(2[0-3])):([0-5]\d):([0-5]\d))$" />
+		<label for="telefono">Teléfono</label>
+		<input type="text" name="telefono" id="telefono" required pattern="[+]34\s[6]\d{2}\s\d{3}\s\d{3}" title="el numero tiene que ser un movil y español con el formato: +34 6## ### ###" /><br />
+ 		<label for="fecha1">Fecha1</label>
+		<input type="text" name="fecha1" id="fecha1" required pattern="^(\d{2}-\d{2}-\d{4})$" title="fecha incorrecta" /><br />
+		<label for="fecha2">Fecha2</label>
+		<input type="text" name="fecha2" id="fecha2" required pattern="^(0[1-9]|[1-2][1-9]|3[0-1])[-](0[1-9]|1[0-2])[-]((19|20)\d{2}|2100)$" title="tiene que ser una fecha entre el 1900 y el 2100" /><br />
+		<input type="submit" value="Enviar"> 
+	</form>
+</body>
+</html>

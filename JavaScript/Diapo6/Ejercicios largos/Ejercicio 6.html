@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 6</title>
+	<script type="text/javascript">
+		function calcular () {
+			var n = parseInt(document.getElementById("n").value);
+			if (n<2){
+				document.getElementById("resultado").innerHTML="El número "+n+" no es primo.";
+			}
+			else{
+				document.getElementById("resultado").innerHTML="El número "+n+" es primo.";
+				for (let i=2;i<=n/2;i++){
+					if (n%i==0){
+						document.getElementById("resultado").innerHTML="El número "+n+" no es primo.";
+						break;
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Introduce un número para saber si es primo</h1>
+	<label for="n">Introduce un número n:</label>
+	<input type="number" name="n" id="n"><br/><br/>
+	<button onclick="calcular()">DESCUBRIR SI ES PRIMO</button>
+	<hr/>
+	<span id="resultado"></span>
+</body>
+</html>

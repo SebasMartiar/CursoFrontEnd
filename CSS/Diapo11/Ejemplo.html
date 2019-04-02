@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo flex</title>
+	<style type="text/css" media="screen">
+		header{
+			display: flex;
+			border: 2px dotted #e13737;
+			align-content: space-around;
+		}
+		main article{
+			display: flex;
+			flex-wrap: wrap;
+			border: 2px dotted #e19337;
+			align-items: center;
+		}
+		main section{
+			display: flex;
+			flex-direction: column;
+			border: 2px dotted #e1df37;
+		}
+		main aside{
+			display: flex;
+			flex-direction: column-reverse;
+			border: 2px dotted #77e137;
+		}
+		footer section{
+			display: flex;
+			flex-wrap: wrap;
+			border: 2px dotted #37dbe1;
+		}
+		footer section article{
+			display: flex;
+			flex-wrap: wrap;
+			flex: 1;
+			border: 2px dotted #3743e1;
+		}
+		footer section article div{
+			flex: 1;
+			border: 1px solid #000;
+			max-width: 300px;
+			min-width: 200px;
+		}
+		div{
+			flex: 1;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div>Supercalifragilisticoespialidoso 1</div>
+		<div>Supercalifragilisticoespialidoso 2</div>
+		<div>Supercalifragilisticoespialidoso 3</div>
+		<div>Supercalifragilisticoespialidoso 4</div>
+	</header>
+	<br/>
+	<br/>
+	<main>
+		<article>
+			<div>Supercalifragilisticoespialidoso 1</div>
+			<div><<img src="bart.png" alt="bart"></div>
+			<div>Supercalifragilisticoespialidoso 3</div>
+			<div>Supercalifragilisticoespialidoso 4</div>
+		</article>
+		<br/>
+		<br/>
+		<section>
+			<div>Supercalifragilisticoespialidoso 1</div>
+			<div>Supercalifragilisticoespialidoso 2</div>
+			<div>Supercalifragilisticoespialidoso 3</div>
+			<div>Supercalifragilisticoespialidoso 4</div>
+		</section>
+		<br/>
+		<br/>
+		<aside>
+			<div>Supercalifragilisticoespialidoso 1</div>
+			<div>Supercalifragilisticoespialidoso 2</div>
+			<div>Supercalifragilisticoespialidoso 3</div>
+			<div>Supercalifragilisticoespialidoso 4</div>
+		</aside>
+	</main>
+	<br/>
+	<br/>
+	<footer>
+		<section>
+			<article>
+				<div>Hijo 1</div>
+				<div>Hijo 2</div>
+				<div>Hijo 3</div>
+				<div>Hijo 4</div>
+			</article>
+			<article>
+				<div>Hijo 1</div>
+				<div>Hijo 2</div>
+				<div>Hijo 3</div>
+				<div>Hijo 4</div>
+			</article>
+			<article>
+				<div>Hijo 1</div>
+				<div>Hijo 2</div>
+				<div>Hijo 3</div>
+				<div>Hijo 4</div>
+			</article>
+<!-- 			<article>
+				<div>Hijo 1</div>
+				<div>Hijo 2</div>
+				<div>Hijo 3</div>
+				<div>Hijo 4</div>
+			</article> -->
+		</section>
+	</footer>
+</body>
+</html>

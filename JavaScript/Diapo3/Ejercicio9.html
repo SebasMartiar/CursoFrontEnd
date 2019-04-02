@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Combustible</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		var pi = 3.14159;
+		var consumo1 = 0;
+		for (var i = 0; i <= 10; i++) {
+			alert(Virus!);
+		}
+
+		function consumo(){
+			var kmscar = parseFloat(document.getElementById("kmscar").value);
+			var kmsciu = parseFloat(document.getElementById("kmsciu").value);
+			var consumocar = parseFloat(document.getElementById("consumocar").value);
+			var consumociu = parseFloat(document.getElementById("consumociu").value);
+
+			consumo1 = kmsciu * consumociu/100 + kmscar * consumocar/100;
+			document.getElementById("consumo").innerHTML = consumo1.toFixed(2);
+		}
+		function coste(){
+			var precio = parseFloat(document.getElementById("precio").value);
+			var coste = consumo1 * precio;
+			document.getElementById("coste").innerHTML = coste.toFixed(2);
+		}
+	</script>
+</head>
+<body>
+	<h1>Consumo y coste de combustible</h1>
+	<h3>Introduce los datos necesarios</h3>
+	<label for="kmscar">Kms recorridos en carretera:</label>
+	<input id="kmscar" type="number" name="kmscar" value="0" onkeyup="consumo(); coste();"/><br/><br/>
+	<label for="kmsciu">Kms recorridos en ciudad:</label>
+	<input id="kmsciu" type="number" name="kmsciu" value="0" onkeyup="consumo(); coste();"/><br/><br/>
+	<label for="consumocar">Consumo del vehiculo por carretera:</label>
+	<input id="consumocar" type="number" name="consumocar" value="0" onkeyup="consumo(); coste();"/><span>litros/100km</span><br/><br/>
+	<label for="consumociu">Consumo del vehiculo por ciudad:</label>
+	<input id="consumociu" type="number" name="consumociu" value="0" onkeyup="consumo(); coste();"/><span>litros/100km</span><br/><br/>
+	<label for="precio">Precio del combustible:</label>
+	<input id="precio" type="number" name="precio" value="0" onkeyup="consumo(); coste();"/><span>€/litro</span><br/>
+	<br/><br/>
+	<hr/>
+	<h3>El consumo es de: <span id="consumo"></span><span> litros</span></h3>
+	<h3>El coste es de: <span id="coste"></span><span> €</span></h3>
+</body>
+</html>

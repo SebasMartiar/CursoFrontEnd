@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo media queries</title>
+	<style type="text/css" media="screen">
+		/*BACKGROUND PARA EL DIV*/
+		div{
+			border: 1px solid #00f;
+			width: 90%;
+			margin: auto;
+			background-color: #adff2f;
+		}
+		/*CUANDO EL ANCHO SEA MENOR DE 500PX*/
+		@media screen and (max-width: 500px){
+			div{
+				background-color: #add8e6;
+			}
+		}
+		/*CUANDO EL ANCHO SEA MAYOR DE 700PX*/
+		@media screen and (min-width: 700px){
+			div{
+				background-color: #bc8f8f;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>Ejemplo de Media Queris</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+</body>
+</html>

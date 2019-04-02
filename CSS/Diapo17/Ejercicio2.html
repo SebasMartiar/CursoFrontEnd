@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, user-scalable=no"/>
+	<title>Ejercicio 2: Galería</title>
+	<style type="text/css" >
+		body{
+			background-image: url("imagenes/fondo1.jpg");
+			color: #fff;
+			font-family: helvetica;
+		}
+		header{
+			text-align: center;
+		}
+		nav{
+			margin: 0;
+			padding: 0.5%;
+			position: sticky;
+			top:0;
+			background-image: url("imagenes/fondo1.jpg");
+			z-index: 9999;
+		}
+		nav ul{
+			list-style-type: none;
+			display: flex;
+			justify-content: center;
+		}
+		nav a{
+			text-decoration:none;
+			margin-right: 10px;
+			color: #ff8400;
+		}
+		nav a:hover{
+			text-decoration: underline;
+		}
+		main section {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		main h2 {
+			text-align: center;
+		}
+		main section div{
+			flex:1;
+			margin:0.5%;
+			width:100%;
+			text-align: center;	
+			border: 2px solid #ffc000;
+			border-radius: 30px;
+		}
+		main section div figure{
+			margin: 0;
+			padding: 2%;
+		}
+		main section div figure a{
+			text-decoration: none;
+			color: #fff;
+		}
+		main section div:target{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: fixed;
+			background-color: rgba(0, 0, 0, 0.5);
+			top:0; left: 0; right: 0; bottom: 0;
+			z-index: 99999;
+			margin: 0;
+			padding: 0;
+			border: 0;
+		}
+		main section div:target figure{
+			position: relative;
+			width: 40%;
+			border: 2px solid #ffc000;
+			background-color: rgba(0, 0, 0, 0.9);
+			border-radius: 30px;
+		}
+		main section div figure a svg{
+			display: none;
+		}
+		main section div:target figure a:nth-of-type(2) svg {
+			position: absolute;
+			border-radius: 50%;
+			display: inline-flex;
+			top:-4%; right: -4%;
+			background-color: #ff8400;
+			z-index: 3;
+		}
+		main section div:target figure a:nth-of-type(3) svg {
+			position: absolute;
+			border-radius: 50%;
+			display: inline-flex;
+			top:48%; left: -2%;
+			background-color: #ff8400;
+			z-index: 3;
+		}
+		main section div:target figure a:nth-of-type(4) svg {
+			position: absolute;
+			border-radius: 50%;
+			display: inline-flex;
+			top:48%; right: -2%;
+			background-color: #ff8400;
+			z-index: 3;
+		}
+		main section div figure img{
+			width:100%;
+			min-width: 350px;
+			border-radius: 30px;
+			transition: all 5s;
+		}
+		main section:first-of-type div figure img{
+			filter: grayscale(100%);
+			cursor: zoom-in;
+		}
+		main section:first-of-type div figure img:hover{
+			filter: grayscale(0);
+		}
+
+		main section:nth-of-type(2) div:nth-of-type(1) figure img:hover{
+			transform-origin: 0 0;
+			transform: rotate(-10deg);
+		}
+		main section:nth-of-type(2) div:nth-of-type(2) figure img:hover{
+			transform-origin: 100% 0;
+			transform: rotate(-10deg);
+		}
+		main section:nth-of-type(2) div:nth-of-type(3) figure img:hover{
+			transform-origin: 0 100%;
+			transform: rotateX(50deg);
+		}
+		main section:nth-of-type(2) div:nth-of-type(4) figure img:hover{
+			transform-origin: 100% 100%;
+			transform: rotateY(50deg);
+		}
+		main section:nth-of-type(2) div:nth-of-type(5) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: rotateZ(50deg);
+		}
+		main section:nth-of-type(2) div:nth-of-type(6) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: translateX(-20px);
+		}
+		main section:nth-of-type(2) div:nth-of-type(7) figure img:hover{
+			transform-origin: 100% 100%;
+			transform: translateX(-20px);
+		}
+		main section:nth-of-type(2) div:nth-of-type(8) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: translateY(-20px);
+		}
+		main section:nth-of-type(2) div:nth-of-type(9) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: translate(20px, 20px);
+		}
+		main section:nth-of-type(2) div:nth-of-type(10) figure img:hover{
+			transform-origin: 100% 100%;
+			transform: scaleX(0.7);
+		}
+		main section:nth-of-type(2) div:nth-of-type(11) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: scaleX(0.7);
+		}
+		main section:nth-of-type(2) div:nth-of-type(12) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: scale(0.7, 0.4);
+		}
+
+		main section:nth-of-type(3) div:nth-of-type(1) figure img:hover{
+			transform-origin: 0 0;
+			transform: skewX(-10deg);
+		}
+		main section:nth-of-type(3) div:nth-of-type(2) figure img:hover{
+			transform-origin: 100% 0;
+			transform: skewX(-10deg);
+		}
+		main section:nth-of-type(3) div:nth-of-type(3) figure img:hover{
+			transform-origin: 0 100%;
+			transform: skewY(10deg);
+		}
+		main section:nth-of-type(3) div:nth-of-type(4) figure img:hover{
+			transform-origin: 100% 100%;
+			transform: skewY(10deg);
+		}
+		main section:nth-of-type(3) div:nth-of-type(5) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: skew(10deg, 20deg);
+		}
+		main section:nth-of-type(3) div:nth-of-type(6) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: matrix(0.5, 0.3, 0.3, 0.5, 10, 10);
+		}
+		main section:nth-of-type(3) div:nth-of-type(7) figure img:hover{
+			transform-origin: 100% 100%;
+			transform: matrix(0, 0.7, 0.7, 0, 0, 0);
+		}
+		main section:nth-of-type(3) div:nth-of-type(8) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: matrix(2, 2, 2, 2, -1000, -1000);
+		}
+		main section:nth-of-type(3) div:nth-of-type(9) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: matrix(0, 0, 0, 0, 0, 0);
+		}
+		main section:nth-of-type(3) div:nth-of-type(10) figure img:hover{
+			transform-origin: 100% 100%;
+			transform: scaleX(0);
+		}
+		main section:nth-of-type(3) div:nth-of-type(11) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: scaleX(0);
+		}
+		main section:nth-of-type(3) div:nth-of-type(12) figure img:hover{
+			transform-origin: 50% 50%;
+			transform: scale(0, 0);
+		}
+		footer{
+			grid-area: fo;
+			display: grid;
+			grid-template-columns: auto 50%;
+			margin:3%;
+		}
+		footer div:last-of-type{
+			text-align: right;
+		}
+		footer div figure{
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+		}
+		footer div:nth-of-type(2) figure img{
+			width: 100%;
+			max-width: 25px;
+			min-width: 15px;
+		}
+		footer div:nth-of-type(2) figure img:hover{
+			max-width: 35px;
+			min-width: 25px;
+		}
+		@media screen and (max-width:1100px){
+			main section div figure img{
+				width:100%;
+				min-width: 295px;
+			}
+			main section div:target figure{
+				width: 70%;
+			}
+			main section div:target figure a:nth-of-type(2) svg {
+				top:-3%; right: -3%;
+			}
+			main section div:target figure a:nth-of-type(3) svg {
+				top:48%; left: -2%;
+			}
+			main section div:target figure a:nth-of-type(4) svg {
+				top:48%; right: -2%;
+			}
+		}
+		@media screen and (max-width:400px){
+			main section div figure img{
+				width:100%;
+				min-width: 220px;
+			}
+			main section div:target figure{
+				width: 90%;
+			}
+			main section div:target figure a:nth-of-type(2) svg {
+				top:-7%; right: -7%;
+			}
+			main section div:target figure a:nth-of-type(3) svg {
+				top:48%; left: -5%;
+			}
+			main section div:target figure a:nth-of-type(4) svg {
+				top:48%; right: -5%;
+			}
+		}
+	</style>
+</head>
+<body id="start">
+	<header><h1>3 GALLERIES</h1></header><span id="landscape"></span>
+	<hr/>
+		<nav>
+			<ul>
+				<li><a href="#start" title="me">START</a></li>
+				<li><a href="#landscape" title="studies">LANDSCAPES</a></li>
+				<li><a href="#portrait" title="work">PORTRAITS</a></li>
+				<li><a href="#artworks" title="hobbies">ARTWORKS</a></li>
+				<li><a href="#contact" title="contact">CONTACT</a></li>
+			</ul>
+		</nav>
+	<hr/>
+	<main>
+		<h2>Landscape</h2>
+		<section>
+			<div id="foto01">
+				<figure>
+					<a href="#foto01">
+						<img src="imagenes/tree-736888_1280.jpg" alt="tree"><figcaption>Image 1: Tree</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto36" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto02" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto02">
+				<figure>
+					<a href="#foto02">
+						<img src="imagenes/mountains-757731_1280.jpg" alt="mountains"><figcaption>Image 2: Mountains</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto01" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto03" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto03">
+				<figure>
+					<a href="#foto03">
+						<img src="imagenes/landscape-404072_1920.jpg" alt="landscape"><figcaption>Image 3: Landscape</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto02" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto04" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto04">
+				<figure>
+					<a href="#foto04">
+						<img src="imagenes/forest-1950402_1920.jpg" alt="forest"><figcaption>Image 4: Forest</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto03" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto05" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto05">
+				<figure>
+					<a href="#foto05">
+						<img src="imagenes/autumn-219972_1280.jpg" alt="autumn"><figcaption>Image 5: Autumn</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto04" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto06" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto06">
+				<figure>
+					<a href="#foto06">
+						<img src="imagenes/road-220058_1280.jpg" alt="road"><figcaption>Image 6: Road</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto05" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto07" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto07">
+				<figure>
+					<a href="#foto07">
+						<img src="imagenes/utah-440520_1920.jpg" alt="utah"><figcaption>Image 7: Utah</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto06" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto08" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto08">
+				<figure>
+					<a href="#foto08">
+						<img src="imagenes/railroad-tracks-163518_1280.jpg" alt="railroad"><figcaption>Image 8: Railroad</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto07" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto09" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto09">
+				<figure>
+					<a href="#foto09">
+						<img src="imagenes/the-road-815297_1920.jpg" alt="track"><figcaption>Image 9: Track</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto08" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto10" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto10">
+				<figure>
+					<a href="#foto10">
+						<img src="imagenes/redwood-national-park-1587301_1920.jpg" alt="redwood"><figcaption>Image 10: Redwood</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto09" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto11" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto11">
+				<figure>
+					<a href="#foto11">
+						<img src="imagenes/boat-1620452_1920.jpg" alt="boat"><span id="portrait"></span><figcaption>Image 11: Boat</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto10" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto12" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto12">
+				<figure>
+					<a href="#foto12">
+						<img src="imagenes/nature-3151869_1920.jpg" alt="nature"><figcaption>Image 12: Nature</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto11" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto13" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+		</section>
+		<h2>Portraits</h2>
+				<section>
+			<div id="foto13">
+				<figure>
+					<a href="#foto13">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="tree"><figcaption>Image 13: transform-origin: 0 0; transform: rotate(-10deg);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto12" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto14" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto14">
+				<figure>
+					<a href="#foto14">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="mountains"><figcaption>Image 14: transform-origin: 100% 0; transform: rotate(-10deg);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto13" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto15" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto15">
+				<figure>
+					<a href="#foto15">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="landscape"><figcaption>Image 15: transform-origin: 0 100%;	transform: rotateX(50deg);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto14" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto16" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto16">
+				<figure>
+					<a href="#foto16">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="forest"><figcaption>Image 16: transform-origin: 100% 100%;	transform: rotateY(50deg);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto15" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto17" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto17">
+				<figure>
+					<a href="#foto17">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="autumn"><figcaption>Image 17: transform-origin: 50% 50%; transform: rotateZ(50deg);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto16" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto18" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto18">
+				<figure>
+					<a href="#foto18">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="road"><figcaption>Image 18: transform-origin: 50% 50%;	transform: translateX(-20px);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto17" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto19" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto19">
+				<figure>
+					<a href="#foto19">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="utah"><figcaption>Image 19: transform-origin: 100% 100%; transform: translateX(-20px);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto18" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto20" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto20">
+				<figure>
+					<a href="#foto20">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="railroad"><figcaption>Image 20: transform-origin: 50% 50%;	transform: translateY(-20px);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto19" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto21" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto21">
+				<figure>
+					<a href="#foto21">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="track"><figcaption>Image 21: transform-origin: 50% 50%; transform: translate(20px, 20px);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto20" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto22" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto22">
+				<figure>
+					<a href="#foto22">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="redwood"><figcaption>Image 22: transform-origin: 100% 100%; transform: scaleX(0.7);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto21" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto23" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto23">
+				<figure>
+					<a href="#foto23">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="boat"><span id="artworks"></span><figcaption>Image 23: transform-origin: 50% 50%; transform: scaleX(0.7);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto22" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto24" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto24">
+				<figure>
+					<a href="#foto24">
+						<img src="imagenes/wolf-3818343_1920.jpg" alt="nature"><figcaption>Image 24: transform-origin: 50% 50%; transform: scale(0.7, 0.4);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto23" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto25" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+		</section>
+		<h2>Artworks</h2>
+		<section>
+			<div id="foto25">
+				<figure>
+					<a href="#foto25">
+						<img src="imagenes/painting-799975_1920.jpg" alt="tree"><figcaption>Image 25: transform-origin: 0 0; transform: skewX(-10deg);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto24" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto26" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto26">
+				<figure>
+					<a href="#foto26">
+						<img src="imagenes/painting-799975_1920.jpg" alt="mountains"><figcaption>Image 26: transform-origin: 100% 0; transform: skewX(-10deg);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto25" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto27" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto27">
+				<figure>
+					<a href="#foto27">
+						<img src="imagenes/painting-799975_1920.jpg" alt="landscape"><figcaption>Image 27: transform-origin: 0 100%; transform: skewY(10deg);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto26" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto28" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto28">
+				<figure>
+					<a href="#foto28">
+						<img src="imagenes/painting-799975_1920.jpg" alt="forest"><figcaption>Image 28: transform-origin: 100% 100%; transform: skewY(10deg);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto27" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto29" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto29">
+				<figure>
+					<a href="#foto29">
+						<img src="imagenes/painting-799975_1920.jpg" alt="autumn"><figcaption>Image 29: transform-origin: 50% 50%; transform: skew(10deg, 20deg);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto28" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto30" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto30">
+				<figure>
+					<a href="#foto30">
+						<img src="imagenes/painting-799975_1920.jpg" alt="road"><figcaption>Image 30: transform-origin: 50% 50%; transform: matrix(0.5, 0.3, 0.3, 0.5, 10, 10);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto29" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto31" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto31">
+				<figure>
+					<a href="#foto31">
+						<img src="imagenes/painting-799975_1920.jpg" alt="utah"><figcaption>Image 31: transform-origin: 100% 100%; transform: matrix(0, 0.7, 0.7, 0, 0, 0);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto30" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto32" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto32">
+				<figure>
+					<a href="#foto32">
+						<img src="imagenes/painting-799975_1920.jpg" alt="railroad"><figcaption>Image 32: transform-origin: 50% 50%; transform: matrix(2, 2, 2, 2, -1000, -1000);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto31" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto33" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto33">
+				<figure>
+					<a href="#foto33">
+						<img src="imagenes/painting-799975_1920.jpg" alt="track"><figcaption>Image 33: transform-origin: 50% 50%; transform: matrix(0, 0, 0, 0, 0, 0);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto32" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto34" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto34">
+				<figure>
+					<a href="#foto34">
+						<img src="imagenes/painting-799975_1920.jpg" alt="redwood"><figcaption>Image 34: transform-origin: 100% 100%; transform: scaleX(0);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto33" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto35" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div  id="foto35">
+				<figure>
+					<a href="#foto35">
+						<img src="imagenes/painting-799975_1920.jpg" alt="boat"><span id="contact"></span><figcaption>Image 35: transform-origin: 50% 50%; transform: scaleX(0);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto34" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto36" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+			<div id="foto36">
+				<figure>
+					<a href="#foto36">
+						<img src="imagenes/painting-799975_1920.jpg" alt="nature"><figcaption>Image 36: transform-origin: 50% 50%; transform: scale(0, 0);</figcaption>
+					</a>
+					<a href="#" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="30,70 50,50 30,30 70,70 50,50 70,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto35" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 30,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+					<a href="#foto01" title="index"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+			    		<rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+			        fill="rgba(255, 132, 0, 0.5)" />
+			        	<polyline points="50,70 70,50 50,30" stroke="rgba(0, 0, 0, 0.5)" stroke-width="20"
+			      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+					</svg></a>
+				</figure>
+			</div>
+		</section>
+	</main>
+	<footer>	
+		<div>Contact to: Sebas</div>
+		<div>
+			<a href="" title="facebook" target="_blank"><figure id="foto"><img src="imagenes/facebook.png" alt="facebook"></figure></a>
+			<a href="" title="instagram" target="_blank"><figure id="foto"><img src="imagenes/instagram.png" alt="instagram"></figure></a>
+			<a href="" title="twitter" target="_blank"><figure id="foto"><img src="imagenes/twitter.png" alt="twitter"></figure></a>
+			<a href="" title="youtube" target="_blank"><figure id="foto"><img src="imagenes/youtube.png" alt="youtube"></figure></a>
+			<a href="" title="google" target="_blank"><figure id="foto"><img src="imagenes/google.png" alt="google"></figure></a>
+		</div>
+	</footer>
+</body>
+</html>

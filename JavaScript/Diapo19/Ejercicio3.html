@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 3</title>
+	<script type="text/javascript">
+		var lista=[];
+		function ampliar(esto) {
+			var actual = esto;
+			document.getElementById("escondida").style.display = 'inline-flex';
+			document.getElementById("escondida").children[1].children[1].children[0].src=actual.src;
+			document.getElementById("escondida").children[2].innerHTML=actual.dataset.nombre;
+			document.getElementById("escondida").children[1].children[2].onclick=function(){
+				if(actual.parentElement.previousElementSibling){
+					actual=actual.parentElement.previousElementSibling.children[0];
+				}else{
+					actual=document.getElementsByTagName("figure")[(document.getElementsByTagName("figure").length)-1].children[0];
+				}
+				document.getElementById("escondida").children[1].children[1].children[0].src= actual.src;
+				document.getElementById("escondida").children[2].innerHTML=actual.dataset.nombre;
+				};
+			document.getElementById("escondida").children[1].children[0].onclick=function(){
+				actual=actual.parentElement.nextElementSibling.children[0];
+				if(actual.parentElement.nodeName!="FIGURE"){
+					actual=document.getElementsByTagName("figure")[0].children[0];
+				}
+				document.getElementById("escondida").children[1].children[1].children[0].src= actual.src;
+				document.getElementById("escondida").children[2].innerHTML=actual.dataset.nombre;
+				};
+		}
+		function cerrar(){
+			document.getElementById("escondida").style.display = 'none';
+		}
+
+	</script>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		figure{
+			border: solid 2px #000;
+			border-radius: 10px;
+			display: inline-flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 2%;
+			min-width: 200px;
+			max-width: 400px;
+			margin: 1%;
+		}
+		figure img{
+			width: 100%;
+		}
+		img:hover{
+			cursor: pointer;
+		}
+		#escondida{
+			display: none;
+			position: fixed;
+			background-color: rgba(255,255,255, 0.7);
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			z-index: 2;
+		}
+		h1{
+			text-shadow: 2px 2px 2px #000;
+			color: #fff;
+			padding: 2%;
+		}
+		h2{
+			width: 100%;
+			text-align: center;
+			padding: 2%;
+			margin-bottom: 2%;
+			background-color: rgba(0,0,0,0.8);
+			color: #fff;	
+		}
+		#escondida img{
+			box-shadow: 5px 5px 5px #000;
+			width: 70%;
+		}
+		svg{
+			position: fixed;
+			z-index: 3;
+		}
+		svg:first-of-type{
+			right: 0;
+			top: 50vh;
+		}
+		svg:last-of-type{
+			left: 0;
+			top: 50vh;
+		}
+	</style>
+</head>
+<body>
+	<figure><img src="coche3.jpg" data-nombre="SEAT" onclick="ampliar(this);"></figure>
+	<figure><img src="coche4.jpg" data-nombre="TOYOTA" onclick="ampliar(this);"></figure>
+	<figure><img src="coche5.jpg" data-nombre="TESLA" onclick="ampliar(this);"></figure>
+	<figure><img src="coche6.jpg" data-nombre="MERCEDES" onclick="ampliar(this);"></figure>
+	<figure><img src="coche3.jpg" data-nombre="SEAT" onclick="ampliar(this);"></figure>
+	<figure><img src="coche4.jpg" data-nombre="TOYOTA" onclick="ampliar(this);"></figure>
+	<figure><img src="coche5.jpg" data-nombre="TESLA" onclick="ampliar(this);"></figure>
+	<figure><img src="coche6.jpg" data-nombre="MERCEDES" onclick="ampliar(this);"></figure>
+	<div id="escondida">
+		<h1>IMAGEN DEL VEHÍCULO</h1>
+		<div>
+			<svg onclick="siguiente();" version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+       			<polyline points="30,30 50,45 30,60" stroke="rgba(0, 0, 0)" stroke-width="5" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+			</svg> 
+			<center><img src="" onclick="cerrar();"></center>
+			<svg onclick="anterior();" version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100">
+	       		<polyline points="50,30 30,45 50,60" stroke="rgba(0, 0, 0)" stroke-width="5" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+			</svg>
+		</div>
+		<h2></h2>
+	</div>
+</body>
+</html>

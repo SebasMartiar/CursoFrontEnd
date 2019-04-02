@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 6c</title>
+	<script>
+		function calcular(){
+			var n1 = parseFloat(document.getElementById("n1").value);
+			var n2 = parseFloat(document.getElementById("n2").value);
+			var n3 = parseFloat(document.getElementById("n3").value);
+			var max;
+			if(n1>n2 && n1>n3){
+	            max=n1;
+	        }
+	        else if(n2>n1 && n2>n3){
+	            max=n2;
+	        }
+	        else{
+	            max=n3;
+	        }
+	        document.getElementById("resultado").innerHTML= "El número mayor es el "+max+".";
+		}
+	</script>
+</head>
+<body>
+	<h1>Encontrar el número mayor</h1>
+	<h3>Introduce los tres números a comparar</h3>
+	<label for="n1">Número 1:</label><input type="number" name="n1" id="n1" value="0" onkeyup="calcular();"><br/><br/>
+	<label for="n2">Número 2:</label><input type="number" name="n2" id="n2" value="0" onkeyup="calcular();"><br/><br/>
+	<label for="n3">Número 3:</label><input type="number" name="n3" id="n3" value="0" onkeyup="calcular();"><br/><br/>
+	<button onclick="calcular();">Calcular</button>
+	<hr/>
+	<span id="resultado"></span>
+</body>
+</html>

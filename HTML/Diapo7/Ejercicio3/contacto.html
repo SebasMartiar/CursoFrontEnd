@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Viajes Lorem Ipsum</title>
+	<style type="text/css">
+		img, h1{
+			display: inline-block;
+			font-family: Cooper Black;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		header, section, footer, main{
+			width: 100%;
+		}
+
+		#contacto{
+			text-align: right;
+		}
+
+		main{
+			background-image: linear-gradient(#ffffff, #dddddd);
+		}
+
+		footer{
+			text-align: left;
+			padding-top: 10px;
+		}
+
+		textarea{
+			display: inline-block;
+		}
+
+
+		#titulo{
+			margin-left: 30%;
+		}
+
+		#logo{
+			vertical-align: middle;
+			width: 20%;
+			max-height: 200px;
+			max-width: 200px;
+		}
+
+		.icono{
+			vertical-align: middle;
+			width: 3%;
+			max-height: 40px;
+			max-width: 40px;
+		}
+
+		#derecha{
+			text-align: right;
+		}
+
+
+		label{
+			text-align: right;
+			display: inline-block;
+			margin-bottom: 15px;
+			width: 15%;
+			font-family: arial;
+			color: #344576;
+		}
+
+		form{
+			background-image: linear-gradient(#ffffff, #dddddd);
+			padding: 2%;
+
+		}
+
+		.boton {
+			background-color: #5C9E3B;
+			border: solid 1px #000000;
+			padding: 5px 10px;
+			text-align: center;
+			display: inline-block;
+			color: #ffffff;
+			margin-left: 23%;
+		}
+
+	</style>
+</head>
+<body>
+	<header id="inicio">
+	<header>
+		<section>
+			<img src="imagenes/logo.jpg" id="logo" />
+			<h1 id="titulo">Viajes Lorem<br />Ipsum</h1>
+		</section>
+		<section id="contacto">
+		 	<a href="login.html"><img src="imagenes/usuario.png" class="icono" />
+		 	Entra</a>
+		 	<a href="registrarse.html"><img src="imagenes/correo.png" class="icono" />
+		 	Regístrate</a>
+		 	<a href="contacto.html"><img src="imagenes/telefono.png" class="icono" />
+		 	Contacta con nosotros</a>
+		</section>
+	</header>
+	<main>
+<form method="get" autocomplete="off">
+	<h1>Contacto</h1><br />
+		<label>Nombre:</label>
+		<input type="text" name="usuario" required="required" autofocus="autofocus"><br />
+		<label>Email:</label>
+		<input type="text" name="email" required="required"><br />
+		<label>Motivo:</label>
+		<input type="text" name="motivo" required="required"><br />
+     	<br />
+     	<label>Texto de consulta:</label><br />
+     	<textarea rows="10" cols="40">Escribe aquí tu consulta...</textarea><br />
+		<input type="submit" value="Enviar" class="boton">
+	</form>
+	</main>
+	<footer>
+		<section>
+		 	<a href="index.html">Vuelve al inicio</a>
+		</section>
+		<section id="derecha">
+			<p>by Sebas</p>
+		</section>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	<style type="text/css" media="screen">
+		*{
+			font-family: Helvetica;
+		}
+		div{
+			display: flex;
+			flex-wrap: wrap;
+			background-image: linear-gradient(to top, #777777, #414040);
+		}
+		div ul li{
+			list-style-type: none;
+			display: inline-flex;
+			padding: 0.8%;
+			position: relative;
+			list-style-type: none;
+			padding: 10px;
+			color:#414040;
+		}
+		div ul li a{
+			text-decoration:none;
+			color: #fff;
+		}
+		div ul li a:hover{
+			font-size: calc(20px + 0.6vw);
+			font-weight: bold;
+		}
+		div ul li ul{
+			position:absolute;
+			overflow:hidden;
+			max-height: 0;
+			top:40px;
+			left:0;
+			background-color: white;
+			width: 150px;
+			box-shadow: 0px 2px 4px rgba(60,60,60,0.6);
+			transition: 0.2s;
+			padding: 0;
+		}
+		div ul li:hover ul{
+			max-height: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ul class="menu">
+			<li><a href="" title="inicio" target="_blank">Inicio</a></li>
+			<li><a href="" title="blog" target="_blank">Blog</a>
+				<ul class="submenu">
+					<li>Noticias</li>
+					<li>Comida china</li>
+					<li>Tursimo gastronómico</li>
+					<li>Tutorial</li>
+					<li>Entrevistas</li>
+					<li>Idioma chino</li>
+					<li>Libros</li>
+				</ul>
+			</li>
+			<li><a href="" title="recetas" target="_blank">Recetas</a>
+				<ul class="submenu">
+					<li>Condimentos</li>
+					<li>Recetas de arroz</li>
+					<li>Recetas de carne</li>
+					<li>Recetas dulces</li>
+					<li>Recetas de pasta</li>
+					<li>Recetas de pescado</li>
+					<li>Recetas de sopa</li>
+					<li>Recetas de vegetales</li>
+				</ul>
+			</li>
+			<li><a href="" title="Menú" target="_blank">Cursos de cocina</a>
+				<ul class="submenu">
+					<li>Cursos en Barcelona</li>
+					<li>Cursos en Madrid</li>
+					<li>Cursos en Valencia</li>
+					<li>Artículos sobre cursos</li>
+				</ul>
+			</li>
+			<li><a href="" title="Contacto" target="_blank">Sobre nosotros</a>
+				<ul class="submenu">
+					<li>Contacto</li>
+					<li>Prensa</li>
+					<li>Publicidad</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

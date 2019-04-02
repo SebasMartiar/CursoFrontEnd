@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	<style type="text/css" media="screen">
+		*{
+			text-align: center;
+			font-family: helvetica;
+			padding: 0;
+		}
+		body{
+			border: 1px solid #000;
+		}
+		figure{
+			margin-right: 2%;
+		}
+		figure div{
+			background-image: linear-gradient(to right, #afaf00 , #ffff00);
+			border: 0.5vw #f00 solid;
+			border-radius: 10%;
+			width: 250px;
+			height: 250px;
+			overflow: hidden;
+		}
+		section:nth-of-type(3) figure div{
+			width: 100px;
+			height: 100px;
+		}
+		img{
+			width: 100%;
+		}
+		main>section:nth-of-type(1), main>section:nth-of-type(3), h2+div{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		main>section:nth-of-type(3) section:nth-of-type(2){
+			min-width: 300px;
+		}
+		h2+div div figure div:hover{
+			transform: rotate(25deg);
+		}
+	</style>
+	<script>
+		var partidas=0;
+		var victorias=0;
+		var derrotas=0;
+		var empates=0;
+		function tirada (eleccion) {
+			var gana;
+			cpu = parseInt((Math.random() * 3) + 1);
+			if (cpu==1){
+				cpu="piedra";
+			}
+			else if (cpu==2){
+				cpu="papel";
+			}
+			else if (cpu==3){
+				cpu="tijera";
+			}
+			if (eleccion==cpu){
+				gana="¡NADIE GANA!";
+				document.getElementById("resultado").style.color = "#00f";
+				empates++;
+			}
+			else{
+				if((cpu=="piedra" && eleccion=="papel")||(cpu=="papel" && eleccion=="tijera")||(cpu=="tijera" && eleccion=="piedra")){
+					gana="¡HAS GANADO!";
+					document.getElementById("resultado").style.color = "#0f0";
+					victorias++;
+
+				}
+				else{
+					gana="¡TE HA GANADO LA CPU!";
+					document.getElementById("resultado").style.color = "#f00";
+					derrotas++;
+				}
+			}
+			partidas++;
+			document.getElementById("resultado").innerHTML = gana;
+			document.getElementById("partidas").innerHTML = partidas;
+			document.getElementById("ganadas").innerHTML = victorias;
+			document.getElementById("perdidas").innerHTML = derrotas;
+			document.getElementById("empatadas").innerHTML = empates;
+			document.getElementById("imgCPU").src = cpu+'.png';
+			document.getElementById("imgJugador").src = eleccion+'.png';
+		}
+	</script>
+</head>
+<body>
+	<header><h1>Juego de piedra papel tijera</h1></header>
+	<main>
+		<section>
+			<div>
+				<figure>
+					<figcaption>Jugador 1</figcaption>
+					<div><img src="piedra.png" alt="" id="imgJugador"></div>
+				</figure>
+			</div>
+			<div>
+				<figure>
+					<figcaption>CPU</figcaption>
+					<div><img src="piedra.png" alt="" id="imgCPU"></div>
+				</figure>
+			</div>
+		</section>
+		<section>
+			<h2 id="resultado"></h2>
+		</section>
+		<section>
+			<section>
+				<h2>Selecciona tirada</h2>
+				<div>
+					<div>
+						<figure onclick="tirada('piedra');">
+							<figcaption>Piedra</figcaption>
+							<div><img src="piedra.png" alt="piedra" id="piedra" ></div>
+						</figure>
+					</div>
+					<div>
+						<figure onclick="tirada('papel');">
+							<figcaption>Papel</figcaption>
+							<div><img src="papel.png" alt="papel" id="papel" ></div>
+						</figure>
+					</div>
+					<div>
+						<figure onclick="tirada('tijera');">
+							<figcaption>Tijera</figcaption>
+							<div><img src="tijera.png" alt="tijera" id="tijera" ></div>
+						</figure>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Estadísticas</h2>
+				<p>Partidas: <span id="partidas"></span></p>
+				<p>Ganadas <span id="ganadas"></span></p>
+				<p>Perdidas: <span id="perdidas"></span></p>
+				<p>Empatadas: <span id="empatadas"></span></p>
+			</section>
+		</section>
+	</main>
+</body>
+</html>

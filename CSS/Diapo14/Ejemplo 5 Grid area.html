@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo 5: Grid-area (1 de 2)</title>
+	<style type="text/css" media="screen">
+		html{border: 2px dotted #8b5200;}
+
+		*{
+			border: 1px solid #00008b;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			display: grid;
+			grid-template-columns: 20% auto 20%;
+			grid-gap: 5px;
+			border:0;
+			padding:5px; 
+		}
+		header{
+			grid-column: 1/3;
+			background-color: #ff8b8b;
+		}
+		form{
+			background-color: #fcffb4;
+		}
+		main{
+			grid-area: 2/2/5/4;
+			background-color: #a7ffe7;
+		}
+		footer{
+			grid-column: 1/4;
+			background-color: #fab4ff;
+		}
+		aside{
+			background-color: #b4c2ff;
+		}
+	</style>
+</head>
+<body>
+	<header>HEADER</header>
+	<form id="login">#Login</form>
+	<aside>Aside 1</aside>
+	<aside>Aside 1</aside>
+	<aside>Aside 1</aside>
+	<main>MAIN</main>
+	<footer>FOOTER</footer>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 2</title>
+	<style type="text/css" media="screen">
+		body{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		section{
+			margin-top: 200px;
+			transform-style: preserve-3d;
+		  	height: 80%;
+			width: 90%;
+			min-width: 1000px;
+			transform: rotateX(-6deg);
+		}
+		#heptagono{
+			animation: rotarC 35s infinite forwards;
+		}
+		#octogono{
+			animation: rotarC 35s infinite forwards;
+		}
+		#eneagono{
+			animation: rotarB 35s infinite forwards;
+		}
+		#decagono{
+			animation: rotarA 35s infinite forwards;
+		}
+		section .cara{
+			overflow:hidden;
+			border-radius: 10px;
+			position: absolute;
+			left:35%;
+			width: 15%;
+			min-width: 180px;
+			max-width: 240px;
+			border: solid 4px darkblue;
+		}
+		section .cara:hover{
+		 	border: solid 4px blue;
+		}
+		section .cara img{
+			width: 100%;
+			transition: 0.25s;
+			transform: scale(1.2);
+		}
+		section .cara:hover img{
+			transform: scale(2) rotate(8deg);
+		}
+		#heptagono .n1{transform: translateZ(300px);}
+		#heptagono .n2{transform: rotateY(45deg) translateZ(300px);}
+		#heptagono .n3{transform: rotateY(90deg) translateZ(300px);}
+		#heptagono .n4{transform: rotateY(135deg) translateZ(300px);}
+		#heptagono .n5{transform: rotateY(180deg) translateZ(300px);}
+		#heptagono .n6{transform: rotateY(225deg) translateZ(300px);}
+		#heptagono .n7{transform: rotateY(270deg) translateZ(300px);}
+		#heptagono .n8{transform: rotateY(315deg) translateZ(300px);}
+		
+		@keyframes rotarC{
+			0%,1%  {transform: rotateX(-5deg) rotateY(0deg)}
+			13%,14%   {transform: rotateX(-6deg) rotateY(45deg)}
+			26%,27%   {transform: rotateX(-6deg) rotateY(90deg)}
+			39%,40%   {transform: rotateX(-6deg) rotateY(135deg)}
+			52%,53%   {transform: rotateX(-6deg) rotateY(180deg)}
+			65%,66%   {transform: rotateX(-6deg) rotateY(225deg)}
+			78%,79%   {transform: rotateX(-6deg) rotateY(270deg)}
+			90%,91%   {transform: rotateX(-6deg) rotateY(315deg)}
+			100%   {transform: rotateX(-6deg) rotateY(360deg)}
+		}
+		#octogono .n1{transform: translateZ(300px);}
+		#octogono .n2{transform: rotateY(45deg) translateZ(300px);}
+		#octogono .n3{transform: rotateY(90deg) translateZ(300px);}
+		#octogono .n4{transform: rotateY(135deg) translateZ(300px);}
+		#octogono .n5{transform: rotateY(180deg) translateZ(300px);}
+		#octogono .n6{transform: rotateY(225deg) translateZ(300px);}
+		#octogono .n7{transform: rotateY(270deg) translateZ(300px);}
+		#octogono .n8{transform: rotateY(315deg) translateZ(300px);}
+		
+		@keyframes rotarC{
+			0%,1%  {transform: rotateX(-5deg) rotateY(0deg)}
+			13%,14%   {transform: rotateX(-6deg) rotateY(45deg)}
+			26%,27%   {transform: rotateX(-6deg) rotateY(90deg)}
+			39%,40%   {transform: rotateX(-6deg) rotateY(135deg)}
+			52%,53%   {transform: rotateX(-6deg) rotateY(180deg)}
+			65%,66%   {transform: rotateX(-6deg) rotateY(225deg)}
+			78%,79%   {transform: rotateX(-6deg) rotateY(270deg)}
+			90%,91%   {transform: rotateX(-6deg) rotateY(315deg)}
+			100%   {transform: rotateX(-6deg) rotateY(360deg)}
+		}
+
+		#eneagono .n1{transform: translateZ(300px);}
+		#eneagono .n2{transform: rotateY(40deg) translateZ(300px);}
+		#eneagono .n3{transform: rotateY(80deg) translateZ(300px);}
+		#eneagono .n4{transform: rotateY(120deg) translateZ(300px);}
+		#eneagono .n5{transform: rotateY(160deg) translateZ(300px);}
+		#eneagono .n6{transform: rotateY(200deg) translateZ(300px);}
+		#eneagono .n7{transform: rotateY(240deg) translateZ(300px);}
+		#eneagono .n8{transform: rotateY(280deg) translateZ(300px);}
+		#eneagono .n9{transform: rotateY(320deg) translateZ(300px);}
+		
+		@keyframes rotarB{
+			0%,1%  {transform: rotateX(-5deg) rotateY(0deg)}
+			11%,12%   {transform: rotateX(-6deg) rotateY(40deg)}
+			22%,23%   {transform: rotateX(-6deg) rotateY(80deg)}
+			33%,34%   {transform: rotateX(-6deg) rotateY(120deg)}
+			44%,45%   {transform: rotateX(-6deg) rotateY(160deg)}
+			55%,56%   {transform: rotateX(-6deg) rotateY(200deg)}
+			66%,67%   {transform: rotateX(-6deg) rotateY(240deg)}
+			78%,79%   {transform: rotateX(-6deg) rotateY(280deg)}
+			89%,90%   {transform: rotateX(-6deg) rotateY(320deg)}
+			100% {transform: rotateX(-6deg) rotateY(360deg)}
+		}
+
+		#decagono .n1{transform: translateZ(300px);}
+		#decagono .n2{transform: rotateY(36deg) translateZ(300px);}
+		#decagono .n3{transform: rotateY(72deg) translateZ(300px);}
+		#decagono .n4{transform: rotateY(108deg) translateZ(300px);}
+		#decagono .n5{transform: rotateY(144deg) translateZ(300px);}
+		#decagono .n6{transform: rotateY(180deg) translateZ(300px);}
+		#decagono .n7{transform: rotateY(216deg) translateZ(300px);}
+		#decagono .n8{transform: rotateY(252deg) translateZ(300px);}
+		#decagono .n9{transform: rotateY(288deg) translateZ(300px);}
+		#decagono .n10{transform: rotateY(324deg) translateZ(300px);}
+		
+		@keyframes rotarA{
+			0%,1%  {transform: rotateX(-5deg) rotateY(0deg)}
+			9%,10%   {transform: rotateX(-6deg) rotateY(36deg)}
+			19%,20%   {transform: rotateX(-6deg) rotateY(72deg)}
+			29%,30%   {transform: rotateX(-6deg) rotateY(108deg)}
+			39%,40%   {transform: rotateX(-6deg) rotateY(144deg)}
+			49%,50%   {transform: rotateX(-6deg) rotateY(180deg)}
+			59%,60%   {transform: rotateX(-6deg) rotateY(216deg)}
+			69%,70%   {transform: rotateX(-6deg) rotateY(252deg)}
+			79%,80%   {transform: rotateX(-6deg) rotateY(288deg)}
+			89%,90%   {transform: rotateX(-6deg) rotateY(324deg)}
+			100%   {transform: rotateX(-6deg) rotateY(360deg)}
+		}
+	</style>
+</head>
+<body>
+	<section class="rotacion" id="octogono">
+		<div class="cara n1"><img src="imagenes/landscape-615428_1920.jpg" alt=""></div>
+		<div class="cara n2"><img src="imagenes/landscape-615429_1920.jpg" alt=""></div>
+		<div class="cara n3"><img src="imagenes/landscape-1192669_1920.jpg" alt=""></div>
+		<div class="cara n4"><img src="imagenes/landscape-2090495_1920.jpg" alt=""></div>
+		<div class="cara n5"><img src="imagenes/landscape-3127859_1920.jpg" alt=""></div>
+		<div class="cara n6"><img src="imagenes/mountain-landscape-2031539_1920.jpg" alt=""></div>
+		<div class="cara n7"><img src="imagenes/road-1072823_1920.jpg" alt=""></div>
+		<div class="cara n8"><img src="imagenes/scotland-1761292_1920.jpg" alt=""></div>
+	</section>
+	<section class="rotacion" id="eneagono">
+		<div class="cara n1"><img src="imagenes/landscape-615428_1920.jpg" alt=""></div>
+		<div class="cara n2"><img src="imagenes/landscape-615429_1920.jpg" alt=""></div>
+		<div class="cara n3"><img src="imagenes/landscape-1192669_1920.jpg" alt=""></div>
+		<div class="cara n4"><img src="imagenes/landscape-2090495_1920.jpg" alt=""></div>
+		<div class="cara n5"><img src="imagenes/landscape-3127859_1920.jpg" alt=""></div>
+		<div class="cara n6"><img src="imagenes/mountain-landscape-2031539_1920.jpg" alt=""></div>
+		<div class="cara n7"><img src="imagenes/road-1072823_1920.jpg" alt=""></div>
+		<div class="cara n8"><img src="imagenes/scotland-1761292_1920.jpg" alt=""></div>
+		<div class="cara n9"><img src="imagenes/green-1072828_1920.jpg" alt=""></div>
+	</section>
+	<section class="rotacion" id="decagono">
+		<div class="cara n1"><img src="imagenes/landscape-615428_1920.jpg" alt=""></div>
+		<div class="cara n2"><img src="imagenes/landscape-615429_1920.jpg" alt=""></div>
+		<div class="cara n3"><img src="imagenes/landscape-1192669_1920.jpg" alt=""></div>
+		<div class="cara n4"><img src="imagenes/landscape-2090495_1920.jpg" alt=""></div>
+		<div class="cara n5"><img src="imagenes/landscape-3127859_1920.jpg" alt=""></div>
+		<div class="cara n6"><img src="imagenes/mountain-landscape-2031539_1920.jpg" alt=""></div>
+		<div class="cara n7"><img src="imagenes/road-1072823_1920.jpg" alt=""></div>
+		<div class="cara n8"><img src="imagenes/scotland-1761292_1920.jpg" alt=""></div>
+		<div class="cara n9"><img src="imagenes/green-1072828_1920.jpg" alt=""></div>
+		<div class="cara n10"><img src="imagenes/nature-3082832_1920.jpg" alt=""></div>
+	</section>
+</body>
+</html>

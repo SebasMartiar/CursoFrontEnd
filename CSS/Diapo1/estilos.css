@@ -1,0 +1,36 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+p{
+	margin-bottom: 10px; 
+}
+
+html{
+	background-color: #FF69B4; 
+}
+
+body{
+	font-family: arial;
+	margin: 20px auto 20px auto;
+	padding: 20px;
+	width: 80%;
+	background-color: #fff;
+	border-radius: 20px;
+	box-shadow: 2px 2px 2px #d3d3d3;
+}
+
+h1, h2{
+	color: #f00;
+	text-shadow: 2px 2px 2px #6c4675;
+}
+
+figure{
+	padding: 10px;
+	background-color: #00f;
+}
+
+figure img{
+	width: 100%;
+}

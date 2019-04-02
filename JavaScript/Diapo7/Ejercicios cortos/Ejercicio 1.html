@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	<script type="text/javascript">
+		function minimo (a, b) {
+			if (a<b){
+				return "El valor menor es "+a+".";
+			}
+			else{
+				return "El valor menor es "+b+".";
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>¿Cuál es el valor menor?</h1>
+	<label for="a">Valor a:</label>
+	<input type="number" id ="a" name="a"><br/><br/>
+	<label for="b">Valor b:</label>
+	<input type="number" name="b" id="b"><br/><br/>
+	<button onclick="alert(minimo(a.value, b.value));">CALCULAR MÍNIMO</button>
+</body>
+</html>

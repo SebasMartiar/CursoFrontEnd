@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">	
+		// function reemplazarCadena(cadenaVieja, cadenaNueva, cadenaCompleta) {
+		// // Reemplaza cadenaVieja por cadenaNueva en cadenaCompleta
+
+		//    for (var i = 0; i < cadenaCompleta.length; i++) {
+		//       if (cadenaCompleta.substring(i, i + cadenaVieja.length) == cadenaVieja) {
+		//          cadenaCompleta= cadenaCompleta.substring(0, i) + cadenaNueva + cadenaCompleta.substring(i + cadenaVieja.length, cadenaCompleta.length);
+		//       }
+		//    }
+		//    return cadenaCompleta;
+		// }
+
+		// function buscar (argument) {
+		// 	/*PARA IMPRIMIR UNA PARTE DE UNA STRING*/
+		// 	// var cadena1 = "La mañana se nos echa encima.";
+		// 	// var cadena2 = cadena1.slice(3, -2);
+		// 	// console.log(cadena2);
+		// 	// mañana se nos echa encim
+		// }
+		
+		// reemplazarCadena("Mundo", "Web", "Bravo Nuevo Mundo");
+	</script>
+	<script>
+		var textoSolucion;
+		function buscarCadena(cadenaBuscar, cadenaCompleta) {
+			var parrafos = document.getElementsByTagName("P");
+			alert(parrafos[0]);
+			for (var k = 0; k < parrafos.length; k++) {
+				parrafo = parrafos[k].innerHTML;
+				alert(parrafo);
+				if (parrafo.match("cadenaBuscar").length>0) {
+					return parrafo; 
+					alert(parrafo);  
+					
+		     	}
+		    }
+		}
+
+		function loadXMLDoc() {
+			var textoWeb;//VARIABLE DONDE SE GUARDARÁ EL TEXTO DE LA WEB
+			var buscar = document.getElementById("buscador").value;
+			// alert(buscar);
+			var xhttp = new XMLHttpRequest();/*INICIO: RECOGIDA DEL CONTENIDO DE UNA WEB*/
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					textoWeb = this.responseText;
+				}
+			};
+			xhttp.open("GET", "clases.html", true);/*FIN: RECOGIDA DEL CONTENIDO DE UNA WEB*/
+			xhttp.send();
+			alert(textoWeb);
+			textoSolucion = buscarCadena(buscar, textoWeb);
+			document.getElementById("solucion").innerHTML = textoSolucion;  
+		}
+	</script>
+</head>
+<body>
+	<h2>Buscador</h2>
+	<input type="text" id="buscador"/><button onclick="loadXMLDoc();"><img src="imagenes/lupa.png" alt="lupa" width="20px" /></button>
+	<span id="solucion"></span>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+	<script type="text/javascript">
+		function doblar (imagen) {
+			imagen.height *= 2;
+			imagen.width *= 2;
+		}
+	</script>
+</head>
+<body>
+	<h1>Doblar tamaño de la imagen</h1>
+	<img src="frontal.png" alt="carta" id="foto" onclick="doblar(this);" width="150" height="220"><br/><br/>
+	<button onclick="doblar(foto);">Click-me</button>
+</body>
+</html>

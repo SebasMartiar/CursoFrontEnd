@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 4</title>
+	<script type="text/javascript">
+		function invertir (actual) {
+			var actual2="";
+			for (var i = actual.length; i>0; i--){
+					actual2+=actual[i-1];
+				}
+			document.getElementById("texto").value=actual2;
+		}
+		function definir (numero){
+			var actual="";
+			var texto1 = document.getElementById("texto").value;
+			for (var i = 0; i<texto1.length; i++){
+				actual+=String.fromCharCode((parseInt(texto1.charCodeAt(i))+numero));
+			}
+			invertir (actual);
+		}
+		function encriptar () {
+			var numero = parseInt(document.getElementById("numero").value);
+			definir(numero);
+		}
+		function desencriptar () {
+			var numero = -parseInt(document.getElementById("numero").value);
+			definir(numero);
+		}
+	</script>
+<body>
+	<h4>Encriptación de texto</h4>
+	<label for="texto">Ingresa un texto a encriptar/desencriptar: </label>
+	<input type="text" name="texto" id="texto"><br/><br/>
+	<label for="numero">Número a sumar a la encriptación: </label>
+	<input type="number" name="numero" id="numero"><br/><br/>
+	<button onclick="encriptar();">ENCRIPTAR</button>
+	<button onclick="desencriptar();">DESENCRIPTAR</button>
+</body>
+</html>

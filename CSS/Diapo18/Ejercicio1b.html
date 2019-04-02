@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1b</title>
+	<style type="text/css" media="screen">
+		#tapete{
+			position: fixed;
+			top: 15%; height: 50%;
+			left: 25%; width: 50%;
+			background-color: #696;
+			padding: 30px;
+		}
+		.carta{
+			position: relative;
+			margin: auto;
+			height: 280px; width: 200px;
+			transform-style: preserve-3d;
+			border-radius: 10px;
+			transition: 2s;
+		}
+		#tapete:hover .carta{
+			transform: rotateY(180deg) rotate(200deg);
+		}
+		.carta .cara{
+			position: absolute;
+			height: 280px; width: 200px;
+			backface-visibility: hidden;
+		}
+		.carta .cara.trasera{
+			transform: rotateY(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div id="tapete">
+		<div class="carta">
+			<img class="cara frontal" src="imagenes/frontal.png" alt="frontal">
+			<img class="cara trasera" src="imagenes/trasera.png" alt="trasera">
+		</div>
+	</div>
+</body>
+</html>

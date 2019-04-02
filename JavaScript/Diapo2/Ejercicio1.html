@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Hola mundo</title>
+	<style type="text/css" media="screen">
+		*{
+			text-align: center;
+		}
+/*		html{
+			background-image: linear-gradient(to right, #fb0505, #fb7607, #f4ea07, #61f205, #00f6cb);
+		}*/
+		body{
+			display: grid;
+			grid-template-columns: 30% 30% auto;
+			grid-gap: 10px;
+		}
+		h1{
+			grid-column: 1/4;
+		}
+		article{
+			border: 1px dotted #000;
+		}
+		section{
+			grid-column: 2/4;
+			display: grid;
+			grid-template-columns: 25% 25% 25% auto;
+			border: 1px dotted #000;
+		}
+		section>h2{
+			grid-column: 1/5;
+		}
+		section div{
+			grid-column: 1/2;
+			width: 200px;
+			height: 350px;
+			background-image: url(apagada.png);
+			background-size: 200px 350px;
+		}
+		section div:hover{
+			background-image: url(encendida.png);
+		}
+		section img{
+			grid-column: 4/5;
+			width: 100%;
+			max-width: 200px;
+		}
+		section+div{
+			border: 1px dotted #000;
+		}
+		section input{
+
+		}
+		img{
+			grid-column: 1/4;
+			width: 200px;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function repetir(){
+			document.write("Hola mundo");
+			
+			for (var i = 0; i < 10; i++) {
+				document.write("<div>Hola mundo</div>");
+			}
+		}
+		function updateTextInput(val) {
+          document.getElementById('textInput').value=val; 
+        }
+        function calcular(){
+        	var i = parseFloat(inicial.value);
+        	var v = parseFloat(velocidad.value);
+        	var t = parseFloat(tiempo.value);
+        	var calculo = i + v * t;
+        	resultado.innerHTML = calculo;
+        }
+        function tamaño(){
+       		var imag = document.getElementById('imagen');
+       		// document.write(imag.src);
+       		imag.width = 500;
+       		imag.style.border="solid 2px black";
+       		imag.style.borderRadius = "10px";
+    	}
+    	function texto(){
+    		document.getElementById('un_texto').innerHTML="¡¡¡¡¡¡¡Hola a todos los presentes!!!!!!!"; 
+    	}
+        prompt("Si tienes alguna sugerencia escríbela aquí y te la introduciremos en el orto:");
+        confirm("¿Estás de acuerdo con la afirmación anterior?");
+        alert("Lo siento, te la introduciremos igualmente");
+	</script>
+</head>
+<body>
+	<h1 id="un_texto" onclick="texto();">Clica y verás</h1>
+	<article onclick="repetir();">
+		<h2>Esta sección guarda otra sorpresa pero no cliques a menos que estés seguro</h2>
+		<img id="imagen" src="mario.png" onmouseenter="tamaño();"/>
+	</article>
+	<section>
+		<h2>Encendiendo y apagando bombillas</h2>
+		<div></div>
+		<img src="encendida.png" alt="bombilla" onmouseenter="this.src='apagada.png';" onmouseleave="this.src='encendida.png';">
+	</section>
+	<div>
+		<h2>¿Quieres cambiar el tamaño de la letra?</h2>
+		<input id="textInput" type="range" min="10" max="60" value="15" step="5" onchange="document.body.style.fontSize=this.value+'px';" list="tickmarks">
+			<datalist id="tickmarks">
+			  <option value="0" label="0">
+			  <option value="5">
+			  <option value="10">
+			  <option value="15">
+			  <option value="20" label="20">
+			  <option value="25">
+			  <option value="30">
+			  <option value="35">
+			  <option value="40" label="40">
+			  <option value="45">
+			  <option value="50">
+			  <option value="55">
+			  <option value="60" label="60">
+			</datalist>
+	</div>
+	<section>
+		<h2>Calculadora MRU</h2>
+		<label for="inicial">Posición inicial:</label>
+			<input type="number" id="inicial" value="0"/><span>(m)</span><br/>
+		<label for="velocidad">Velocidad:</label>
+			<input type="number" id="velocidad" value="0"/><span>(m/s)</span><br/>
+		<label for="tiempo">Tiempo:</label>
+			<input type="number" id="tiempo" value="0"/><span>(s)</span><br/>
+			<span></span><span></span><span></span>
+		<button type="submit" onclick="calcular();">Calcular</button>
+		<label>RESULTADO:</label>
+		<output id="resultado">0</output><span>(m)</span><br/>
+	</section>
+</body>
+</html>

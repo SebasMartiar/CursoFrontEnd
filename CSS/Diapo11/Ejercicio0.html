@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, user-scalable=no"/>
+	<title>Ejercicio 0 (cartelera)</title>
+	<style type="text/css" >
+		body{
+			/*background-color: #cccccc;*/
+			background-image: url("imagenes/fondo1.jpg");
+			color: #fff;
+			font-family: helvetica;
+		}
+		main {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		main figure{
+			flex:1;
+			margin:0.5%;
+			width:100%;
+			text-align: center;
+		}
+		img{
+			width:100%;
+			min-width: 250px;
+		}
+		
+		@media screen and (max-width:1100px){
+			img{
+				width:100%;
+				min-width: 195px;
+			}
+		}
+
+		@media screen and (max-width:400px){
+			img{
+				width:100%;
+				min-width: 120px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header><h1>Cartelera</h1></header>
+	<hr/>
+	<main>
+		<figure><img src="imagenes/alita.jpg" alt="alita"><figcaption>Alita</figcaption></figure>
+		<figure><img src="imagenes/aquaman.jpg" alt="aquaman"><figcaption>Aquaman</figcaption></figure>
+		<figure><img src="imagenes/asterix_y_el_secreto_de_la_pocion_magica.jpg" alt="asterix_y_el_secreto_de_la_pocion_magica"><figcaption>Astérix y el secreto de la poción mágica</figcaption></figure>
+		<figure><img src="imagenes/bajo_el_mismo_techo.jpg" alt="bajo_el_mismo_techo"><figcaption>Bajo el mismo techo</figcaption></figure>
+		<figure><img src="imagenes/bohemian_rhapsody.jpg" alt="bohemian_rhapsody"><figcaption>Bohemian Rhapsody</figcaption></figure>
+		<figure><img src="imagenes/bumblebee.jpg" alt="bumblebee"><figcaption>Bumblebee</figcaption></figure>
+		<figure><img src="imagenes/cadaver.jpg" alt="cadaver"><figcaption>Cadáver</figcaption></figure>
+		<figure><img src="imagenes/cambio_de_reinas.jpg" alt="cambio_de_reinas"><figcaption>Cambio de reinas</figcaption></figure>
+		<figure><img src="imagenes/campeones.jpg" alt="campeones"><figcaption>Campeones</figcaption></figure>
+		<figure><img src="imagenes/capitana_marvel.jpg" alt="capitana_marvel"><figcaption>Capitana marvel</figcaption></figure>
+		<figure><img src="imagenes/como_entrenar_a_tu_dragon_3.jpg" alt="como_entrenar_a_tu_dragon_3"><figcaption>Cómo entrenar a tú dragón 3</figcaption></figure>
+		<figure><img src="imagenes/los_crimenes_de_gringerwald.jpg" alt="los_crimenes_de_gringerwald"><figcaption>Los crímenes de Grinderwald</figcaption></figure>
+	</main>
+</body>
+</html>

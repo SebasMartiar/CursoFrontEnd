@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 2</title>
+	<script type="text/javascript">
+		function calcular () {
+			var n = parseInt(document.getElementById("n").value);
+			var m = parseInt(document.getElementById("m").value);
+			var resultado = "n = "+ n + ", ";
+			if (n<m) {
+				do{
+					n++;
+					resultado+=n+", ";
+				}while(n<(m-1))
+				resultado+=(m+ " = m");
+				document.getElementById("resultado").innerHTML=resultado;
+			}
+			else{
+				document.getElementById("resultado").innerHTML="La n no es más pequeña que la m";
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Números de n a m</h1>
+	<label for="n">Introduce un número n:</label>
+	<input type="number" name="n" id="n" onkeyup="calcular()" onchange="calcular()"><br/><br/>
+	<label for="m">Introduce un número m:</label>
+	<input type="number" name="m" id="m" onkeyup="calcular()" onchange="calcular()"><br/><br/>
+	<span id="resultado"></span>
+
+</body>
+</html>

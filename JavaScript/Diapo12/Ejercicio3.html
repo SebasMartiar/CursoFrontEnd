@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+</head>
+<body>
+	<h3>Ingresa 5 elementos para escribir dentro de la lista</h3>
+	<label for="elemento1">Elemento 1: </label>
+	<input type="text" name="elemento1" id="elemento1"/><br/>
+	<label for="elemento2">Elemento 2: </label>
+	<input type="text" name="elemento2" id="elemento2"/><br/>
+	<label for="elemento3">Elemento 3: </label>
+	<input type="text" name="elemento3" id="elemento3"/><br/>
+	<label for="elemento4">Elemento 4: </label>
+	<input type="text" name="elemento4" id="elemento4"/><br/>
+	<label for="elemento5">Elemento 5: </label>
+	<input type="text" name="elemento5" id="elemento5"/><br/><br/>
+
+	<button onclick="obtener_elementos();">RECOGER ELEMENTOS</button>
+	<h4>Elementos introducidos: <span id="recogidos"></span></h4>
+	<h1>Recoger elementos por push</h1>
+	<label for="elemento">Elemento: </label>
+	<input type="text" name="elemento" id="elemento" /><br/><br/>
+	<button onclick="obtener_elementos2();">AÑADIR ELEMENTOS</button>
+	<button onclick="eliminar_elemento();">ELIMINAR ÚLTIMO ELEMENTO</button>
+
+	<h1>Buscar elemento dentro de la lista</h1>
+	<button onclick="indiceDe();">BUSCAR ELEMENTO</button>
+	<h4>El elemento 6 <span id="pos"></span></h4>
+
+	<h1>Buscar otro elemento dentro de la lista</h1>
+	<button onclick="ultimoIndiceDe();">BUSCAR ELEMENTO</button>
+	<h4>El elemento 7 <span id="pos2"></span></h4>
+
+	<h1>Concatena la lista anterior consigo misma</h1>
+	<button onclick="concatenar();">CONCATENAR LISTA</button>
+	<h4>La lista doblada es <span id="conc"></span></h4>
+
+	<h1>Invierte la lista</h1>
+	<button onclick="invertir();">INVERTIR LISTA</button>
+	<h4>La lista invertida es <span id="invert"></span></h4>
+
+	<script type="text/javascript">
+		var elementos = [];
+		function obtener_elementos () {
+			elementos = [];
+			var ele1 = document.getElementById("elemento1").value;
+			var ele2 = document.getElementById("elemento2").value;
+			var ele3 = document.getElementById("elemento3").value;
+			var ele4 = document.getElementById("elemento4").value;
+			var ele5 = document.getElementById("elemento5").value;
+			elementos.push(ele1, ele2, ele3, ele4, ele5);
+			for(let i = elementos.length - 1; i >= 0; i--) {
+			    if(elementos[i]=="") {
+			       elementos.splice(i, 1);
+			    }
+			}
+			document.getElementById("recogidos").innerHTML=elementos;
+		}
+		function obtener_elementos2 () {
+			var ele = document.getElementById("elemento").value;
+			elementos.push(ele);
+			for(let i = elementos.length - 1; i >= 0; i--) {
+			    if(elementos[i]=="") {
+			       elementos.splice(i, 1);
+			    }
+			}
+			document.getElementById("recogidos").innerHTML=elementos;
+		}
+		function eliminar_elemento () {
+			elementos.pop();
+			document.getElementById("recogidos").innerHTML=elementos;
+		}
+		function indiceDe () {
+			var ele6 = prompt("Indique un elemento a buscar en la lista: ");
+			var resultado = -1;
+			for (i=0; i<elementos.length; i++){
+				if (elementos[i]==ele6){
+					resultado=i;
+					break;
+				}
+			}
+			document.getElementById("pos").innerHTML="se encuentra por primera vez en la posición "+resultado+" de la lista.";
+			if (resultado==-1){
+					document.getElementById("pos").innerHTML+=" Es decir, no se encuentra dentro de la lista.";
+				}
+		}
+		function ultimoIndiceDe () {
+			var ele7 = prompt("Indique un elemento a buscar en la lista: ");
+			var resultado = -1;
+			for (i=0; i<elementos.length; i++){
+				if (elementos[i]==ele7){
+					resultado=i;
+				}
+			}
+			document.getElementById("pos2").innerHTML="se encuentra por última vez en la posición "+resultado+" de la lista.";
+			if (resultado==-1){
+					document.getElementById("pos2").innerHTML+=" Es decir, no se encuentra dentro de la lista.";
+				}
+		}
+		function concatenar(){
+			var elementos2 = (elementos+","+elementos).split(",");
+			document.getElementById("conc").innerHTML=elementos2;
+		}
+		function invertir(){
+			var elementos2=[];
+			for (i=elementos.length-1; i>=0; i--){
+				elementos2.push(elementos[i]);
+			}
+			document.getElementById("invert").innerHTML=elementos2;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 0d</title>
+</head>
+<body>
+	<output id="salida"></output><br/>
+	<output id="salida2"></output>
+	<script type="text/javascript">
+		function escribir(){
+			salida.innerHTML+="hola"; 
+		}
+		setInterval(escribir, 1000);
+		setInterval(function(){salida2.innerHTML+="hola";},1000);
+	</script>
+</body>
+</html>

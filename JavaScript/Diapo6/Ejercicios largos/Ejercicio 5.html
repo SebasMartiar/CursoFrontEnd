@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 4</title>
+	<script type="text/javascript">
+		function calcular() {
+			var b = parseFloat(document.getElementById("b").value);
+			var e = parseFloat(document.getElementById("e").value);
+			var resultado = 1;
+			if (e<0){
+				for (let j=0; j>e; j--){
+					resultado/=b;
+				}
+			}
+			else{
+				for (let i=0; i<e; i++){
+					resultado*=b;
+				}
+			}
+			document.getElementById("resultado").innerHTML=resultado;
+		}
+	</script>
+</head>
+<body>
+	<h1>Elevar un número a otro</h1>
+	<label for="b">Base:</label>
+	<input type="number" name="b" id="b" onkeyup="calcular();" onchange="calcular();"><br/><br/>
+	<label for="e">Exponente:</label>
+	<input type="number" name="e" id="e" onkeyup="calcular();" onchange="calcular();"><br/><br/>
+	<button onclick="calcular()">CALCULAR</button>
+	<hr/>
+	<h4>Resultado: <span id="resultado"></span></h4>
+
+</body>
+</html>

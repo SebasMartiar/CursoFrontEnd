@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 4: Meses transcurridos</title>
+	<script type="text/javascript">
+		function transcurso(){
+			var ano1 = parseFloat(document.getElementById("ano1").value);
+			var mes1 = parseFloat(document.getElementById("mes1").value);
+			var ano2 = parseFloat(document.getElementById("ano2").value);
+			var mes2 = parseFloat(document.getElementById("mes2").value);
+			mes1+=(ano1*12);
+			mes2+=(ano2*12);
+			mes1-=mes2;
+			if (mes1<0){
+				mes1*=(-1);
+			}
+			document.getElementById("resultado").innerHTML= "Han pasado "+mes1+" meses entre las dos fechas.";
+		}
+	</script>
+</head>
+<body>
+	<h1>Calcula los meses transcurridos</h1>
+	<label for="ano1">Año 1:</label><input type="number" name="ano1" id="ano1" onkeyup="transcurso();" value="0"><br/><br/>
+	<label for="mes1">Mes 1:</label><input type="number" name="mes1" id="mes1" onkeyup="transcurso();" value="0"><br/><br/>
+	<label for="ano2">Año 2:</label><input type="number" name="ano2" id="ano2" onkeyup="transcurso();" value="0"><br/><br/>
+	<label for="mes2">Mes 2:</label><input type="number" name="mes2" id="mes2" onkeyup="transcurso();" value="0"><br/><br/>
+	<span id="resultado"></span>
+</html>

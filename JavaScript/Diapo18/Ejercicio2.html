@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = document.createElement("button");
+		a.innerHTML="Boton";
+		document.body.appendChild(a);
+		a.setAttribute("id", "rojo");
+		a.setAttribute("class", "negrita");
+		document.getElementById("rojo").style.fontFamily = 'Helvetica';
+		document.getElementsByClassName("negrita")[0].style.fontStyle="italic";
+		document.getElementsByTagName("button")[0].style.fontSize = 'xx-large';
+		document.querySelector("body>button").style.backgroundColor = '#0f0';
+		document.querySelectorAll("html>body>button")[0].style.boxShadow = "5px 5px #888888";
+		a.onclick=function(){
+			var figura = document.createElement("figure");
+			figura.setAttribute("class", "foto");
+			var imagen = document.createElement("img");
+			imagen.src="http://www.creacionesabm.com/img/creacionesabm.png";
+			var nombre = document.createElement("figcaption");
+			nombre.innerHTML="Bienvenido a mi Página Web";
+			figura.appendChild(imagen);
+			figura.appendChild(nombre);
+			document.body.appendChild(figura);
+		}
+	</script>
+</body>
+</html>

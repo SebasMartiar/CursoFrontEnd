@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Formulario</title>
+	<style type="text/css">
+		fieldset, section, label, input{
+			font-family: helvetica;
+		}
+
+		.ancho{
+			max-width: 350px;
+		}
+
+		.linea{
+			display: inline-block;
+		}
+
+
+	</style>
+</head>
+<body>
+	<h1>Formulario estructurado</h1>
+	<form method="get" autocomplete="off" class="ancho">
+		<fieldset>
+			<legend>Datos personales</legend><br />
+			<label>Nombre</label><br />
+			<input type="text" name="nombre" required="required" autofocus="autofocus"><br /><br />
+			<label>Apellidos</label><br />
+			<input type="text" name="apellidos" required="required"><br /><br />
+			<label>DNI</label><br />
+			<input type="text" name="dni" required="required" maxlength="10" size="10"><br /><br />
+		</fieldset><br />
+		<fieldset>
+			<legend>Datos de conexión</legend><br />
+			<label>Nombre de usuario</label><br />
+			<input type="text" name="usuario" required="required" autofocus="autofocus"><br /><br />
+			<label>Contraseña</label><br />
+			<input type="password" name="pwd" required="required"><br /><br />
+			<label>Repite la contraseña</label><br />
+			<input type="password" name="pwd" required="required"><br /><br />
+		</fieldset><br />
+	</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 2</title>
+</head>
+<body>
+	<h1>Esta es mi página</h1>
+	<h2>Esta es la hora: <span id="resultado"></span></h2>
+		<script type="text/javascript">
+		function calcular () {
+			var fecha = new Date();
+			var horas = fecha.getHours();
+			var minutos = fecha.getMinutes();
+			var segundos = fecha.getSeconds();
+			if (horas<10){
+				horas = "0"+horas;
+			}
+			if (minutos<10){
+				minutos = "0"+minutos;
+			}
+			if (segundos<10){
+				segundos = "0"+segundos;
+			}
+			document.getElementById("resultado").innerHTML=horas+":"+minutos+":"+segundos;
+		}setInterval(calcular, 500);
+	</script>
+</body>
+</html>

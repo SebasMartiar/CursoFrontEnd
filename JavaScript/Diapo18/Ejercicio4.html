@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 4</title>
+</head>
+<body>
+	<script type="text/javascript">
+		document.body.display = 'grid';
+		document.body.setAttribute('style','grid-template-columns: 1fr 1fr 1fr');
+		for (let i = 0; i < 3; i++) {
+			var s = document.createElement("section");
+			document.body.appendChild(s);
+			s.style.display = 'inline-block';
+			s.style.padding = '0 10px';
+			s.style.margin = '20px';
+			s.style.border = 'solid 2px #000';
+			s.style.borderRadius = '10px';
+			var d = document.createElement("div");
+			s.appendChild(d);
+			d.style.display = 'inline-block';
+			d.style.padding = '0 10px';
+			d.style.margin = '20px';
+			d.style.border = 'solid 2px #000';
+			d.style.borderRadius = '10px';
+			var p = document.createElement("p");
+			d.appendChild(p);
+			p.innerHTML="Este es el texto "+i+", pasa el ratón por encima.";
+			if(i==0){
+				s.setAttribute("id", "primero");
+				d.onmouseenter=function(){
+					document.getElementById("primero").appendChild(d);
+					d.appendChild(p);
+					p.innerHTML="Pasaste el ratón wey";
+				}
+			}
+			if(i==1){
+				s.setAttribute("id", "segundo");
+				d.onmouseenter=function(){
+					document.getElementById("segundo").appendChild(d);
+					d.appendChild(p);
+					p.innerHTML="Pasaste el ratón wey";
+				}
+			}
+			if(i==2){
+				s.setAttribute("id", "tercero");
+				d.onmouseenter=function(){
+					document.getElementById("tercero").appendChild(d);
+					d.appendChild(p);
+					p.innerHTML="Pasaste el ratón wey";
+				}
+				d.onmouseleave=function(){
+					document.getElementById("tercero").lastChild.remove();
+				}
+			}
+
+		}
+	</script>
+</body>
+</html>

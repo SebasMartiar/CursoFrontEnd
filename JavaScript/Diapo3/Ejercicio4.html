@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Distancia</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function conversión(){
+			var km = parseFloat(document.getElementById("km").value);
+			var millas = parseFloat(document.getElementById("millas").value);
+
+			if (document.getElementById("km").value==""){
+				var km = millas*1.60934;
+				document.getElementById("conversión").innerHTML = millas+" millas son "+km.toFixed(2)+" km";
+			}
+			if (document.getElementById("millas").value==""){
+				var millas = km/1.60934;
+				document.getElementById("conversión").innerHTML = km+" km son "+millas.toFixed(2)+" millas";
+	
+			}
+		}
+		function reset(){
+			document.getElementById("millas").value = "";
+		}
+		function reset1(){
+			document.getElementById("km").value = "";
+		}
+	</script>
+</head>
+<body>
+	<h1>Conversor de kilómetros a millas y viceversa</h1>
+	<input id="km" type="number" name="km" onkeyup="reset()"/>
+	<label for="km">km</label><br/><br/>
+	<input id="millas" type="number" name="millas" onkeyup="reset1()"/>
+	<label for="millas">millas</label>
+	<br/><br/>
+	<button onclick="conversión()">CONVERSIÓN</button>
+	<hr/>
+	<h2><span id="conversión"></span></h2>
+</body>
+</html>

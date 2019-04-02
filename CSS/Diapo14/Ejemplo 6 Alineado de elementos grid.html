@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo 6: Alineado de elementos grid</title>
+	<style type="text/css" media="screen">
+		*{
+			margin:0;
+			padding: 0;
+		}
+		body{padding: 10px}
+		div{
+			text-align: center;
+			border: 2px dotted #00008b;
+			padding: 20px;
+		}
+		div:nth-of-type(1){background-color: #cee8ff;}
+		div:nth-of-type(2){background-color: #ffc0cb;}
+		div:nth-of-type(3){background-color: #ffffe0;}
+		div:nth-of-type(4){background-color: #daa520;}
+		div:nth-of-type(5){background-color: #aeae99;}
+		div:nth-of-type(6){background-color: #dab88f;}
+		div:nth-of-type(7){background-color: #abff91;}
+		div:nth-of-type(8){background-color: #c98fda;}
+		body>div{
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+			height: 200px;
+			grid-template-rows: 50px 100px 50px;
+			justify-content: center;
+			align-content: center;
+			grid-gap: 5px;
+			border: 2px dotted #8b5800;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div>Elemento 1</div>
+		<div>Elemento 2</div>
+		<div>Elemento 3</div>
+		<div>Elemento 4</div>
+		<div>Elemento 5</div>
+		<div>Elemento 6</div>
+		<div>Elemento 7</div>
+		<div>Elemento 8</div>
+	</div>
+</body>
+</html>

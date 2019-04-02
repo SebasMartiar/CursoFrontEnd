@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>El círculo</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		var pi = 3.1416;
+		function diámetro(){
+			var r = parseFloat(document.getElementById("radio").value);
+
+			var diámetro = 2 * r;
+			document.getElementById("resultado").innerHTML = diámetro;
+			document.getElementById("cosa").innerHTML = " diámetro";
+		}
+		function perímetro(){
+			var r = parseFloat(document.getElementById("radio").value);
+
+			var perímetro = 2 * pi * r;
+			document.getElementById("resultado").innerHTML = perímetro;
+			document.getElementById("cosa").innerHTML = " perímetro";
+		}
+		function área(){
+			var r = parseFloat(document.getElementById("radio").value);
+
+			var área = pi * r * r;
+			document.getElementById("resultado").innerHTML = área;
+			document.getElementById("cosa").innerHTML = " área";
+		}
+	</script>
+</head>
+<body>
+	<h1>El círculo</h1>
+	<h3>Calcula el diámetro, el perímetro y el área de un círculo a partir de su radio</h3>
+	<label for="radio">Radio:</label>
+	<input id="radio" type="number" name="radio" value="0" /><span>m</span>
+	<br/><br/>
+	<button onclick="diámetro()">DIÁMETRO</button>
+	<button onclick="perímetro()">PERÍMETRO</button>
+	<button onclick="área()">ÁREA</button>
+	<hr/>
+	<h3>El <span id="cosa"></span> de tú círculo es: <span id="resultado"></span><span> m</span></h3>
+</body>
+</html>

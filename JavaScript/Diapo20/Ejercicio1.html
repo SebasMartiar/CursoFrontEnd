@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejercicio 1</title>
+</head>
+<body>
+	<h1>Esta es mi cutre-web con publi</h1>
+	<button onclick="celal();">Detener publicidad</button>
+	<script type="text/javascript">
+		var ventanas=[];
+		function abrir () {
+			ventanas.push(window.open("https://www.w3schools.com/", "", "width=300,height=300,resizable=no,scrollbars=no,status=no,menubar=no"));//ATENCIÓN! ES NECESARIO INDICAR UN NAME, AUNQUE SEA VACÍO (EL SEGUNDO ESPACIO)
+			//NO FUNCIONA EN CHROME, MOZILLA, PERO SI FUNCIONA EN EXPLORER
+		}
+		var intervalo = setInterval(abrir, 1000);
+		function celal () {
+			clearInterval(intervalo);
+			for (ventana of ventanas) {
+				ventana.close();
+			}
+		}
+	</script>
+</body>
+</html>
